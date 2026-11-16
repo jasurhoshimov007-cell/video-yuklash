@@ -3,6 +3,7 @@ import { ZombiReel } from "./ZombiReel";
 import { Xona13 } from "./xona13/Xona13";
 import { Xabar } from "./xabar/Xabar";
 import { Yer } from "./yer/Yer";
+import { Pul } from "./pul/Pul";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -42,6 +43,15 @@ export const RemotionRoot: React.FC = () => {
         width={1080}
         height={1920}
         defaultProps={{ voiceFile: "voice-yer.mp3", sfxVolume: 0.22 }}
+      />
+      <Composition
+        id="Pul"
+        component={Pul}
+        durationInFrames={1160}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={{ voiceFile: "voice-pul.mp3", sfxVolume: 0.22 }}
       />
     </>
   );

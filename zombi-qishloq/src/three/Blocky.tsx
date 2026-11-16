@@ -26,7 +26,7 @@ export type Pose = {
   yaw?: number;
   motion?: Motion;
   phase?: number;
-  face?: "calm" | "scared" | "shock" | "brave" | "zombie" | "blank" | "sleep" | "void";
+  face?: "calm" | "scared" | "shock" | "brave" | "zombie" | "blank" | "sleep" | "void" | "happy" | "shades";
   /** 0..1 – green glow in a human's eyes (twist) */
   eyeGlow?: number;
   headYaw?: number;
@@ -147,7 +147,20 @@ export const Blocky: React.FC<{ t: number; pose: Pose; look: Look }> = ({
   const zf = 0.62;
 
   const eyes =
-    face === "blank" ? null : face === "void" ? (
+    face === "blank" ? null : face === "happy" ? (
+      <>
+        <Box p={[-0.27, 0.12, zf]} s={[0.16, 0.24, 0.04]} c="#121218" />
+        <Box p={[0.27, 0.12, zf]} s={[0.16, 0.24, 0.04]} c="#121218" />
+        <Box p={[0, -0.3, zf]} s={[0.56, 0.24, 0.04]} c="#5a1414" />
+        <Box p={[0, -0.22, zf + 0.01]} s={[0.5, 0.08, 0.03]} c="#ffffff" />
+      </>
+    ) : face === "shades" ? (
+      <>
+        <Box p={[0, 0.12, zf + 0.01]} s={[1.0, 0.26, 0.06]} c="#050505" />
+        <Box p={[-0.27, 0.16, zf + 0.05]} s={[0.12, 0.05, 0.02]} c="#6a6a7a" glow />
+        <Box p={[0, -0.32, zf]} s={[0.36, 0.06, 0.04]} c="#121218" />
+      </>
+    ) : face === "void" ? (
       <>
         <Box p={[-0.27, 0.1, zf]} s={[0.14, 0.14, 0.04]} c="#ffffff" glow />
         <Box p={[0.27, 0.1, zf]} s={[0.14, 0.14, 0.04]} c="#ffffff" glow />
