@@ -404,7 +404,7 @@ const chaseHorde: Z[] = Array.from({ length: 12 }).map((_, i) => ({
   motion: "zrun" as Motion,
 }));
 const chaseShots: Shot[] = [
-  { t: [0, 1.7], eye: [[15, 3.8, 22], [15, 3.8, 22 + SPEED * 1.7]], at: [[0, 3, 14], [0, 3, 14 + SPEED * 1.7]], fov: [46, 46], linear: true, shake: 0.05 },
+  { t: [0, 1.7], eye: [[5, 3.4, 27], [5, 3.4, 27 + SPEED * 1.7]], at: [[-1, 3, 16], [-1, 3, 16 + SPEED * 1.7]], fov: [52, 52], linear: true, shake: 0.05 },
   { t: [1.7, 3.4], eye: [[0, 11, 14.2], [0, 11, 24.4]], at: [[0, 2, 60], [0, 2, 62]], fov: [52, 50], linear: true, shake: 0.04 },
 ];
 export const SceneChase: React.FC = () => {
