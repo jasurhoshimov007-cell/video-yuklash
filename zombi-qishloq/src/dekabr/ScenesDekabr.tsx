@@ -39,7 +39,7 @@ export const DHook: React.FC = () => {
 };
 
 /* ===== "hamma buni normal deydi" — smiling, waving neighbours (day) ===== */
-const normalShots: Shot[] = [{ t: [0, 2.7], eye: [[0, 5, 15], [0, 4.8, 12.5]], at: [[0, 3.6, 0], [0, 3.6, 0]], fov: [46, 44] }];
+const normalShots: Shot[] = [{ t: [0, 2.7], eye: [[0, 5, 10.5], [0, 4.8, 9.2]], at: [[0, 3.6, 0], [0, 3.6, 0]], fov: [46, 44] }];
 export const DNormal: React.FC = () => {
   const t = useT();
   const wave = (k: number) => -2.7 + Math.sin(t * 9 + k) * 0.25;
@@ -89,7 +89,7 @@ export const DMorning: React.FC = () => {
 };
 
 /* ===== I just moved in ===== */
-const newShots: Shot[] = [{ t: [0, 2.5], eye: [[-5, 4.6, 14], [-2, 4.4, 13]], at: [[-7, 3, 2], [-4, 3, 2]], fov: [46, 44] }];
+const newShots: Shot[] = [{ t: [0, 2.5], eye: [[-5, 4.6, 10.2], [-2, 4.4, 9.6]], at: [[-7, 3, 2], [-4, 3, 2]], fov: [46, 44] }];
 export const DNewcomer: React.FC = () => {
   const t = useT();
   const x = -14 + t * 4;
