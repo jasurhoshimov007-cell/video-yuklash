@@ -9,7 +9,7 @@ export type Look = {
   shoes: string;
   hair?: string;
   hairStyle?: "short" | "long" | "none";
-  hat?: "doppi" | "scarf" | "none";
+  hat?: "doppi" | "scarf" | "cap" | "none";
   hatCol?: string;
   beard?: string;
   robe?: string; // long chapan over the shirt
@@ -26,7 +26,7 @@ export type Pose = {
   yaw?: number;
   motion?: Motion;
   phase?: number;
-  face?: "calm" | "scared" | "shock" | "brave" | "zombie";
+  face?: "calm" | "scared" | "shock" | "brave" | "zombie" | "blank" | "sleep";
   /** 0..1 – green glow in a human's eyes (twist) */
   eyeGlow?: number;
   headYaw?: number;
@@ -40,8 +40,10 @@ export type Pose = {
   aR?: number;
   aLz?: number;
   aRz?: number;
+  lL?: number;
+  lR?: number;
   scale?: number;
-  item?: "sickle";
+  item?: "sickle" | "phone";
 };
 
 type BoxProps = {
@@ -130,6 +132,8 @@ export const Blocky: React.FC<{ t: number; pose: Pose; look: Look }> = ({
   if (pose.aR !== undefined) armR = pose.aR;
   if (pose.aLz !== undefined) armLz = pose.aLz;
   if (pose.aRz !== undefined) armRz = pose.aRz;
+  if (pose.lL !== undefined) legL = pose.lL;
+  if (pose.lR !== undefined) legR = pose.lR;
 
   // blink every ~3.3 s
   const blinkCycle = (tt * 0.3 + rand(ph + 3)) % 1;
@@ -143,7 +147,13 @@ export const Blocky: React.FC<{ t: number; pose: Pose; look: Look }> = ({
   const zf = 0.62;
 
   const eyes =
-    face === "zombie" ? (
+    face === "blank" ? null : face === "sleep" ? (
+      <>
+        <Box p={[-0.27, 0.08, zf]} s={[0.2, 0.05, 0.04]} c="#121218" />
+        <Box p={[0.27, 0.08, zf]} s={[0.2, 0.05, 0.04]} c="#121218" />
+        <Box p={[0, -0.3, zf]} s={[0.2, 0.07, 0.04]} c="#121218" />
+      </>
+    ) : face === "zombie" ? (
       <>
         <Box p={[-0.27, 0.08, zf]} s={[0.26, 0.2, 0.04]} c="#7dff4a" glow />
         <Box p={[0.27, 0.12, zf]} s={[0.26, 0.2, 0.04]} c="#7dff4a" glow />
@@ -238,6 +248,13 @@ export const Blocky: React.FC<{ t: number; pose: Pose; look: Look }> = ({
         <group position={[1.5, 3.9, 0]} rotation={[armR, 0, armRz]}>
           <Box p={[0, -0.9, 0]} s={[0.96, 2, 0.96]} c={sleeve} />
           <Box p={[0, -1.7, 0]} s={[0.98, 0.42, 0.98]} c={look.skin} />
+          {pose.item === "phone" ? (
+            <>
+              <Box p={[0, -1.95, 0.35]} s={[0.5, 0.12, 0.9]} c="#15161c" />
+              <Box p={[0, -2.02, 0.35]} s={[0.4, 0.02, 0.75]} c="#bfe0ff" glow />
+              <Box p={[0, -1.95, 0.82]} s={[0.12, 0.08, 0.04]} c="#ffffff" glow />
+            </>
+          ) : null}
           {pose.item === "sickle" ? (
             <>
               <Box p={[0, -1.85, 0.5]} s={[0.18, 0.18, 0.9]} c="#4a3020" />
@@ -279,6 +296,13 @@ export const Blocky: React.FC<{ t: number; pose: Pose; look: Look }> = ({
                 <Box p={[0, 0.79, 0.66]} s={[0.24, 0.2, 0.02]} c="#f2f2f2" />
                 <Box p={[0.66, 0.79, 0]} s={[0.02, 0.2, 0.24]} c="#f2f2f2" />
                 <Box p={[-0.66, 0.79, 0]} s={[0.02, 0.2, 0.24]} c="#f2f2f2" />
+              </>
+            ) : null}
+            {look.hat === "cap" ? (
+              <>
+                <Box p={[0, 0.72, -0.02]} s={[1.32, 0.36, 1.32]} c={look.hatCol ?? "#1f2a3a"} />
+                <Box p={[0, 0.58, 0.78]} s={[1.2, 0.08, 0.5]} c="#111111" />
+                <Box p={[0, 0.74, 0.67]} s={[0.3, 0.22, 0.02]} c="#d4b04a" />
               </>
             ) : null}
             {look.hat === "scarf" ? (
