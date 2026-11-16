@@ -227,13 +227,13 @@ const villageHorde: Z[] = Array.from({ length: 20 }).map((_, i) => {
 });
 const ZWOMAN: Look = { ...zombieLook(5), hat: "scarf", hatCol: "#7a3a5a", hairStyle: "none", shirt: "#5a3a6a", robe: undefined };
 const villageShots: Shot[] = [
-  { t: [0, 1.3], eye: [[10, 13, 16], [10, 13, 16]], at: [[0, 0, -4], [0, 0, -4]], fov: [68, 68] },
-  { t: [1.3, 2.6], eye: [[-4.2, 2.4, 9], [-4.2, 2.4, -2]], at: [[4, 3.8, 1], [4, 3.8, -10]], fov: [58, 58], linear: true },
-  { t: [2.6, 3.8], eye: [[1.5, 4.9, 7.5], [1.5, 4.75, 5.6]], at: [[1.5, 4.4, -3], [1.5, 4.4, -3]], fov: [32, 26] },
+  { t: [0, 1.6], eye: [[10, 13, 16], [10, 13, 16]], at: [[0, 0, -4], [0, 0, -4]], fov: [68, 68] },
+  { t: [1.6, 3.2], eye: [[-4.2, 2.4, 9], [-4.2, 2.4, -2]], at: [[4, 3.8, 1], [4, 3.8, -10]], fov: [58, 58], linear: true },
+  { t: [3.2, 5.0], eye: [[1.5, 4.9, 7.5], [1.5, 4.75, 5.6]], at: [[1.5, 4.4, -3], [1.5, 4.4, -3]], fov: [32, 26] },
 ];
 export const SceneVillage: React.FC = () => {
   const t = useT();
-  const hy = t < 2.95 ? 1.3 : 1.3 - clamp((t - 2.95) / 0.18, 0, 1) * 1.3;
+  const hy = t < 3.6 ? 1.3 : 1.3 - clamp((t - 3.6) / 0.18, 0, 1) * 1.3;
   return (
     <Canvas>
       <NightEnv fog="#0b1426" />
@@ -290,10 +290,10 @@ const outsideHorde: Z[] = Array.from({ length: 9 }).map((_, i) => ({
 }));
 const windowShots: Shot[] = [
   { t: [0, 1.2], eye: [[0.9, 6.6, 7.2], [0.7, 6.4, 6]], at: [[0, 3.6, -14], [0, 3.6, -14]], fov: [50, 46] },
-  { t: [1.2, 2.2], eye: [[0, 4.9, -7.5], [0, 4.85, -6]], at: [[0, 4.5, 2], [0, 4.5, 2]], fov: [36, 32] },
-  { t: [2.2, 3.6], eye: [[3.6, 5.2, 8.2], [3, 5.1, 7]], at: [[-6, 3.4, 4.3], [-6, 3.4, 4.3]], fov: [50, 46] },
+  { t: [1.2, 2.5], eye: [[0, 4.9, -7.5], [0, 4.85, -6]], at: [[0, 4.5, 2], [0, 4.5, 2]], fov: [36, 32] },
+  { t: [2.5, 3.95], eye: [[3.6, 5.2, 8.2], [3, 5.1, 7]], at: [[-6, 3.4, 4.3], [-6, 3.4, 4.3]], fov: [50, 46] },
 ];
-const KNOCKS = [2.4, 2.8, 3.2];
+const KNOCKS = [2.9, 3.25, 3.6];
 const knockAt = (t: number) =>
   KNOCKS.reduce((a, k) => a + (t >= k && t < k + 0.15 ? Math.sin((t - k) * 60) : 0), 0);
 const OutsideStreet: React.FC<{ t: number }> = ({ t }) => (
@@ -308,7 +308,7 @@ const OutsideStreet: React.FC<{ t: number }> = ({ t }) => (
 );
 export const SceneWindow: React.FC = () => {
   const t = useT();
-  const yaw = keys(t, [[0, Math.PI], [2.3, Math.PI], [2.7, Math.PI * 1.5]])[0];
+  const yaw = keys(t, [[0, Math.PI], [2.9, Math.PI], [3.3, Math.PI * 1.5]])[0];
   const knock = knockAt(t);
   const kShake = KNOCKS.some((k) => t >= k && t < k + 0.18) ? 0.07 : 0;
   return (
@@ -318,7 +318,7 @@ export const SceneWindow: React.FC = () => {
       <Moon p={MOON} size={12} />
       <OutsideStreet t={t} />
       <Room doorOpen={0} knock={knock} />
-      <Blocky t={t} pose={{ x: 0, z: 2.2, yaw, motion: "idle", face: t < 2.3 ? "scared" : "shock", phase: 1.3 }} look={JASUR} />
+      <Blocky t={t} pose={{ x: 0, z: 2.2, yaw, motion: "idle", face: t < 2.9 ? "scared" : "shock", phase: 1.3 }} look={JASUR} />
     </Canvas>
   );
 };
@@ -404,8 +404,8 @@ const chaseHorde: Z[] = Array.from({ length: 12 }).map((_, i) => ({
   motion: "zrun" as Motion,
 }));
 const chaseShots: Shot[] = [
-  { t: [0, 1.7], eye: [[5, 3.4, 27], [5, 3.4, 27 + SPEED * 1.7]], at: [[-1, 3, 16], [-1, 3, 16 + SPEED * 1.7]], fov: [52, 52], linear: true, shake: 0.05 },
-  { t: [1.7, 3.4], eye: [[0, 11, 14.2], [0, 11, 24.4]], at: [[0, 2, 60], [0, 2, 62]], fov: [52, 50], linear: true, shake: 0.04 },
+  { t: [0, 2.4], eye: [[5, 3.4, 27], [5, 3.4, 27 + SPEED * 2.4]], at: [[-1, 3, 16], [-1, 3, 16 + SPEED * 2.4]], fov: [52, 52], linear: true, shake: 0.05 },
+  { t: [2.4, 4.3], eye: [[0, 11, 18.4], [0, 11, 29.8]], at: [[0, 2, 60], [0, 2, 62]], fov: [52, 50], linear: true, shake: 0.04 },
 ];
 export const SceneChase: React.FC = () => {
   const t = useT();
@@ -426,7 +426,7 @@ export const SceneChase: React.FC = () => {
 };
 
 /* ---------------- 9. BRIDGE collapse ---------------- */
-const CUT_T = 1.6;
+const CUT_T = 1.35;
 const cutAt = (t: number) => easeInOut(clamp((t - CUT_T) / 1.2, 0, 1));
 const DETACH = 0.6;
 const detachT = (() => {
@@ -466,8 +466,8 @@ const Splash: React.FC<{ t: number; at: number; x: number; z: number }> = ({ t, 
   );
 };
 const bridgeShots: Shot[] = [
-  { t: [0, 1.5], eye: [[2.5, 7, 92], [1.8, 6.5, 88.5]], at: [[-1, 2.5, 64], [-1, 2.5, 64]], fov: [46, 42] },
-  { t: [1.5, 3.8], eye: [[0.5, 13, 90], [0.5, 11.5, 86]], at: [[0, -1, 58], [0, -1.5, 58]], fov: [50, 48] },
+  { t: [0, 1.25], eye: [[2.5, 7, 92], [1.8, 6.5, 88.5]], at: [[-1, 2.5, 64], [-1, 2.5, 64]], fov: [46, 42] },
+  { t: [1.25, 3.15], eye: [[0.5, 13, 90], [0.5, 11.5, 86]], at: [[0, -1, 58], [0, -1.5, 58]], fov: [50, 48] },
 ];
 export const SceneBridge: React.FC = () => {
   const t = useT();
@@ -499,15 +499,15 @@ export const SceneBridge: React.FC = () => {
 
 /* ---------------- 10. ENDING: twist ---------------- */
 const endShots: Shot[] = [
-  { t: [0, 2.0], eye: [[0, 5.2, 93], [0, 5.1, 90]], at: [[0, 4.2, 79], [0, 4.2, 79]], fov: [40, 38] },
-  { t: [2.0, 3.7], eye: [[1.5, 4.9, 89], [1.5, 4.75, 87]], at: [[1.5, 4.4, 80], [1.5, 4.4, 80]], fov: [30, 25], shake: 0.015 },
-  { t: [3.7, 7.1], eye: [[0, 5.5, 90], [0, 7.5, 99]], at: [[0, 4.2, 80], [0, 4.4, 80]], fov: [38, 40] },
+  { t: [0, 1.45], eye: [[0, 5.2, 93], [0, 5.1, 90]], at: [[0, 4.2, 79], [0, 4.2, 79]], fov: [40, 38] },
+  { t: [1.45, 3.8], eye: [[1.5, 4.9, 89], [1.5, 4.75, 87]], at: [[1.5, 4.4, 80], [1.5, 4.4, 80]], fov: [30, 25], shake: 0.015 },
+  { t: [3.8, 8.85], eye: [[0, 5.5, 90], [0, 7.5, 99]], at: [[0, 4.2, 80], [0, 4.4, 80]], fov: [38, 40] },
 ];
 export const SceneEnding: React.FC = () => {
   const t = useT();
-  const flicker = t > 2.55 && t < 2.75 ? (Math.sin(t * 90) > 0 ? 1 : 0) : 0;
-  const glow = Math.max(flicker, clamp((t - 3.05) / 0.25, 0, 1));
-  const jasurHead = keys(t, [[0, 0.3], [3.7, 0.3], [4.4, 2.6]])[0];
+  const flicker = t > 2.6 && t < 2.8 ? (Math.sin(t * 90) > 0 ? 1 : 0) : 0;
+  const glow = Math.max(flicker, clamp((t - 3.2) / 0.25, 0, 1));
+  const jasurHead = keys(t, [[0, 0.3], [3.8, 0.3], [4.5, 2.6]])[0];
   return (
     <Canvas>
       <NightEnv />
@@ -517,7 +517,7 @@ export const SceneEnding: React.FC = () => {
       <RoadSide t={t} />
       <Bridge p={[0, 0, BRIDGE_Z0]} cut={1} />
       <Blocky t={t} pose={{ x: -1.6, z: 80, yaw: 0.1, motion: "idle", face: "calm", headYaw: jasurHead * 0.4, phase: 0 }} look={JASUR} />
-      <Blocky t={t} pose={{ x: 1.5, z: 80, yaw: -0.05, motion: "idle", face: t > 3.0 ? "calm" : "scared", eyeGlow: glow, aL: 0.7, headPitch: t > 3.0 ? -0.05 : 0.1, phase: 2 }} look={MADINA} />
+      <Blocky t={t} pose={{ x: 1.5, z: 80, yaw: -0.05, motion: "idle", face: t > 3.2 ? "calm" : "scared", eyeGlow: glow, aL: 0.7, headPitch: t > 3.2 ? -0.05 : 0.1, phase: 2 }} look={MADINA} />
     </Canvas>
   );
 };

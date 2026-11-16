@@ -2,7 +2,7 @@ import { loadFont } from "@remotion/fonts";
 import React from "react";
 import { AbsoluteFill, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { clamp, shakeNoise } from "./anim";
-import { FLASHES, LINES } from "./data";
+import { END_CARD_T, FLASHES, LINES } from "./data";
 
 const fontFamily = "Poppins";
 loadFont({ family: fontFamily, url: staticFile("fonts/Poppins-700.ttf"), weight: "700" });
@@ -32,7 +32,7 @@ const GROUPS = buildWords();
 
 const Captions: React.FC<{ t: number }> = ({ t }) => {
   const { fps } = useVideoConfig();
-  if (t > 36.7) return null;
+  if (t > END_CARD_T) return null;
   const g = GROUPS.find((gr) => t >= gr[0].t0 && t < gr[gr.length - 1].t1 + 0.12);
   if (!g) return null;
   const pop = spring({ frame: Math.round((t - g[0].t0) * fps), fps, config: { damping: 11, stiffness: 220 } });
@@ -146,8 +146,8 @@ const NameTag: React.FC<{ t: number; t0: number; t1: number; text: string; x: nu
 
 /* ---- CCTV ---- */
 const Cctv: React.FC<{ t: number }> = ({ t }) => {
-  if (t < 14.1 || t > 15.4) return null;
-  const sec = Math.floor(17 + (t - 14.1));
+  if (t < 14.0 || t > 15.6) return null;
+  const sec = Math.floor(17 + (t - 14.0));
   return (
     <AbsoluteFill style={{ fontFamily, color: "#fff" }}>
       <AbsoluteFill
@@ -172,10 +172,10 @@ const Cctv: React.FC<{ t: number }> = ({ t }) => {
 /* ---- end card ---- */
 const EndCard: React.FC<{ t: number }> = ({ t }) => {
   const { fps } = useVideoConfig();
-  if (t < 36.6) return null;
-  const a = spring({ frame: Math.round((t - 36.6) * fps), fps, config: { damping: 10, stiffness: 160 } });
-  const b = spring({ frame: Math.round((t - 37.4) * fps), fps, config: { damping: 9, stiffness: 180 } });
-  const c = spring({ frame: Math.round((t - 38.2) * fps), fps, config: { damping: 9, stiffness: 180 } });
+  if (t < END_CARD_T) return null;
+  const a = spring({ frame: Math.round((t - END_CARD_T) * fps), fps, config: { damping: 10, stiffness: 160 } });
+  const b = spring({ frame: Math.round((t - 40.1) * fps), fps, config: { damping: 9, stiffness: 180 } });
+  const c = spring({ frame: Math.round((t - 41.0) * fps), fps, config: { damping: 9, stiffness: 180 } });
   const pulse = 1 + Math.sin(t * 8) * 0.04;
   return (
     <AbsoluteFill style={{ fontFamily, alignItems: "center" }}>
@@ -242,9 +242,9 @@ export const Overlay: React.FC = () => {
       <Grain frame={frame} />
       <Cctv t={t} />
       <HookTitle t={t} />
-      <NameTag t={t} t0={5.0} t1={7.0} text="JASUR" x={330} y={700} color="#2f6fe0" />
-      <NameTag t={t} t0={5.9} t1={7.0} text="BIR QIZ" x={760} y={760} color="#e23f6c" />
-      <NameTag t={t} t0={22.0} t1={23.3} text="MADINA" x={540} y={620} color="#e23f6c" />
+      <NameTag t={t} t0={5.2} t1={6.95} text="JASUR" x={330} y={700} color="#2f6fe0" />
+      <NameTag t={t} t0={5.85} t1={6.95} text="BIR QIZ" x={760} y={760} color="#e23f6c" />
+      <NameTag t={t} t0={23.5} t1={24.9} text="MADINA" x={540} y={620} color="#e23f6c" />
       <Captions t={t} />
       <EndCard t={t} />
       <AbsoluteFill style={{ background: "#fff", opacity: flash * 0.85 }} />

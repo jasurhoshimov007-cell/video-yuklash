@@ -6,11 +6,11 @@ export const RemotionRoot: React.FC = () => {
     <Composition
       id="ZombiQishloq"
       component={ZombiReel}
-      durationInFrames={1200}
+      durationInFrames={1290}
       fps={30}
       width={1080}
       height={1920}
-      defaultProps={{ voiceFile: "", sfxVolume: 0.9 }}
+      defaultProps={{ voiceFile: "voice.mp3", sfxVolume: 0.22 }}
     />
   );
 };

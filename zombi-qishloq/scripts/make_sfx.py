@@ -3,7 +3,7 @@ import wave
 import numpy as np
 
 SR = 44100
-DUR = 40.0
+DUR = 43.0
 N = int(SR * DUR)
 rng = np.random.default_rng(7)
 L = np.zeros(N)
@@ -40,7 +40,7 @@ drone += 0.05 * np.sin(2 * np.pi * 116.5 * t + 1.3)  # dissonant tritone-ish
 wind = bandpass(rng.standard_normal(N), 200, 900) * 0.05 * (0.6 + 0.4 * np.sin(2 * np.pi * 0.09 * t))
 amb = drone + wind
 # duck ambience in the "quiet before twist"
-amb *= np.interp(t, [0, 33, 34.6, 35.9, 36.2, 40], [1, 1, 0.25, 0.25, 1.2, 1.2])
+amb *= np.interp(t, [0, 34, 35.4, 37.2, 37.5, 43], [1, 1, 0.25, 0.25, 1.2, 1.2])
 L += amb
 R += amb
 
@@ -125,44 +125,44 @@ add(stinger(), 1.6, 0.8)
 add(groan(1.0, 140), 1.7, 0.6)
 add(whoosh(), 2.25, 0.8)
 # scene-cut whooshes
-for c in (3.2, 6.9, 10.2, 14.0, 17.8, 21.4, 23.2, 25.6, 29.0, 32.8):
+for c in (3.2, 6.85, 9.9, 13.9, 18.9, 22.85, 24.8, 26.6, 30.9, 34.05):
     add(whoosh(0.4), c, 0.6, rng.uniform(-0.4, 0.4))
 # heartbeat field + shepherd (accelerating)
-hb = 7.2
+hb = 7.0
 gap = 0.95
 while hb < 14.0:
     add(thump(55, 0.2), hb, 0.9)
     add(thump(50, 0.2), hb + 0.22, 0.6)
     hb += gap
     gap = max(0.55, gap * 0.93)
-add(groan(1.8, 80), 11.2, 0.6)
-add(stinger(), 12.8, 0.9)
+add(groan(1.8, 80), 11.0, 0.6)
+add(stinger(), 12.5, 0.9)
 # village overrun: many groans
-for k, at in enumerate((14.3, 14.9, 15.6, 16.2, 16.9, 17.3)):
+for k, at in enumerate((14.2, 14.9, 15.7, 16.4, 17.2, 17.9, 18.4)):
     add(groan(rng.uniform(0.9, 1.5), rng.uniform(80, 150)), at, 0.35, rng.uniform(-0.7, 0.7))
-add(groan(0.9, 160), 17.05, 0.6)
+add(groan(0.9, 160), 17.6, 0.6)
 # window + knocks
-for hb in np.arange(18.0, 20.2, 0.62):
+for hb in np.arange(19.1, 21.8, 0.62):
     add(thump(52, 0.2), hb, 0.7)
-for k in (20.3, 20.7, 21.1):
+for k in (21.9, 22.25, 22.6):
     add(knock(), k, 1.0)
-add(creak(), 21.65, 0.9)
+add(creak(), 23.1, 0.9)
 # running footsteps
-for k, ft in enumerate(np.arange(23.3, 29.1, 0.17)):
+for k, ft in enumerate(np.arange(24.9, 31.0, 0.17)):
     add(thump(90 + (k % 2) * 20, 0.1), ft, 0.45, -0.2 if k % 2 else 0.2)
-for at in (23.6, 24.4, 25.3, 26.1, 26.9, 27.8, 28.4):
+for at in (25.2, 26.0, 26.9, 27.7, 28.5, 29.4, 30.2):
     add(groan(0.8, rng.uniform(110, 170)), at, 0.4, rng.uniform(-0.6, 0.6))
 # bridge cut + falls
-add(snap(), 30.65, 1.0)
-add(snap(), 30.75, 0.8)
-add(boom(2.5, 90, 28), 30.7, 1.0)
-add(creak(1.2), 30.8, 0.7)
+add(snap(), 32.3, 1.0)
+add(snap(), 32.4, 0.8)
+add(boom(2.5, 90, 28), 32.35, 1.0)
+add(creak(1.2), 32.45, 0.7)
 for k in range(8):
-    add(splash(), 31.25 + k * 0.09 + rng.uniform(0, 0.1), 0.6, rng.uniform(-0.6, 0.6))
+    add(splash(), 33.0 + k * 0.09 + rng.uniform(0, 0.1), 0.6, rng.uniform(-0.6, 0.6))
 # twist
-add(stinger(2.2), 36.0, 1.0)
-add(groan(2.0, 70), 36.2, 0.4)
-add(boom(3, 70, 25), 38.4, 0.6)
+add(stinger(2.2), 37.35, 1.0)
+add(groan(2.0, 70), 37.6, 0.4)
+add(boom(3, 70, 25), 41.0, 0.6)
 
 mix = np.stack([L, R], axis=1)
 mix = np.tanh(mix * 1.1) * 0.85  # soft limiter
