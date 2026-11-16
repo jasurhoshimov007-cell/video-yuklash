@@ -78,7 +78,7 @@ const EndCard: React.FC<{ t: number }> = ({ t }) => {
       <AbsoluteFill style={{ background: "linear-gradient(180deg, rgba(0,0,0,.65), rgba(0,0,0,0) 40%, rgba(0,0,0,0) 50%, rgba(0,0,0,.8))" }} />
       <div style={{ position: "absolute", top: 190, left: 60, right: 60, textAlign: "center", transform: `scale(${a})` }}>
         <div style={{ fontSize: 80, fontWeight: 900, color: "#fff", textShadow: STROKE, lineHeight: 1.08 }}>SIZ PULNI</div>
-        <div style={{ fontSize: 96, fontWeight: 900, color: "#FFE600", textShadow: STROKE, lineHeight: 1.08 }}>QAYTARARDINGIZMI?</div>
+        <div style={{ fontSize: 82, fontWeight: 900, color: "#FFE600", textShadow: STROKE, lineHeight: 1.08 }}>QAYTARARDINGIZMI?</div>
       </div>
       <div style={{ position: "absolute", top: 520, display: "flex", gap: 50 }}>
         <VoteBtn label="HA" color="#22a84a" s={v1} />
