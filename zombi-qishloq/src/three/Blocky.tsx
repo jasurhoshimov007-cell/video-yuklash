@@ -43,7 +43,7 @@ export type Pose = {
   lL?: number;
   lR?: number;
   scale?: number;
-  item?: "sickle" | "phone";
+  item?: "sickle" | "phone" | "cup";
 };
 
 type BoxProps = {
@@ -253,6 +253,12 @@ export const Blocky: React.FC<{ t: number; pose: Pose; look: Look }> = ({
         <group position={[1.5, 3.9, 0]} rotation={[armR, 0, armRz]}>
           <Box p={[0, -0.9, 0]} s={[0.96, 2, 0.96]} c={sleeve} />
           <Box p={[0, -1.7, 0]} s={[0.98, 0.42, 0.98]} c={look.skin} />
+          {pose.item === "cup" ? (
+            <>
+              <Box p={[0, -1.95, 0.45]} s={[0.55, 0.6, 0.55]} c="#f4f1ea" />
+              <Box p={[0, -1.68, 0.45]} s={[0.45, 0.05, 0.45]} c="#8a5a2a" />
+            </>
+          ) : null}
           {pose.item === "phone" ? (
             <>
               <Box p={[0, -1.95, 0.35]} s={[0.5, 0.12, 0.9]} c="#15161c" />
