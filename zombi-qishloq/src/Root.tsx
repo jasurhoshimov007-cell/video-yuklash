@@ -4,6 +4,7 @@ import { Xona13 } from "./xona13/Xona13";
 import { Xabar } from "./xabar/Xabar";
 import { Yer } from "./yer/Yer";
 import { Pul } from "./pul/Pul";
+import { Dekabr } from "./dekabr/Dekabr";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -52,6 +53,15 @@ export const RemotionRoot: React.FC = () => {
         width={1080}
         height={1920}
         defaultProps={{ voiceFile: "voice-pul.mp3", sfxVolume: 0.22 }}
+      />
+      <Composition
+        id="Dekabr"
+        component={Dekabr}
+        durationInFrames={1190}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={{ voiceFile: "voice-dekabr.mp3", sfxVolume: 0.22 }}
       />
     </>
   );
