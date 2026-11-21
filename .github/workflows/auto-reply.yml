@@ -1,0 +1,32 @@
+name: Instagram avto-javob
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"   # har 30 daqiqada
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Sinov rejimi (javob yubormaydi): 1 yoki bo'sh"
+        required: false
+        default: ""
+
+concurrency:
+  group: ig-auto-reply
+  cancel-in-progress: false
+
+jobs:
+  reply:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Izohlarga javob yozish
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+          MAX_REPLIES: "25"
+          MEDIA_COUNT: "10"
+          DRY_RUN: ${{ github.event.inputs.dry_run }}
+        run: python scripts/auto_reply.py
