@@ -12,3 +12,10 @@
 - Subtitr: sariq, qalin qora kontur, 1-3 so'z, ovozga sinxron, ekran o'rtasidan pastroqda.
 - Musiqa/SFX numpy bilan (oddiy, g'alati emas), loudnorm I=-14, video ~6.5 Mbit/s, fayl <50 MB.
 - Instagramga to'g'ridan-to'g'ri Reels qilib yuklang: CAPTION/NOM/HESHTEG YO'Q (caption bo'sh).
+
+## Kanal reklamasi (har kuni 18 videodan 2 tasi)
+Maqsad: Instagram tomoshabinini Telegram kanal @aicreator_n1 ga o'tkazish. Ikkalasi ham professional, kuchli hookli bo'lsin. Oxirgi qismda AI qahramon (`host.png`, `ai_lib.js` dagi `hostDraw`) va Instagram profil maketi (`@jasur.ai_`, bio'da "🔗 Telegram: AI Creator_N1" havolasi, unga ko'rsatgich/strelka) ko'rsatilsin. Real Instagram logotipini chizmang, faqat oddiy profil maketi.
+
+1. **Qiziqarli video + oxirida reklama** (25-35 s): oddiy juda qiziqarli video (history.md dagi mavzularni takrorlamang). Oxirgi ~6-7 s da: "Profilimdagi havola orqali Telegram kanalimga o'ting! U yerda AI yangiliklari, AI bilan video yasash va pul ishlashni o'rgataman." (so'zlarni har kuni biroz o'zgartiring).
+2. **Qisqa reklama-video** (~12-15 s): "Agar siz ... bo'lsangiz nima qilardingiz?" turidagi juda qiziqarli hook (masalan "1 kunlik prezident", "1 kunlik milliarder", "dunyodagi oxirgi odam" — har kuni boshqa; real siyosatchilar, partiyalar, siyosiy fikr yo'q) 3-4 s, keyin tez: "Sizga ham shunday videolar kerakmi yoki yasashni o'rganmoqchimisiz? Profilimdagi havola orqali Telegram kanalimga o'ting, obuna bo'ling: AI bilan pul ishlash, video yasash, AI yangiliklari!"
+- Ikkalasining oxirida izoh uchun savol ham bo'lsin (masalan "Siz nima qilardingiz? Izohda yozing!").

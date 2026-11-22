@@ -12,7 +12,7 @@ Egasi hech narsa qilmaydi. Savol bermang, oxirigacha o'zingiz bajaring. Egasiga 
 
 ## 1. Instagram: 18 ta video (avval shu)
 - Talablar: `instagram_prompt.md` (qat'iy).
-- Tarkib: horror ko'proq (~8), qiziqarli/g'oyali "1 mln dollar", "milliarder bo'lsangiz" kabi (~5), urush/qahramonlik (~2), AI yangilik (~3).
+- Tarkib: horror ko'proq (~7), qiziqarli/g'oyali "1 mln dollar", "milliarder bo'lsangiz" kabi (~4), urush/qahramonlik (~2), AI yangilik (~3), Telegram kanal reklamasi 2 ta (`instagram_prompt.md` "Kanal reklamasi" bo'limi).
 - Ish tartibi har video uchun: `scripts.json` -> `python3 tts.py vNN` -> `python3 prep.py vNN` -> `python3 check.py vNN` -> `vNN.js` sahna (namunalar: `examples/v01.js`...`v10.js`; `lib.js` dagi set/prop/overlay funksiyalari) -> `node render.js vNN sheet` + kontakt-varaqni ko'rib tuzatish -> `node render.js vNN full` -> `python3 mix.py vNN` -> ffmpeg mux (`-c copy -movflags +faststart`) -> `final.mp4`.
 - 3 ta videoni parallel render qiling.
 - TTS limiti: har model uchun kuniga ~10 so'rov (jami ~20). 18 Instagram + 2 kanal uchun so'rovlarni tejang, qayta yozdirmang. Limit tugasa, qolganini qilmasdan hisobotda ayting.
