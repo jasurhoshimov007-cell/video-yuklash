@@ -18,3 +18,6 @@
 
 ## So'rovnomalar
 - 2026-11-22 (yakshanba): Qaysi AI darsini birinchi ko'rishni xohlaysiz? (video/rasm/pul ishlash/ChatGPT va Claude)
+
+## Bepul sovg'alar
+- 2026-11-22: AI bilan video yasash uchun 10 ta tayyor prompt (PDF)

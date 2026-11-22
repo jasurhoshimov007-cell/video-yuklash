@@ -49,3 +49,8 @@ Egasi hech narsa qilmaydi. Savol bermang, oxirigacha o'zingiz bajaring. Egasiga 
 - Juma kunlari kanalga qo'shimcha post: "📰 Haftaning 5 ta eng muhim AI yangiligi". WebSearch bilan shu haftadagi (oxirgi 7 kun) eng muhim 5 ta AI yangiligini toping, har birini rasmiy manbadan tekshiring.
 - Format: chiroyli rasm (PIL, kanal uslubi: to'q ko'k fon, neon, qahramon `host.png`, "HAFTA DAYJESTI" sarlavhasi) + matn: 5 band, har biri 1-2 qator o'zbekcha + manba havolasi; oxirida savol va obuna chaqirig'i. Buyurtma tugmasi bo'lsin.
 - Ovoz kerak emas (TTS limiti sarflanmaydi). Yangiliklarni history.md ga yozing, keyingi haftada takrorlamang.
+
+## 7. Shanba: bepul sovg'a (har shanba)
+- Shanba kunlari kanalga 1 ta yangi bepul sovg'a PDF (pin qilinmaydi). Har hafta boshqa mavzu: masalan AI bilan rasm promptlari, Reels hook'lari to'plami, AI bilan pul ishlash g'oyalari, bepul AI vositalar ro'yxati, ChatGPT/Claude ish promptlari, kontent-reja shabloni. Avvalgilarini history.md dan tekshiring, takrorlamang.
+- Format: 4-6 betlik A4 PDF (HTML + Playwright `page.pdf`), kanal uslubida (to'q ko'k, neon, qahramon `host.png`, oxirgi betda kanal havolasi va buyurtma kontakti). Namuna: 2026-11-22 dagi "AI bilan video yasash uchun 10 ta tayyor prompt".
+- `sendDocument` + muqova thumbnail + qisqa matn (ichida nima bor, ulashish va obunaga chaqiruv, izoh uchun savol) + buyurtma tugmasi. Ma'lumotlar aniq va foydali bo'lsin.
