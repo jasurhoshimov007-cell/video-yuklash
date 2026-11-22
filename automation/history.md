@@ -15,3 +15,6 @@
 
 ## Telegram kanal @aicreator_n1
 - 2026-11-22: Claude'dan to'g'ri foydalanishning 3 qoidasi + Claude Code avtomatlashtirish (t01)
+
+## So'rovnomalar
+- 2026-11-22 (yakshanba): Qaysi AI darsini birinchi ko'rishni xohlaysiz? (video/rasm/pul ishlash/ChatGPT va Claude)

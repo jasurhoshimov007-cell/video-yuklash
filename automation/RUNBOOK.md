@@ -40,3 +40,7 @@ Egasi hech narsa qilmaydi. Savol bermang, oxirigacha o'zingiz bajaring. Egasiga 
 - Faqat yakshanba kunlari (Toshkent vaqti) kanalga 1 ta qo'shimcha post: WebSearch bilan shu haftaning eng foydali/yangi AI vositasini toping (faktlarni rasmiy manbadan tekshiring).
 - Format: 25-30 s video (AI qahramon bilan, `ai_lib.js`) + ostida qisqa matn: nima qiladi, kimga foydali, bepulmi/pullikmi, havola. Buyurtma tugmasi ham bo'lsin.
 - Ovoz limitini tejash uchun yakshanba kuni Instagram videolarini 17 ta qiling.
+
+## 5. So'rovnoma (har chorshanba va yakshanba)
+- Chorshanba va yakshanba kunlari kanalga 1 ta so'rovnoma: `sendPoll` (`chat_id=@aicreator_n1`, `is_anonymous=true`, 3-4 variant, emojili). Mavzu: AI darslari, AI vositalar, kanal kontenti, obunachilar fikri. Har safar yangi savol (history.md ga yozib boring).
+- Muhokama guruhi (`-1004470090152`, bot admin): qoidalar posti pin qilingan, uni o'zgartirmang.
