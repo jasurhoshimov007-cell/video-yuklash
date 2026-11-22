@@ -1,0 +1,24 @@
+// TO'YDAGI ODAMLAR
+const PARTY=(T)=>E('party',{fog:'#2a1440',fogD:.008,amb:'#9a8ab8',sun:'#fff0f8',sunDir:[.2,1,.7],lampPos:[8*sin(T*1.5),10,-10],lamp:['#ff7ad0','#7ad0ff','#ffd27a'][Math.floor(T*2)%3]});
+const EMPTY=E('warm',{fog:'#e8d8c8',fogD:.008,amb:'#b0a8a0',sun:'#fff4e0'});
+const amaki={...LK.guest,coat:'#3a5a8a'},xola={...LK.mom,shirt:'#ff4a9a',dress:'#e02a7a',hatCol:'#ffd23a'},qoshni={...LK.kampir,shirt:'#3a8a6a',dress:'#2a6a4a',hatCol:'#f0e0c0'},yigit={...LK.boy,shirt:'#ffffff',pants:'#2a2d3a'},
+ jiyan={...LK.boy,shirt:'#ff8a1a',hat:'cap',hatCol:'#1a1a1a',item:'phone'},amma={...LK.mom,shirt:'#6a3a9a',dress:'#4a2a7a',hatCol:'#ffffff'},
+ kuyov={skin:'#f1c99a',shirt:'#ffffff',coat:'#1a1a22',tie:'#c02a2a',pants:'#1a1a22',shoes:'#0a0a0a',hair:'#1a110c'},kelin={skin:'#f6d6b6',shirt:'#ffffff',dress:'#ffffff',shoes:'#ffffff',hat:'scarf',hatCol:'#ffffff'},kid=LK.kid,kid2={...LK.kid,shirt:'#3ac06a'},kid3={...LK.girl,dress:'#7a5aff',shirt:'#7a5aff'};
+const crowd=(T,n=6)=>{const L=[LK.man,LK.girl,LK.boy,xola,amaki,LK.mom];for(let i=0;i<n;i++){const a=i/n*PI*2+T*.4;C(L[i%6],{x:cos(a)*5,z:-10+sin(a)*3,yaw:-a,y:Math.abs(sin(T*7+i))*.5,aR:-2.6+.5*sin(T*7+i),aL:-2.6+.5*sin(T*7+i+1),face:'happy',seed:i},T)}};
+const BG=(n,l,c)=>(T,u)=>badge(n,l,u*1.5,c||'#ff3b5c');
+const S=[
+ [{cam:[[[0,12,22],[0,3,-10],50,.04],[[0,9,15],[0,3,-10],48,-.03]],env:PARTY,draw:T=>{hall({},T);crowd(T,8)},ov:(T,u)=>hookTitle(['TO‘YDA ALBATTA','BO‘LADIGAN ODAMLAR'],u*.7+.1,'#ffcf1a'),sfx:[[0,'hit'],[0,'cheer']]}],
+ [{cam:[[[-16,14,14],[0,2,-4],50],[[16,14,14],[0,2,-4],50]],env:PARTY,draw:T=>{hall({},T);crowd(T,6);[[-11,4],[11,-5],[-11,-5]].forEach(([x,z],i)=>{C(LK.man,{x:x-2,z:z+3,yaw:PI,sit:1,y:.6,seed:i},T)})},ov:(T,u)=>{const s=1+.08*sin(T*8);ctx.save();ctx.translate(W2/2,300);ctx.scale(s,s);txt('?',0,0,170,'#ffd23a',14);ctx.restore()},sfx:[[0,'whoosh']]}],
+ [{cam:[[[-5,7.5,-5],[-11,3.6,6],46],[[-7,6.8,-3],[-11,3.8,6],40]],env:EMPTY,draw:T=>{hall({},0);C(amaki,{x:-11,z:7,yaw:PI,sit:1,y:.6,face:'happy',aR:-1.4},T)},ov:BG(1,'ERTACHI AMAKI'),sfx:[[0,'pop']]}],
+ [{cam:[[[-8,7,-2],[-11,4,7],42],[[-8.6,6.6,-.5],[-11,4,7],36]],env:EMPTY,draw:T=>{hall({},0);C(amaki,{x:-11,z:7,yaw:PI,sit:1,y:.6,face:'sleep',headPitch:.5},T)},ov:(T,u)=>{const m=Math.floor(u*120);clockTxt(`${16+Math.floor(m/60)}:${String(m%60).padStart(2,'0')}`,110,'#ffcf1a');const p=R.proj([-11,6,7]);zzz(p[0]+30,p[1],T)},sfx:[[0,'tick'],[.6,'tick'],[1.2,'tick']]}],
+ [{cam:[[[0,6,4],[0,4,-10],50],[[3,5.5,1],[0,4,-10],44]],env:PARTY,draw:T=>{hall({},T);C(xola,{x:0,z:-10,yaw:T*5,y:Math.abs(sin(T*8))*.6,aR:-2.8+.4*sin(T*8),aL:-2.8+.4*sin(T*8+1),aRz:.3,aLz:-.3,face:'laugh'},T)},ov:BG(2,'RAQQOSA XOLA','#ff2a9a'),sfx:[[0,'pop'],[.3,'cheer']]}],
+ [{cam:[[[2,5.6,10],[-1,4.3,0],42],[[1,5.2,8],[-1,4.3,0],36]],env:PARTY,draw:T=>{hall({},T);C(qoshni,{x:-3,z:0,yaw:.9,face:'talk',aR:-1.4},T);C(yigit,{x:1.5,z:0,yaw:-.9,face:'scared',headPitch:.15},T)},ov:(T,u)=>{BG(3,'QO‘SHNI','#2aa06a')(T,u);bubble(250,330,'QACHON TO‘Y?',46,u*1.5)},sfx:[[0,'pop']]}],
+ [{cam:[[[11,8.5,-6],[11,2.6,6],46],[[11,7.6,-3.5],[11,2.6,6],40]],env:PARTY,draw:(T,u)=>{hall({},T);[[kid,-2.2],[kid2,0],[kid3,2.2]].forEach(([l,dx],i)=>C(l,{x:11+dx,z:7,yaw:PI,scale:.7,y:Math.abs(sin(T*9+i))*.4,aR:-1.6+.6*sin(T*14+i),face:u>.6?'laugh':'angry',seed:i},T));if(u>.6)plov(11,2.65,4)},ov:BG(4,'OCH BOLALAR','#ff8a1a'),sfx:[[0,'pop'],[.5,'click'],[.7,'click'],[.9,'click'],[-.6,'tada']]}],
+ [{cam:[[[3,5.4,9],[0,4.6,0],40],[[2,5.2,7],[0,4.6,0],34]],env:PARTY,draw:T=>{hall({},T);C(jiyan,{x:0,z:0,yaw:.3,face:'happy',aR:-2.4},T)},ov:(T,u)=>{recFrame(T);BG(5,'OPERATOR JIYAN','#2a7aff')(T,u)},sfx:[[0,'pop'],[.3,'click']]}],
+ [{cam:[[[0,5,9],[0,4.3,0],40],[[0,4.8,7.5],[0,4.3,0],34]],env:PARTY,draw:T=>{hall({},T);C(amma,{x:0,z:0,face:'angry',aL:-1.3,aR:-1.3,aLz:-.9,aRz:.9,headYaw:.4*sin(T*6)},T)},ov:(T,u)=>{BG('★','TANQIDCHI AMMA','#8a3aff')(T,u);bubble(360,330,'OSH SHO‘R!',50,u*1.4)},sfx:[[0,'tada']]}],
+ [{cam:[[[0,6.5,-11],[0,3.8,-22],44],[[0,6,-13],[0,3.8,-22],38]],env:PARTY,draw:T=>{hall({},T);B(0,1.5,-21,8,1.8,2.4,'#ffffff');C(kuyov,{x:-1.5,z:-23,y:1.5,sit:1,face:'sleep',headPitch:.4},T);C(kelin,{x:1.5,z:-23,y:1.5,sit:1,face:'happy'},T)},sfx:[[0,'pop']]}],
+ [{cam:[[[-1.2,5.6,-16.5],[-1.5,4.5,-23],34],[[-1.3,5.4,-18],[-1.5,4.5,-23],28]],env:PARTY,draw:T=>{hall({},T);B(0,1.5,-21,8,1.8,2.4,'#ffffff');C(kuyov,{x:-1.5,z:-23,y:1.5,sit:1,face:'sleep',headPitch:.5+.1*sin(T*2)},T)},ov:(T,u)=>{zzz(470,330,T);zzz(520,300,T+.4)},sfx:[[0,'laugh']]}],
+ [{cam:[[[0,10,16],[0,3,-8],48],[[0,8,12],[0,3,-8],46]],env:PARTY,draw:T=>{hall({},T);crowd(T,8)},ov:(T,u)=>{hearts(T,u);bigLike(ramp(u,.1,.5),T)},sfx:[[0,'pop'],[.5,'ding']]}],
+ [{noSplit:1,cam:[[[-8,9,14],[0,3,-8],48],[[8,9,14],[0,3,-8],48]],env:PARTY,draw:T=>{hall({},T);crowd(T,8)},ov:(T,u)=>ctaCard(ramp(u,0,.5),T),sfx:[[0,'whoosh'],[0,'cheer']]}],
+];
+boot({fovK:1.2});build(TIMINGDATA,S,{tail:1.4});

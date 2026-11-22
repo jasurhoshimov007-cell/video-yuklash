@@ -1,0 +1,15 @@
+const S=[
+ aiShot(0,(T,u)=>{head('CLAUDE = CHAT?',230,u*1.4,'#fff',78);emo('💬',W2/2,400,110,ramp(u,.1,.3));if(u>.55){const s=ease(ramp(u,.55,.7));ctx.save();ctx.translate(W2/2,400);ctx.rotate(-.15);ctx.scale(2-s,2-s);ctx.globalAlpha=s;txt('XATO!',0,0,120,'#ff3b5c',14);ctx.restore()}},[[0,'hit'],[1.6,'hit']]),
+ aiShot(1,(T,u)=>{head('TO‘G‘RI ISHLATISH',190,u*1.5,CY,58);const s=ease(ramp(u,.1,.35));ctx.save();ctx.translate(W2/2,370);ctx.scale(s,s);txt('3',0,0,220,'#fff',0);ctx.restore();head('TA QOIDA',520,ramp(u,.3,.6),'#fff',60)},[[0,'whoosh'],[.4,'pop']]),
+ aiShot(2,(T,u)=>{chip('1',W2/2,165,ramp(u,0,.2),PK,90);head('ANIQ VAZIFA',265,u*1.5,'#fff',52);typeBox(['Vazifa: 5 ta Reels g‘oyasi','Natija: jadval ko‘rinishida','Uzunligi: 30 soniya'],W2/2,450,640,u,'PROMPT')},[[0,'pop'],[.3,'click'],[.6,'click']]),
+ aiShot(3,(T,u)=>{chip('2',W2/2,165,ramp(u,0,.2),PK,90);head('NAMUNA BERING',265,u*1.5,'#fff',52);chip('Namuna',190,420,ramp(u,.1,.35),PU,230);arrow(310,420,410,420,ramp(u,.35,.55));chip('Natija ✓',530,420,ramp(u,.5,.75),CY,230);head('Uslub saqlanadi',540,ramp(u,.6,.9),YE,40)},[[0,'pop'],[.6,'ding']]),
+ aiShot(4,(T,u)=>{chip('3',W2/2,165,ramp(u,0,.2),PK,90);head('QADAMLARGA BO‘LING',265,u*1.5,'#fff',48);['Reja','Matn','Video'].forEach((t,i)=>{const p=ramp(u,.1+i*.22,.3+i*.22);chip(`${i+1}. ${t}`,W2/2,370+i*95,p,[PU,CY,PK][i],360)})},[[0,'pop'],[.3,'pop'],[.55,'pop'],[.8,'pop']]),
+ aiShot(0,(T,u)=>{emo('⚡',W2/2,300,140,ramp(u,0,.2));head('AVTOMATLASHTIRISH',480,u*1.6,YE,60)},[[0,'hit']]),
+ aiShot(2,(T,u)=>{head('CLAUDE CODE',160,u*1.5,CY,58);chip('🤖 Claude',W2/2,280,ramp(u,.05,.2),CY,280);arrow(W2/2,330,W2/2,380,ramp(u,.2,.35));chip('🎬 Video',W2/2,430,ramp(u,.3,.45),PU,280);arrow(W2/2,480,W2/2,530,ramp(u,.45,.6));chip('📢 Kanal',W2/2,580,ramp(u,.55,.7),PK,280);if(u>.7){pill(600,280,150,56,'rgba(255,230,0,.95)',28);txt('HAR KUNI',600,282,24,'#111',0)}},[[0,'whoosh'],[.3,'pop'],[.6,'pop'],[.9,'ding']]),
+ aiShot(3,(T,u)=>{const s=ease(ramp(u,0,.3));ctx.save();ctx.translate(W2/2,380+(1-s)*60);ctx.globalAlpha=s;ctx.fillStyle='#0d1230';ctx.strokeStyle='#cfd8ff';ctx.lineWidth=6;ctx.beginPath();ctx.roundRect(-150,-260,300,520,40);ctx.fill();ctx.stroke();
+   ctx.fillStyle='#1b2350';ctx.fillRect(-130,-220,260,60);txt('AI Creator_N1',0,-190,24,'#fff',0);ctx.fillStyle='#1e2a66';ctx.beginPath();ctx.roundRect(-120,-140,240,300,20);ctx.fill();emo('▶️',0,0,80);
+   ctx.font='700 20px Inter';ctx.fillStyle='#9fb0ff';ctx.textAlign='center';ctx.fillText('Bugungi video · 20:00',0,190);ctx.restore();emo('✅',W2/2+140,170,70,ramp(u,.5,.65))},[[0,'whoosh'],[.6,'ding']]),
+ aiShot(4,(T,u)=>{const p=ramp(u,0,.3),q=ramp(u,.25,.55);ctx.save();ctx.translate(W2/2,250);ctx.scale(.7+.3*ease(p)*(1+.05*sin(T*9)),.7+.3*ease(p)*(1+.05*sin(T*9)));ctx.globalAlpha=p;pill(0,0,520,110,'#ff0033',55);txt('🔔 OBUNA BO‘LING',0,4,44,'#fff',0);ctx.restore();
+   ctx.save();ctx.translate(W2/2,400);ctx.scale(.7+.3*ease(q),.7+.3*ease(q));ctx.globalAlpha=q;pill(0,0,560,100,'#ffffff',50);txt('💬 FIKRINGIZNI YOZING',0,4,38,'#111',0);ctx.restore()},[[0,'pop'],[.5,'pop'],[1,'ding']]),
+];
+boot({fovK:1,subY:.5});build(TIMINGDATA,S,{tail:1.2});
