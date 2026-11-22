@@ -12,6 +12,12 @@ Egasi hech narsa qilmaydi. Savol bermang, oxirigacha o'zingiz bajaring. Egasiga 
 - Skillar: horror uchun `anthropic-skills:3d-horror-videolar`, qiziqarli uchun `anthropic-skills:izoh-ovoz-jangi-roblox` (CTA: like + obuna + izohdagi savol).
 - `history.md` ni o'qing: u yerdagi mavzularni qaytarmang. Ish oxirida yangi mavzularni qo'shib, commit qilib push qiling.
 
+
+## 0.1 Muhit eslatmalari (sinovda aniqlangan)
+- Python'ni `/usr/local/bin/python3.13 -I` bilan ishga tushiring (oddiy `python3` da PIL buzuq nusxadan yuklanadi). Kerak bo'lsa: `/usr/local/bin/python3.13 -m pip install -q numpy scipy pillow`.
+- Rasm va story'larda `host.png` pastki qismi tekis kesilib qolmasin: pastini gradient bilan xiralashtiring.
+- `git push` da "push negotiation failed" ogohlantirishi chiqishi normal, push baribir o'tadi; URL ni `curl -sI` bilan tekshiring.
+
 ## 1. Instagram: 18 ta video (avval shu)
 - Talablar: `instagram_prompt.md` (qat'iy).
 - Trend: boshlashdan oldin WebSearch bilan shu haftaning Instagram Reels / TikTok trendlarini (formatlar, hook'lar, mavzular, O'zbekiston va dunyo bo'yicha) qidiring va bugungi 18 ta mavzuni ularga moslang. Har kuni mavzu, hook, shablon va vizual uslub yangi bo'lsin; history.md dagilarni takrorlamang.
