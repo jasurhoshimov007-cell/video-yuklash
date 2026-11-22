@@ -55,3 +55,8 @@ Egasi hech narsa qilmaydi. Savol bermang, oxirigacha o'zingiz bajaring. Egasiga 
 - Shanba kunlari kanalga 1 ta yangi bepul sovg'a PDF (pin qilinmaydi). Har hafta boshqa mavzu: masalan AI bilan rasm promptlari, Reels hook'lari to'plami, AI bilan pul ishlash g'oyalari, bepul AI vositalar ro'yxati, ChatGPT/Claude ish promptlari, kontent-reja shabloni. Avvalgilarini history.md dan tekshiring, takrorlamang.
 - Format: 4-6 betlik A4 PDF (HTML + Playwright `page.pdf`), kanal uslubida (to'q ko'k, neon, qahramon `host.png`, oxirgi betda kanal havolasi va buyurtma kontakti). Namuna: 2026-11-22 dagi "AI bilan video yasash uchun 10 ta tayyor prompt".
 - `sendDocument` + muqova thumbnail + qisqa matn (ichida nima bor, ulashish va obunaga chaqiruv, izoh uchun savol) + buyurtma tugmasi. Ma'lumotlar aniq va foydali bo'lsin.
+
+## 8. Instagram story (har kuni, kanal postlaridan keyin)
+- Har kuni 1 ta 9:16 story (1080x1920 JPEG, PIL, kanal uslubida: to'q ko'k/binafsha fon, neon, qahramon `host.png`): "TELEGRAM KANALIMIZDA" + bugungi kanaldagi eng qiziqarli narsa (video mavzusi, sovg'a, so'rovnoma, dayjest) + sariq "Profildagi havola" tugma-yozuvi. Har kuni matn boshqacha.
+- Rasmni vaqtinchalik `media-YYYYMMDD` tarmog'iga qo'shing, Windsor `create_story` (`image_url`) bilan joylang, keyin tarmoqni o'chiring. API orqali bosiladigan havola-stiker qo'yib bo'lmaydi, shuning uchun "profildagi havola" deb yozing.
+- Kanal FAQ posti (2026-11-22) bor, takrorlamang.
