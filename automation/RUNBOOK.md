@@ -19,10 +19,10 @@ Egasi hech narsa qilmaydi. Savol bermang, oxirigacha o'zingiz bajaring. Egasiga 
 - Ish tartibi har video uchun: `scripts.json` -> `python3 tts.py vNN` -> `python3 prep.py vNN` -> `python3 check.py vNN` -> `vNN.js` sahna (namunalar: `examples/v01.js`...`v10.js`; `lib.js` dagi set/prop/overlay funksiyalari) -> `node render.js vNN sheet` + kontakt-varaqni ko'rib tuzatish -> `node render.js vNN full` -> `python3 mix.py vNN` -> ffmpeg mux (`-c copy -movflags +faststart`) -> `final.mp4`.
 - 3 ta videoni parallel render qiling.
 - TTS limiti: har model uchun kuniga ~10 so'rov (jami ~20). 18 Instagram + 2 kanal uchun so'rovlarni tejang, qayta yozdirmang. Limit tugasa, qolganini qilmasdan hisobotda ayting.
-- Joylash: videolarni ochiq URL ga chiqarish uchun bugungi `media-YYYYMMDD` orphan tarmog'iga push qiling (`git checkout --orphan media-YYYYMMDD; git rm -rf --cached .; git add vNN.mp4 ...`). URL: `https://raw.githubusercontent.com/jasurhoshimov007-cell/video-yuklash/media-YYYYMMDD/vNN.mp4`.
+- Joylash (ochiq URL): bitta `media` tarmog'idan foydalaning va uni har kuni yangidan, tarixsiz yozing: `git checkout --orphan media-tmp && git rm -rfq --cached . && git add vNN.mp4 story.jpg ... && git commit -m media && git push -f origin HEAD:media` (eski videolar shu bilan o'chadi, ombor kattalashmaydi). URL: `https://raw.githubusercontent.com/jasurhoshimov007-cell/video-yuklash/media/vNN.mp4`. Yangi videolar qo'shilganda shu tarmoqqa oddiy commit + push qiling. Agar `media` ga push rad etilsa, sessiyaning o'z ishchi tarmog'iga `media/` papka qilib push qiling va hisobotda ayting.
 - Instagram'ga `create_video_post` bilan yuklang: `caption` BO'SH (nom/heshteg yo'q), `share_to_feed: true`, `thumb_offset: 1500`. Har video tayyor bo'lishi bilan yuklang.
 - Agar chaqiruv 60 s da timeout bo'lsa, QAYTA YUBORMANG: avval `get_data` (fields `media_id`, `media_permalink`, date_preset `last_3dT`) bilan chiqqanini tekshiring.
-- Hammasi tugagach `media-YYYYMMDD` tarmog'ini remote'dan o'chiring (`git push origin --delete media-YYYYMMDD`). Faqat Instagram videoni olib bo'lganidan keyin o'chiring.
+- Tarmoq o'chirish kerak emas (`git push --delete` bu muhitda taqiqlangan); ertasi kuni `media` force-push bilan tozalanadi.
 
 ## 2. Telegram kanal: 2 ta video + 1 promo post (Instagram'dan keyin)
 - Mavzular: AI yangiliklari, AI bilan video yasashni o'rgatish, AI bilan qilingan ishlar, blog. Bugungi eng dolzarb AI yangiligini WebSearch bilan toping. Faktlar to'g'ri bo'lsin.
@@ -58,5 +58,5 @@ Egasi hech narsa qilmaydi. Savol bermang, oxirigacha o'zingiz bajaring. Egasiga 
 
 ## 8. Instagram story (har kuni, kanal postlaridan keyin)
 - Har kuni 1 ta 9:16 story (1080x1920 JPEG, PIL, kanal uslubida: to'q ko'k/binafsha fon, neon, qahramon `host.png`): "TELEGRAM KANALIMIZDA" + bugungi kanaldagi eng qiziqarli narsa (video mavzusi, sovg'a, so'rovnoma, dayjest) + sariq "Profildagi havola" tugma-yozuvi. Har kuni matn boshqacha.
-- Rasmni vaqtinchalik `media-YYYYMMDD` tarmog'iga qo'shing, Windsor `create_story` (`image_url`) bilan joylang, keyin tarmoqni o'chiring. API orqali bosiladigan havola-stiker qo'yib bo'lmaydi, shuning uchun "profildagi havola" deb yozing.
+- Rasmni `media` tarmog'iga qo'shing va Windsor `create_story` (`image_url`) bilan joylang. API orqali bosiladigan havola-stiker qo'yib bo'lmaydi, shuning uchun "profildagi havola" deb yozing.
 - Kanal FAQ posti (2026-11-22) bor, takrorlamang.
