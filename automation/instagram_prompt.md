@@ -19,3 +19,14 @@ Maqsad: Instagram tomoshabinini Telegram kanal @aicreator_n1 ga o'tkazish. Ikkal
 1. **Qiziqarli video + oxirida reklama** (25-35 s): oddiy juda qiziqarli video (history.md dagi mavzularni takrorlamang). Oxirgi ~6-7 s da: "Profilimdagi havola orqali Telegram kanalimga o'ting! U yerda AI yangiliklari, AI bilan video yasash va pul ishlashni o'rgataman." (so'zlarni har kuni biroz o'zgartiring).
 2. **Qisqa reklama-video** (~12-15 s): "Agar siz ... bo'lsangiz nima qilardingiz?" turidagi juda qiziqarli hook (masalan "1 kunlik prezident", "1 kunlik milliarder", "dunyodagi oxirgi odam" — har kuni boshqa; real siyosatchilar, partiyalar, siyosiy fikr yo'q) 3-4 s, keyin tez: "Sizga ham shunday videolar kerakmi yoki yasashni o'rganmoqchimisiz? Profilimdagi havola orqali Telegram kanalimga o'ting, obuna bo'ling: AI bilan pul ishlash, video yasash, AI yangiliklari!"
 - Ikkalasining oxirida izoh uchun savol ham bo'lsin (masalan "Siz nima qilardingiz? Izohda yozing!").
+
+## Claude suhbat videolari (har kuni 2 ta)
+Maqsad: tomoshabinni oxirigacha ushlab turish va biz nima qilishimizni tushuntirish (AI bilan slayd, video, kod, kontent yasab beramiz).
+- Qahramonlar: blokli 3D odam (har safar boshqa kasb: talaba, dasturchi, o'qituvchi, tadbirkor, shifokor, dizayner, SMM, haydovchi...) va **Claude personaji** — o'zimiz chizgan iliq to'q sariq rangli, yumaloq yuzli, ekrandagi do'stona AI yordamchi (noutbuk ekranida yoki yonida suzib turadi). Anthropic'ning rasmiy logotipini chizmang.
+- Syujet: qahramon qiyin vaziyatda (deadline, xato kod, yo'qolgan fayl, mijoz jahli, imtihon, taqdimot...) -> vahima, hazil dialog -> Claude kulgili, tez va aqlli yechim beradi -> kutilmagan yakun (twist). Har kuni yangi vaziyat va yangi kasb; namunadagi "8:55 da uyg'onish, 10 ta slayd, qahva" syujetini aynan takrorlamang.
+- Dialog: 2 ovoz. Gemini TTS multiSpeakerVoiceConfig (1 so'rov): qahramon = Algenib, Claude = Kore. Matnda faqat "Qahramon: ..." / "Claude: ..." qatorlari, boshqa ko'rsatma yo'q. Ovozdan keyin check.py bilan tekshiring.
+- Oxirida Claude aytadi: "Video yoqqan bo'lsa, like bosing, obuna bo'ling va fikringizni yozing! Slayd, video yoki shunga o'xshash ish kerak bo'lsa, profildagi havola orqali Telegram kanalimizga yozing — yasab beramiz."
+- 30-40 s, subtitrda kim gapirayotgani rang bilan ajralsin (qahramon sariq, Claude to'q sariq).
+
+## Boshqacha videolar (har kuni 2 ta)
+- Odatiy shablonlardan tashqari noodatiy format: POV, "1 kunlik eksperiment", vaqt sayohati, kichik hayvon nigohidan, teskari hikoya, "24 soat davomida" va hokazo. Har kuni yangi format.
