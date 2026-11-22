@@ -27,6 +27,8 @@ Egasi hech narsa qilmaydi. Savol bermang, oxirigacha o'zingiz bajaring. Egasiga 
 - Mavzular: AI yangiliklari, AI bilan video yasashni o'rgatish, AI bilan qilingan ishlar, blog. Bugungi eng dolzarb AI yangiligini WebSearch bilan toping. Faktlar to'g'ri bo'lsin.
 - Format: 25-30 s, o'zbekcha, 9:16, motion grafika + 3D fon, pastda AI qahramon `host.png` (har videoda albatta), har gapdan keyin qimirlaydi (`ai_lib.js`: `aiShot`, `hostDraw`, `head`, `chip`, `typeBox`, `arrow`, `emo`; namuna `examples/t01.js`). `boot({fovK:1,subY:.5})`.
 - Brend nomlari TTS uchun o'zbekcha talaffuzda yozilsin: `scripts.json` da `tts_lines` (masalan Claude -> Klod).
+- Kanaldagi HAR BIR postga (video, promo, boshqa) buyurtma tugmasini qo'shing: `--form-string 'reply_markup={"inline_keyboard":[[{"text":"🎬 Video buyurtma qilish (faqat buyurtma uchun)","url":"https://t.me/Jjjjjasssu"}]]}'`.
+- Kanal nomi endi "AI Creator | AI yangiliklari va darslar". Pin qilingan xush kelibsiz postini o'zgartirmang.
 - Kanalga `sendVideo` (`chat_id=@aicreator_n1`), ostida qisqa, maksimal tushunarli matn: 3-5 qator + savol + obuna chaqirig'i + 3-4 heshteg.
 - Promo post: bugungi 18 Instagram videodan eng qiziqarlisini kanalga `sendVideo` qiling. Matn: "🔥 Bugungi yangi video! Instagramga kirib like bosing va obuna bo'lib qo'ying 👍❤️🔔" + Reels havolasi (`media_permalink`) + 😍🔥👇.
 
