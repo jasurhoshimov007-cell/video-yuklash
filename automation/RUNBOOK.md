@@ -44,3 +44,8 @@ Egasi hech narsa qilmaydi. Savol bermang, oxirigacha o'zingiz bajaring. Egasiga 
 ## 5. So'rovnoma (har chorshanba va yakshanba)
 - Chorshanba va yakshanba kunlari kanalga 1 ta so'rovnoma: `sendPoll` (`chat_id=@aicreator_n1`, `is_anonymous=true`, 3-4 variant, emojili). Mavzu: AI darslari, AI vositalar, kanal kontenti, obunachilar fikri. Har safar yangi savol (history.md ga yozib boring).
 - Muhokama guruhi (`-1004470090152`, bot admin): qoidalar posti pin qilingan, uni o'zgartirmang.
+
+## 6. Juma dayjesti (har juma)
+- Juma kunlari kanalga qo'shimcha post: "📰 Haftaning 5 ta eng muhim AI yangiligi". WebSearch bilan shu haftadagi (oxirgi 7 kun) eng muhim 5 ta AI yangiligini toping, har birini rasmiy manbadan tekshiring.
+- Format: chiroyli rasm (PIL, kanal uslubi: to'q ko'k fon, neon, qahramon `host.png`, "HAFTA DAYJESTI" sarlavhasi) + matn: 5 band, har biri 1-2 qator o'zbekcha + manba havolasi; oxirida savol va obuna chaqirig'i. Buyurtma tugmasi bo'lsin.
+- Ovoz kerak emas (TTS limiti sarflanmaydi). Yangiliklarni history.md ga yozing, keyingi haftada takrorlamang.
