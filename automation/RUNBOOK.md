@@ -1,5 +1,7 @@
 # Kunlik avtomatik ish (har kuni 12:00, Toshkent)
 
+MAJBURIY: HAR BIR videoda (Instagram ham, kanal ham, reklama ham) ovozga sinxron sariq subtitr bo'lsin (lib.js `drawSub`, har gap uchun). Subtitrsiz video joylanmaydi: yuklashdan oldin kadrlarda subtitr borligini tekshiring.
+
 Egasi hech narsa qilmaydi. Savol bermang, oxirigacha o'zingiz bajaring. Egasiga faqat Telegram botga qisqa o'zbekcha hisobot yozing.
 
 ## 0. Tayyorgarlik
