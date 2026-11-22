@@ -35,3 +35,8 @@ Egasi hech narsa qilmaydi. Savol bermang, oxirigacha o'zingiz bajaring. Egasiga 
 ## 3. Hisobot (botga, TELEGRAM_CHAT_ID)
 - Oxirida 2-3 qator: Instagram'ga nechta joylandi (nomlari va uzunliklari), kanalga nimalar chiqdi.
 - Muammo bo'lsa (limit, xato), o'zingiz hal qilishga urining. Hal bo'lmasa, botga qisqa yozing: nima bo'ldi, nima qilinmadi.
+
+## 4. Yakshanba qo'shimchasi: "Haftaning top AI vositasi"
+- Faqat yakshanba kunlari (Toshkent vaqti) kanalga 1 ta qo'shimcha post: WebSearch bilan shu haftaning eng foydali/yangi AI vositasini toping (faktlarni rasmiy manbadan tekshiring).
+- Format: 25-30 s video (AI qahramon bilan, `ai_lib.js`) + ostida qisqa matn: nima qiladi, kimga foydali, bepulmi/pullikmi, havola. Buyurtma tugmasi ham bo'lsin.
+- Ovoz limitini tejash uchun yakshanba kuni Instagram videolarini 17 ta qiling.
