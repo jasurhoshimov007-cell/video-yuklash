@@ -54,7 +54,7 @@ Egasi hech narsa qilmaydi. Savol bermang, oxirigacha o'zingiz bajaring. Egasiga 
 - Agar chaqiruv 60 s da timeout bo'lsa, QAYTA YUBORMANG: avval `get_data` (fields `media_id`, `media_permalink`, date_preset `last_3dT`) bilan chiqqanini tekshiring.
 - Tarmoq o'chirish kerak emas (`git push --delete` bu muhitda taqiqlangan); ertasi kuni `media` force-push bilan tozalanadi.
 
-## 1.5 YouTube Shorts (Instagram'dan keyin, XUDDI SHU videolar)
+## 1.5 YouTube Shorts — O'CHIRILGAN (egasi 2026-11-23: YouTube kerak emas). BU BO'LIMNI BAJARMANG, YouTube'ga yuklamang, hisobotga youtube bloki qo'shmang.
 - **MUHIM: Instagram yuklash BIRINCHI va ASOSIY. YouTube xato bersa (limit, rate-limit), Instagram ishiga TA'SIR QILMASIN: Instagram'ni to'liq tugating, YouTube'ni keyin urinib ko'ring, chiqmasa o'tkazib yuboring.** Egasi shu YouTube kanalga (Gray Docket) yuklashni tasdiqlagan.
 - Windsor `youtube` connector (hisob id `get_connectors` dan oling; hozir ferangiz557@gmail.com = `117889`, eski monetyoutube9 = `114580`), action `upload_video` (params: `video_url`, `title`<=100, `made_for_kids:false`, `privacy_status:"public"`, `description`, `tags`, `category_id:"22"`). Video ochiq URL'dan olinadi (xuddi Instagram kabi `media` tarmog'i; YouTube yuklashlari tugamaguncha tarmoqni yangilamang), hajmi <=100 MB.
 - Yuklanadigan: Instagram'ga joylangan 18 ta video (+ kanal uchun 2 ta AI yangilik videosi ham bo'lsa). Har video: sarlavha = video nomi (kichik harfda chiroyli) + " #Shorts"; tavsif = 1-2 gap qiziqtiruvchi matn + "Telegram kanal: https://t.me/aicreator_n1" + 6-8 heshteg (#Shorts #uzbek #...); teglar 5-8 ta.
