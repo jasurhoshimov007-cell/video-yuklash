@@ -1,7 +1,7 @@
 import json,sys,base64,urllib.request,os,wave,time
-key=os.environ['GEMINI_API_KEY']
+KEYS=[k for k in (os.environ.get('GEMINI_API_KEY'),os.environ.get('GEMINI_API_KEY_2')) if k]
 d=json.load(open('scripts.json'))
-def tts(text,model,multi=False):
+def tts(text,model,key,multi=False):
     sc={"voiceConfig":{"prebuiltVoiceConfig":{"voiceName":"Algenib"}}}
     if multi: sc={"multiSpeakerVoiceConfig":{"speakerVoiceConfigs":[{"speaker":"Qahramon","voiceConfig":{"prebuiltVoiceConfig":{"voiceName":"Algenib"}}},{"speaker":"Claude","voiceConfig":{"prebuiltVoiceConfig":{"voiceName":"Kore"}}}]}}
     body={"contents":[{"parts":[{"text":text}]}],"generationConfig":{"responseModalities":["AUDIO"],"speechConfig":sc}}
@@ -13,16 +13,18 @@ for vid in sys.argv[1:]:
     pcm=None
     tl=d[vid].get("tts_lines") or d[vid]["lines"];multi=bool(d[vid].get("dialog"))
     text="\n".join((("Qahramon: " if sp=="Q" else "Claude: ")+l) for sp,l in zip(d[vid]["speakers"],tl)) if multi else "\n".join(tl)
-    for model in ["gemini-3.8-flash-tts","gemini-2.5-flash-preview-tts"]:
-        if os.path.exists(f"skip_{model}"): continue
+    for ki,key in enumerate(KEYS):
+      for model in ["gemini-3.8-flash-tts","gemini-2.5-flash-preview-tts"]:
+        if os.path.exists(f"skip_{ki}_{model}"): continue
         for att in range(4):
             try:
-                pcm,mt=tts(text,model,multi);break
+                pcm,mt=tts(text,model,key,multi);break
             except urllib.error.HTTPError as e:
-                msg=e.read().decode();print(vid,model,e.code,msg[:200].replace("\n"," "),flush=True);pcm=None
-                if e.code==429 and "PerDay" in msg: open(f"skip_{model}","w").close();break
+                msg=e.read().decode();print(vid,ki,model,e.code,msg[:200].replace("\n"," "),flush=True);pcm=None
+                if e.code==429 and "PerDay" in msg: open(f"skip_{ki}_{model}","w").close();break
                 time.sleep(65)
         if pcm: break
+      if pcm: break
     if not pcm: print(vid,"FAILED");continue
     os.makedirs(vid,exist_ok=True)
     if pcm[:4]==b"RIFF": open(f"{vid}/raw.wav","wb").write(pcm)

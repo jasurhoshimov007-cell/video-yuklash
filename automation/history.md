@@ -47,3 +47,6 @@
 ## Eslatmalar
 - 2026-11-23: Gemini TTS 429 ko'pincha DAQIQALIK limit (tts.py endi 65 s kutib qayta urinadi, faqat PerDay bo'lsa o'tkazadi). Kunlik limit ~8-9 so'rov/model; 08:00 UTC da tiklanadi.
 - curl'da chat_id=@kanal ni -F emas, --form-string bilan yuboring (-F @ ni fayl deb o'qiydi).
+
+## 2D horror (yangi uslub)
+- 2026-11-23: RAQAMIM (o'z raqamimdan xabar, uyda 'men' turibdi) — 2D horror namuna, botga yuborilgan (Instagramga joylanmagan)

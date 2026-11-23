@@ -18,12 +18,23 @@ Egasi hech narsa qilmaydi. Savol bermang, oxirigacha o'zingiz bajaring. Egasiga 
 - Rasm va story'larda `host.png` pastki qismi tekis kesilib qolmasin: pastini gradient bilan xiralashtiring.
 - `git push` da "push negotiation failed" ogohlantirishi chiqishi normal, push baribir o'tadi; URL ni `curl -sI` bilan tekshiring.
 
+## 1.1 Yangi qoidalar (egasi 2026-11-23 da tasdiqlagan, QAT'IY)
+- **Horror/sirli (5 ta/kun): 2D flat-vector uslub**, uzunligi **40-50 s** (kerak: ~90-100 so'z), AI ovoz. Dvigatel: `lib2d.js` (+ `page2d.html`, `render2d.js` o'rniga `render.js` ni `page2d.html` bilan ishlating: `node render2d.js vNN sheet|full`). Namuna: `examples/h01_2d_horror.js` ("RAQAMIM"). Doimiy hikoyachi qahramon `drawHost` (nomi Jasur), pastda @jasur.ai_, subtitrda kalit so'z qizil (`kw`), UI maketlari (telefon `scenePhone`, CCTV `cctv`, taymer, TV ogohlantirish, xarita — kerak bo'lsa `lib2d.js` ga qo'shing), "sen/men" hikoyasi, vaqt/raqam bilan hook, oxirida cliffhanger.
+- Ovoz uchun kadrlar ro'yxati: `ENVA` (ovoz amplitudasi, `env.json`) bilan qahramon og'zi harakatlanadi: har horror uchun `h01` dagi kabi `env.json` yarating.
+- **Telegram voronkasi (har kuni):**
+  1. Horrorlardan **1 tasi** eng qiziq joyda uziladi: oxirida "Davomi Telegram kanalimizda!" (`endCard`) + "OBUNA BO'LINDI ✓" (`subscribeBtn`). Shu kuni kanalga uning DAVOMI/YAKUNI joylanadi (matn 6-10 gap + videodan kadr rasmi), tugma bilan.
+  2. A yoki B savol-javoblardan **1 tasi**: oxirida "Natija Telegram kanalimizda!". Shu kuni kanalga o'sha savol `sendPoll` (anonim, A va B variant) bilan joylanadi: kanalga kirgan odam ovoz beradi va natijani ko'radi.
+  3. **AI yangilik videolari (Instagram 2 + kanal 2)**: oxirida Telegram kanalimiz reklamasi ("Har kuni AI yangiliklari va darslar, profildagi havola").
+- A yoki B savol-javob: blokli 3D (`lib.js`), vs ekrani, foiz chizig'i, 30-40 s, oxirida "Siz qaysi birini tanlaysiz? Izohda A yoki B yozing". Mavzu: umumiy + o'zbek hayotiga yaqin aralash, har kuni oldingidan qiziqarliroq (history.md ni tekshiring).
+- Barcha videolar `reference_analysis.md` talablariga mos bo'lsin (hook, UI maketlari, doimiy qahramon, cliffhanger).
+
 ## 1. Instagram: 18 ta video (avval shu)
 - Talablar: `instagram_prompt.md` (qat'iy).
 - Trend: boshlashdan oldin WebSearch bilan shu haftaning Instagram Reels / TikTok trendlarini (formatlar, hook'lar, mavzular, O'zbekiston va dunyo bo'yicha) qidiring va bugungi 18 ta mavzuni ularga moslang. Har kuni mavzu, hook, shablon va vizual uslub yangi bo'lsin; history.md dagilarni takrorlamang.
 - Tarkib (jami 18, egasi 2026-11-23 da belgilagan): horror/sirli hikoya 5; Claude AI bilan suhbat-video 3; Telegram kanal reklamasi 3; qiziqarli "A yoki B" savol-javob / ovoz jangi 5; AI yangilik 2. Telegram kanal uchun alohida: AI yangilik videosi 2 (Instagram'ga emas). Namunalar tahlili: `reference_analysis.md` (qat'iy bajaring).
 - Ish tartibi har video uchun: `scripts.json` -> `python3 tts.py vNN` -> `python3 prep.py vNN` -> `python3 check.py vNN` -> `vNN.js` sahna (namunalar: `examples/v01.js`...`v10.js`; `lib.js` dagi set/prop/overlay funksiyalari) -> `node render.js vNN sheet` + kontakt-varaqni ko'rib tuzatish -> `node render.js vNN full` -> `python3 mix.py vNN` -> ffmpeg mux (`-c copy -movflags +faststart`) -> `final.mp4`.
 - 3 ta videoni parallel render qiling.
+- TTS kalitlari: `GEMINI_API_KEY` va zaxira `GEMINI_API_KEY_2` (muhitda bo'lsa; boshqa Google loyihasidan). `tts.py` birinchi kalit kunlik limiti tugasa o'zi ikkinchisiga o'tadi. Har ikki kalitning limiti tugasa, qolganini qilmang va hisobotda ayting.
 - TTS limiti: har model uchun kuniga ~10 so'rov (jami ~20). 18 Instagram + 2 kanal uchun so'rovlarni tejang, qayta yozdirmang. Limit tugasa, qolganini qilmasdan hisobotda ayting.
 - Joylash (ochiq URL): bitta `media` tarmog'idan foydalaning va uni har kuni yangidan, tarixsiz yozing: `git checkout --orphan media-tmp && git rm -rfq --cached . && git add vNN.mp4 story.jpg ... && git commit -m media && git push -f origin HEAD:media` (eski videolar shu bilan o'chadi, ombor kattalashmaydi). URL: `https://raw.githubusercontent.com/jasurhoshimov007-cell/video-yuklash/media/vNN.mp4`. Yangi videolar qo'shilganda shu tarmoqqa oddiy commit + push qiling. Agar `media` ga push rad etilsa, sessiyaning o'z ishchi tarmog'iga `media/` papka qilib push qiling va hisobotda ayting.
 - Instagram'ga `create_video_post` bilan yuklang: `caption` BO'SH (nom/heshteg yo'q), `share_to_feed: true`, `thumb_offset: 1500`. Har video tayyor bo'lishi bilan yuklang.
