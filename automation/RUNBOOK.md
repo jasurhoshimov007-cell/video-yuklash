@@ -9,7 +9,7 @@ Egasi hech narsa qilmaydi. Savol bermang, oxirigacha o'zingiz bajaring. Egasiga 
 - Kalitlar muhitda: `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` (egasining shaxsiy chati = hisobot), `GEMINI_API_KEY`.
 - Kanal: `@aicreator_n1` (bot admin, post huquqi bor).
 - Instagram: Windsor.ai connector `instagram`, akkaunt id `17841441055115940` (@jasur.ai_), action `create_video_post`.
-- Skillar: horror uchun `anthropic-skills:3d-horror-videolar`, qiziqarli uchun `anthropic-skills:izoh-ovoz-jangi-roblox` (CTA: like + obuna + izohdagi savol).
+- Skillar (faqat g'oya/ssenariy uchun, ularning blokli/Roblox vizual uslubi ISHLATILMAYDI; uslub 1.0-bo'limda): `anthropic-skills:3d-horror-videolar`, `anthropic-skills:izoh-ovoz-jangi-roblox`. CTA: like + obuna + izohdagi savol.
 - `history.md` ni o'qing: u yerdagi mavzularni qaytarmang. Ish oxirida yangi mavzularni qo'shib, commit qilib push qiling.
 
 
@@ -25,13 +25,17 @@ Egasi hech narsa qilmaydi. Savol bermang, oxirigacha o'zingiz bajaring. Egasiga 
   1. Horrorlardan **1 tasi** eng qiziq joyda uziladi: oxirida "Davomi Telegram kanalimizda!" (`endCard`) + "OBUNA BO'LINDI ✓" (`subscribeBtn`). Shu kuni kanalga uning DAVOMI/YAKUNI joylanadi (matn 6-10 gap + videodan kadr rasmi), tugma bilan.
   2. A yoki B savol-javoblardan **1 tasi**: oxirida "Natija Telegram kanalimizda!". Shu kuni kanalga o'sha savol `sendPoll` (anonim, A va B variant) bilan joylanadi: kanalga kirgan odam ovoz beradi va natijani ko'radi.
   3. **AI yangilik videolari (Instagram 2 + kanal 2)**: oxirida Telegram kanalimiz reklamasi ("Har kuni AI yangiliklari va darslar, profildagi havola").
-- A yoki B savol-javob: blokli 3D (`lib.js`), vs ekrani, foiz chizig'i, 30-40 s, oxirida "Siz qaysi birini tanlaysiz? Izohda A yoki B yozing". Mavzu: umumiy + o'zbek hayotiga yaqin aralash, har kuni oldingidan qiziqarliroq (history.md ni tekshiring).
+- A yoki B savol-javob: 2D (`tmpl2d_ab.js`), VS ekrani, 30-40 s, oxirida "Siz qaysi birini tanlaysiz? Izohda A yoki B yozing". Mavzu: umumiy + o'zbek hayotiga yaqin aralash, har kuni oldingidan qiziqarliroq (history.md ni tekshiring).
 - **Kanal reklamasi videolari (3 ta/kun)**: 2D, 20-26 s, namuna `examples/r01_ad_2d.js` (hook mavzusi har kuni yangi: 1 kunlik prezident/milliarder/robot..., siyosatchi va partiyasiz; keyin qahramon `drawHost` pastda, `igProfile` (havola), `tgChannelCard`, `subscribeBtn`). Ovoz turi `fun`. Matn: hook, shunday videolar kerakmi/yasashni o'rganasizmi, profildagi havola -> Telegram, AI bilan pul ishlash/video yasash/AI yangiliklari, obuna+like+fikr.
 - Barcha videolar `reference_analysis.md` talablariga mos bo'lsin (hook, UI maketlari, doimiy qahramon, cliffhanger).
 
+## 1.0 USLUB QOIDASI (egasi 2026-11-23, QAT'IY)
+- **Roblox / blokli (kubik) uslub BUTUNLAY TAQIQLANGAN.** Faqat: (1) 2D flat-vector (`lib2d.js`) yoki (2) 3D Pixar-uslubidagi qahramon rasmi (`host.png`, AI yangilik videolarida). `lib.js` dagi blokli 3D sahnalari (`drawChar`, `room`...) ishlatilmaydi; `examples/v01-v10.js` ESKI blokli videolar edi: nusxa olmang.
+- AI yangilik videolari (Instagram va kanal): `host.png` (3D rasm qahramon) + `ai_lib.js` kartalari.
+
 ## 1.2 Shablonlar va xavfsizlik qoidalari (sinovdan o'tgan)
-- **A yoki B** (`tmpl_ab.js`, blokli 3D): `vNN/spec.json` ({A:{label,emoji},B:{label,emoji},roles:[har gap uchun hook|A|B|choose|comment|natija|cta],hookBig}) va `scripts.json` (type fun) yarating; `cp tmpl_ab.js vNN.js`. Namuna: `examples/ab_spec_example.json`. Matn 75-85 so'z (30-38 s). `roles` dagi `natija` faqat 1 ta videoda ("Natija Telegram kanalimizda!"), qolganlarida o'rniga `comment`. SAXTA foiz/natija ko'rsatmang.
-- **Claude suhbat** (`tmpl_claude.js`, blokli 3D): `spec.json` ({speakers:["H","C",..],moods:[...],look,shirt,wide:[...],hookBig,hookSub,alert}); `scripts.json`da `"dialog":true,"speakers":["Q"/"C",...]` (Q = odam Algenib, C = Claude Kore; multi-speaker TTS faqat gemini-2.5-flash-preview-tts da ishlaydi, 3.8 da 400 xato beradi). Namuna: `examples/claude_spec_example.json`. Matn 75-90 so'z (35-45 s).
+- **A yoki B** (`tmpl2d_ab.js`, 2D flat-vector, `render2d.js`): `vNN/spec.json` ({A:{label,emoji},B:{label,emoji},roles:[har gap uchun hook|A|B|choose|comment|natija|cta],hookBig}) va `scripts.json` (type fun) yarating; `cp tmpl2d_ab.js vNN.js`. Namuna: `examples/ab_spec_example.json`. Matn 75-85 so'z (30-38 s). `roles` dagi `natija` faqat 1 ta videoda ("Natija Telegram kanalimizda!"), qolganlarida o'rniga `comment`. SAXTA foiz/natija ko'rsatmang.
+- **Claude suhbat** (`tmpl2d_claude.js`, 2D flat-vector, `render2d.js`; Claude personaji `drawClaude2d`, stol `deskBack`/`deskFront`; odam `drawHost` + `look:{hood,hair,skin}` bilan har kuni boshqa ko'rinish): `spec.json` ({speakers:["H","C",..],moods:[...],look,shirt,wide:[...],hookBig,hookSub,alert}); `scripts.json`da `"dialog":true,"speakers":["Q"/"C",...]` (Q = odam Algenib, C = Claude Kore; multi-speaker TTS faqat gemini-2.5-flash-preview-tts da ishlaydi, 3.8 da 400 xato beradi). Namuna: `examples/claude_spec_example.json`. Matn 75-90 so'z (35-45 s).
 - **Birinchi 3 soniya testi (majburiy)**: har video tayyor bo'lgach `python3 hookcheck.py final.mp4`. "HOOK MUAMMO" chiqsa, birinchi shotni kuchaytiring (katta matn/raqam, tez harakat, ovozli zarba) va qayta render qiling. 1-kadr hech qachon qora/bo'sh bo'lmasin.
 - **Sahna sinovi (majburiy)**: har videoning `node render.js vNN sheet` kontakt-varag'ini ko'ring; qahramon ko'rinmasa, matn kesilsa yoki kadr bo'sh bo'lsa, tuzating.
 - **Xato tutish**: bitta video 2 urinishda chiqmasa uni o'tkazib yuboring va hisobotga yozing; butun ishni to'xtatmang. TTS 400 xatosi: boshqa modelga o'ting (`tts.py` o'zi qiladi). Kunlik TTS limiti tugasa `tts.py` 08:00 UTC gacha (<=2 soat) kutadi.

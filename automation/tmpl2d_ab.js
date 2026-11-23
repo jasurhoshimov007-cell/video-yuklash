@@ -1,0 +1,21 @@
+// ===== A yoki B savol-javob shabloni (2D flat-vector). SPEC:
+// {A:{label,emoji},B:{label,emoji},roles:[hook|A|B|choose|comment|natija|cta ...],hookBig:"A YOKI B?"}
+const HOST={x:360,y:1330,s:2.0,upper:1};
+function abBG(t,dimA=0,dimB=0){ctx.fillStyle=lgrad(0,-300,0,640,[[0,'#ff7a63'],[1,'#c42a40']]);ctx.fillRect(-300,-300,1320,940);ctx.fillStyle=lgrad(0,640,0,1580,[[0,'#3a8fff'],[1,'#1b3fa8']]);ctx.fillRect(-300,640,1320,940);
+ for(let i=0;i<14;i++){const x=hash(i)*720,y=(hash(i+4)*1300+t*20*(1+hash(i)))%1300;ctx.globalAlpha=.1;ell(x,y,18+hash(i+8)*30,18+hash(i+8)*30,'#fff')}ctx.globalAlpha=1;
+ ctx.fillStyle='rgba(255,255,255,.9)';ctx.beginPath();ctx.moveTo(-300,660);ctx.lineTo(1020,620);ctx.lineTo(1020,650);ctx.lineTo(-300,690);ctx.fill();
+ if(dimA){ctx.fillStyle=`rgba(0,0,0,${dimA})`;ctx.fillRect(-300,-300,1320,940)}if(dimB){ctx.fillStyle=`rgba(0,0,0,${dimB})`;ctx.fillRect(-300,650,1320,940)}}
+function emojiAt(e,x,y,size,u,t){const a=ease(ramp(u,0,.25));ctx.save();ctx.translate(x,y+(1-a)*60+Math.sin(t*5)*8);ctx.scale(.4+.6*a,.4+.6*a);ctx.globalAlpha=a;ctx.font=`${size}px "Noto Color Emoji"`;ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(e,0,0);ctx.restore()}
+function tag(letter,col,label,x,y,u,size=44){const a=ease(ramp(u,.05,.3));ctx.save();ctx.translate(x,y);ctx.globalAlpha=a;ctx.scale(.85+.15*a,.85+.15*a);ctx.font=`900 ${size}px Inter`;let sz=size;const w=ctx.measureText(label).width;if(w>420)sz=size*420/w;rrect(-320,-60,640,120,60,'#fff');ell(-250,0,48,48,col);txt(letter,-250,4,60,'#fff',0);txt(label,50,3,sz,'#1b1d2e',0);ctx.restore()}
+const camP=[[1,360,640],[1.05,360,640]];
+const SHOT={
+ hook:(k)=>({cam:[[1,360,640],[1.08,360,600]],scene:(t,u,m)=>{abBG(t,.25,.25);drawHost(Object.assign({t,mouth:m,eye:'wide',brow:1,mshape:'neutral',aL:[2.3,2.6],aR:[2.3,2.6]},HOST,{y:1330}))},ov:(T,u)=>{if(k==0){const s=ease(ramp(u,0,.2));ctx.save();ctx.translate(360,300);ctx.scale(.6+.4*s+.04*Math.sin(T*20),.6+.4*s+.04*Math.sin(T*20));txt(SPEC.hookBig||'A YOKI B?',0,0,130,'#ffe14d',24);ctx.restore()}},sfx:[[0,'hit'],[.15,'whoosh']]}),
+ A:(k)=>({cam:camP,scene:(t,u)=>{abBG(t,0,.5);emojiAt(SPEC.A.emoji,360,330,240,u,t)},ov:(T,u)=>{tag('A','#e8434f',SPEC.A.label,360,560,u)},sfx:[[0,'pop'],[.3,'ding']]}),
+ B:(k)=>({cam:camP,scene:(t,u)=>{abBG(t,.5,0);emojiAt(SPEC.B.emoji,360,960,240,u,t)},ov:(T,u)=>{tag('B','#2f7de1',SPEC.B.label,360,740,u)},sfx:[[0,'pop'],[.3,'ding']]}),
+ choose:(k)=>({cam:[[1,360,640],[1.04,360,640]],scene:(t,u)=>{abBG(t);emojiAt(SPEC.A.emoji,360,300,170,1,t);emojiAt(SPEC.B.emoji,360,980,170,1,t)},ov:(T,u)=>{const s=1+.1*Math.sin(T*10);ctx.save();ctx.translate(360,640);ctx.scale(s,s);ell(0,0,78,78,'#1b1d2e');ctx.lineWidth=8;ctx.strokeStyle='#fff';ctx.beginPath();ctx.arc(0,0,78,0,7);ctx.stroke();txt('VS',0,4,70,'#fff',0);ctx.restore();const n=3-Math.min(2,Math.floor(u*3));ctx.save();ctx.translate(590,640);ctx.scale(1.2-.2*((u*3)%1),1.2-.2*((u*3)%1));txt(String(n),0,0,120,n==1?'#ff3b5c':'#ffe14d',20);ctx.restore()},sfx:[[0,'tick'],[.5,'tick'],[1,'tick']]}),
+ comment:(k)=>({cam:camP,scene:(t,u,m)=>{abBG(t,.3,.3);drawHost(Object.assign({t,mouth:m,eye:'open',mshape:'smile',aR:[2.4,2.7]},HOST))},ov:(T,u)=>{const a=ease(ramp(u,0,.3));ctx.save();ctx.translate(360,300);ctx.scale(.7+.3*a,.7+.3*a);ctx.globalAlpha=a;rrect(-300,-90,600,180,54,'#fff');txt('💬 IZOHDA YOZING',0,-30,54,'#111',0);txt('A  yoki  B',0,40,76,'#e8434f',0);ctx.restore()},sfx:[[0,'pop']]}),
+ natija:(k)=>({cam:camP,scene:(t,u,m)=>{abBG(t,.45,.45);drawHost(Object.assign({t,mouth:m,eye:'open',mshape:'smile',aR:[2.1,2.6]},HOST))},ov:(T,u)=>{const a=ease(ramp(u,0,.25));ctx.save();ctx.translate(360,300);ctx.scale(.7+.3*a,.7+.3*a);ctx.globalAlpha=a;planeIcon(0,0,96,'#2aa3ef');ctx.restore();ctx.save();ctx.globalAlpha=ease(ramp(u,.15,.45));txt('NATIJA',360,460,92,'#fff',18);txt('TELEGRAMDA',360,550,78,'#8fd0ff',16);ctx.restore()},sfx:[[0,'whoosh'],[.4,'ding']]}),
+ cta:(k)=>({cam:camP,scene:(t,u,m)=>{abBG(t,.4,.4);drawHost(Object.assign({t,mouth:m,eye:'open',mshape:'smile',aL:[2.4,2.7],aR:[2.4,2.7]},HOST))},ov:(T,u)=>subscribeBtn(ramp(u,.1,.9),T),sfx:[[0,'whoosh'],[.6,'pop']]})
+};
+const cnt={};const S=SPEC.roles.map(r=>{cnt[r]=(cnt[r]||0)+1;return SHOT[r](cnt[r]-1)});
+boot2d({subY:1040});build2d(TIMINGDATA,S,{tail:1.4,kw:SPEC.kw||[]});

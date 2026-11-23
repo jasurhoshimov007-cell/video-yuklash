@@ -24,7 +24,7 @@ const SPAL={skin:'#0a0a10',skinS:'#050508',hair:'#040406',hood:'#07070b',hoodL:'
 function armPts(sx,sy,a1,a2,mir,l1=62,l2=58){const x1=sx+mir*Math.sin(a1)*l1,y1=sy+Math.cos(a1)*l1;return[x1,y1,x1+mir*Math.sin(a2)*l2,y1+Math.cos(a2)*l2]}
 // p: {x,y,s,flip,t,upper,shadow,eye,look,brow,mouth,mshape,tilt,hx,hy,aL,aR,glow,prop,sweat}
 function drawHost(p){
- const P=p.shadow?SPAL:PAL,s=p.s||1,t=p.t||0,br=Math.sin(t*2.2)*1.6;
+ const P=p.shadow?SPAL:Object.assign({},PAL,p.look||{}),s=p.s||1,t=p.t||0,br=Math.sin(t*2.2)*1.6;
  ctx.save();ctx.translate(p.x,p.y);ctx.scale(p.flip?-s:s,s);
  if(!p.upper){rrect(-42,-6,36,150,15,P.jeans);rrect(6,-6,36,150,15,P.jeans);rrect(-50,126,48,26,13,P.shoe);rrect(2,126,48,26,13,P.shoe)}
  ell(0,-150+br,66,30,P.hoodL);
@@ -236,3 +236,21 @@ function tgChannelCard(t,u,o={}){const a=ease(ramp(u,0,.18));ctx.save();ctx.glob
  ctx.restore()}
 function chipPop(txtS,x,y,u,col='#ffd23a',tc='#1b1d2e',size=34){const a=ease(ramp(u,0,1));ctx.save();ctx.translate(x,y);ctx.scale(.6+.4*a,.6+.4*a);ctx.globalAlpha=a;ctx.font=`900 ${size}px Inter`;const w=ctx.measureText(txtS).width+54;rrect(-w/2,-size,w,size*2,size,col);txt(txtS,0,2,size,tc,0);ctx.restore()}
 function headline(lines,u,y0=170,size=74,cols=['#fff','#ffd23a']){lines.forEach((l,i)=>{const a=ease(ramp(u,i*.12,.25+i*.12));if(a<=0)return;ctx.save();ctx.translate(360,y0+i*(size+10)+(1-a)*30);ctx.globalAlpha=a;ctx.scale(.8+.2*a,.8+.2*a);ctx.font=`900 ${size}px Inter`;let sz=size;const w=ctx.measureText(l).width;if(w>650)sz=size*650/w;txt(l,0,0,sz,cols[i%cols.length],sz*.2);ctx.restore()})}
+
+// ---------- Claude personaji (2D, o'zimizning dizayn) va ish stoli sahnasi ----------
+function drawClaude2d(x,y,s,mood,speaking,t){const bob=Math.sin(t*2.2)*2.5,sq=speaking?1+.04*Math.sin(t*15):1;ctx.save();ctx.translate(x,y);ctx.scale(s,s*sq);
+ if(speaking)glow(0,-130,200,'#ff9a55',.45);
+ [[-86,-34],[-48,-34],[22,-34],[60,-34]].forEach(a=>rrect(a[0],a[1],28,36,8,'#d9651f'));
+ ctx.translate(0,bob);poly([[110,-224],[134,-248],[134,-58],[110,-34]],'#e2701f');poly([[-110,-224],[-84,-248],[134,-248],[110,-224]],'#ffb878');rrect(-110,-224,220,190,30,lgrad(0,-224,0,-34,[['0','#ff9a55'],['1','#ff8137']]));
+ const bl=(t%3.4)<.12;ctx.fillStyle='#2a1812';ctx.strokeStyle='#2a1812';ctx.lineWidth=11;ctx.lineCap='round';
+ [-48,48].forEach(ex=>{if(bl){rrect(ex-12,-130,24,7,3,'#2a1812')}else if(mood==='happy'){ctx.beginPath();ctx.arc(ex,-122,16,PI*1.08,PI*1.92);ctx.stroke()}else{const h=(mood==='shock'||mood==='scared')?86:66;rrect(ex-12,-160,24,h,10,'#2a1812');ell(ex+2,-160+h*.28,4,6,'rgba(255,255,255,.55)')}});
+ if(mood==='happy'){ctx.strokeStyle='#2a1812';ctx.lineWidth=7;ctx.beginPath();ctx.arc(0,-88,18,.15*PI,.85*PI);ctx.stroke()}
+ ctx.restore()}
+function deskBack(t){ctx.fillStyle=lgrad(0,-100,0,900,[[0,'#171d52'],[1,'#0b1038']]);ctx.fillRect(-300,-300,1320,1200);
+ rrect(40,200,250,290,10,'#0a0d28');rrect(50,210,230,270,6,lgrad(0,210,0,480,[[0,'#27358f'],[1,'#121b57']]));for(let i=0;i<8;i++)rrect(60+i*27,390-hash(i)*70,20,90+hash(i)*70,3,'#0b1038');for(let i=0;i<16;i++)ell(60+hash(i+4)*210,240+hash(i+9)*200,2.2,2.2,'#ffd27a');
+ rrect(430,230,230,170,8,'#1d2556');rrect(440,240,210,150,4,'#2a3570');ctx.fillStyle='#8a96c8';[0,1,2].forEach(i=>ctx.fillRect(455,262+i*34,170-i*30,8));
+ ctx.strokeStyle='#05071a';ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(-20,60);ctx.quadraticCurveTo(360,150,740,60);ctx.stroke();for(let i=0;i<14;i++){const x=i*52-10,y=60+Math.sin(i/13*PI)*70;ell(x,y+8,7,9,`rgba(255,226,150,${.7+.3*Math.sin(t*3+i)})`);glow(x,y+8,38,'#ffe9a8',.22)}
+ ctx.fillStyle='#120a1e';ctx.fillRect(-300,1100,1320,400)}
+function deskFront(t,o={}){rrect(10,880,700,30,10,'#b57a44');rrect(30,910,660,300,12,'#7a4a2a');rrect(250,1000,220,18,6,'#5a3220');
+ // noutbuk
+ ctx.save();ctx.translate(360,880);rrect(-92,-112,184,108,10,'#cfd3dc');rrect(-82,-102,164,88,6,o.screen||'#2a4aa0');ctx.fillStyle='rgba(255,255,255,.55)';[0,1,2,3].forEach(i=>ctx.fillRect(-70,-90+i*18,100-i*14,6));rrect(-110,-6,220,12,6,'#aeb4c6');ctx.restore()}
