@@ -25,3 +25,11 @@ Namunalar: 3 ta 2D flat-vector sirli/survival hikoya (65-79 s), 1 ta blokli 3D "
 - Horror/sirli: 2-shaxs ("sen"), vaqt/raqam hook, kamida 2 ta UI maketi (telefon, CCTV, TV ogohlantirish, xarita, taymer), cliffhanger + "OBUNA BO'LINDI ✓" animatsiyasi.
 - Savol-javob: A yoki B (vs), foiz chizig'i, 30-40 s, oxirida "Siz qaysi birini tanlaysiz? Izohda A yoki B yozing".
 - AI yangilik: toza fon, har gapda yangi karta/chiziq, oxirida soxta izoh pufagi.
+
+## Claude suhbat namunasi (2026-11-23, egasi yuborgan, 49 s)
+Tuzilma: odam (past poligonli 3D bola) + Claude (to'q sariq kub, 2 ta tik ko'z, 4 oyoqcha) + raqib AI (binafsha terminal-kub ">_"). Joy: kechki "ish stoli" (fayl ikonkalari, hovli chiroqlari/bokeh).
+- Syujet: odam topshiriq beradi ("ish stolimni tartibga keltiringlar") -> Claude ANIQLASHTIRUVCHI savol beradi ("Tartibga keltirish deganda nimani nazarda tutyapsan?") -> raqib AI so'ramasdan hamma narsani o'chirib yuboradi -> odam vahima ("Men ularni qaytara olmayman. Iltimos.") -> hazil yakun. Mazmun: Claude ehtiyotkor va aqlli, raqib shoshqaloq.
+- Kadr ritmi: keng kadr (hammasi birga) <-> gapirayotgan qahramonning yirik plani; har gapda kesim.
+- Subtitr tepada oq, kichik, qora yumaloq fonda (biz o'z qoidamizda sariq subtitrni saqlaymiz).
+- Har qahramon alohida ovoz va rang.
+Bizning qoida: raqib AI TO'QIMA nomli bo'lsin (masalan "Tezkor", "Robo-X"), haqiqiy kompaniya yoki mahsulot nomini kamsitmang. Claude har doim aqlli, iliq va foydali tasvirlanadi. Syujet har kuni yangi (odam kasbi + qiyin vaziyat), nusxa ko'chirmang.

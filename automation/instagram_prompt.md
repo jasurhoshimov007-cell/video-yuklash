@@ -30,3 +30,8 @@ Maqsad: tomoshabinni oxirigacha ushlab turish va biz nima qilishimizni tushuntir
 
 ## Boshqacha videolar (har kuni 2 ta)
 - Odatiy shablonlardan tashqari noodatiy format: POV, "1 kunlik eksperiment", vaqt sayohati, kichik hayvon nigohidan, teskari hikoya, "24 soat davomida" va hokazo. Har kuni yangi format.
+
+## Claude suhbat videolari: yangilangan qoida (2026-11-23)
+- 3 ta/kun, 40-50 s. 3 qahramon: odam (har kuni boshqa kasb), Claude (to'q sariq yumaloq kub, 2 tik ko'z, oyoqchalar; o'zimizning dizayn) va TO'QIMA raqib AI (binafsha terminal-kub). Namuna tuzilma: `reference_analysis.md` oxirgi bo'lim.
+- Har qahramon o'z ovozi: odam Algenib, Claude Kore, raqib AI uchinchi ovoz (masalan Puck). TTS multiSpeaker 2 ta ovoz bilan cheklangan bo'lsa, raqibni alohida so'rov bilan yoki odam ovozida yozing.
+- Dvigatel: blokli 3D (`lib.js`) yoki 2D (`lib2d.js`). Kub qahramonlar uchun `R.box` bilan kub + ko'z + oyoq yig'iladi.

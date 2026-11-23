@@ -49,6 +49,7 @@ function drawHost(p){
  // soch
  ctx.beginPath();ctx.moveTo(-54,2);ctx.bezierCurveTo(-60,-40,-34,-74,4,-68);ctx.bezierCurveTo(30,-76,56,-52,54,2);ctx.bezierCurveTo(48,-10,44,-26,34,-32);ctx.bezierCurveTo(14,-22,-18,-40,-38,-24);ctx.bezierCurveTo(-46,-20,-50,-10,-54,2);ctx.closePath();ctx.fillStyle=P.hair;ctx.fill();
  [[-26,-66,-34,-82,-14,-70],[-4,-70,-6,-88,10,-72],[16,-70,26,-86,32,-66],[34,-60,52,-72,48,-48]].forEach(a=>{ctx.beginPath();ctx.moveTo(a[0],a[1]);ctx.lineTo(a[2],a[3]);ctx.lineTo(a[4],a[5]);ctx.fillStyle=P.hair;ctx.fill()});
+ if(p.crown){poly([[-31,-56],[-35,-100],[-17,-78],[0,-106],[17,-78],[35,-100],[31,-56]],'#ffc933');rrect(-32,-66,64,11,4,'#e8a512');ell(0,-86,4.6,4.6,'#ff3b5c');ell(-21,-76,3.4,3.4,'#3bd1ff');ell(21,-76,3.4,3.4,'#3bd1ff')}
  // koz
  const blink=(t%3.7)<.11,st=p.eye||'open',look=p.look||0;
  [-21,21].forEach((ex,i)=>{
@@ -197,3 +198,43 @@ function renderFrame(t){
  if(sh.flash)flashFx(sh.flash(u,t),sh.flashCol||'#fff');
  const fi=clamp(t/.15,0,1);if(fi<1)flashFx(1-fi,'#000');
  return cv.toDataURL('image/jpeg',.92)}
+
+// ---------- reklama sahnalari / UI kartalar ----------
+function sceneTech(t,o={}){ctx.fillStyle=lgrad(0,-100,0,1380,[[0,'#0a1236'],[.6,'#1b1850'],[1,'#0a0a24']]);ctx.fillRect(-300,-300,1320,1900);
+ ctx.strokeStyle='rgba(34,228,255,.12)';ctx.lineWidth=2;for(let x=-300;x<1020;x+=60){ctx.beginPath();ctx.moveTo(x,-300);ctx.lineTo(x,1500);ctx.stroke()}for(let y=-300;y<1500;y+=60){ctx.beginPath();ctx.moveTo(-300,y);ctx.lineTo(1020,y);ctx.stroke()}
+ for(let i=0;i<16;i++){const x=hash(i)*720,y=1400-((hash(i+9)*1500+t*(24+hash(i+3)*34))%1500),z=14+hash(i+5)*34;ctx.save();ctx.translate(x,y);ctx.rotate(t*.5+i);ctx.globalAlpha=.22;ctx.fillStyle=['#22e4ff','#a855ff','#ff4fd8'][i%3];ctx.fillRect(-z/2,-z/2,z,z);ctx.restore()}
+ glow(360,480,430,'#4a6cff',.2)}
+function sceneOffice(t,o={}){ctx.fillStyle=lgrad(0,-100,0,900,[[0,'#171c52'],[1,'#0b0f33']]);ctx.fillRect(-300,-300,1320,1200);
+ rrect(430,150,230,330,10,'#0a0d28');rrect(440,160,210,310,6,lgrad(0,160,0,470,[[0,'#27358f'],[1,'#121b57']]));ell(560,230,24,24,'#eef3ff');for(let i=0;i<7;i++){rrect(446+i*29,360-hash(i)*90,22,130+hash(i)*90,3,'#0b1038')}
+ poly([[380,130],[450,130],[440,500],[392,500]],'#a31d2e');poly([[640,130],[710,130],[700,500],[650,500]],'#a31d2e');
+ rrect(40,200,190,380,8,'#2a1a14');for(let r=0;r<4;r++){rrect(50,214+r*92,170,10,3,'#4a2e22');for(let b=0;b<6;b++)rrect(54+b*26,150+r*92+70-hash(r*7+b)*10+40,20,70+hash(r*7+b)*12,3,['#2e5cd6','#d6a12e','#b32e4a','#2ea36b'][b%4])}
+ ctx.fillStyle=lgrad(0,860,0,1400,[[0,'#2a1a14'],[1,'#120a08']]);ctx.fillRect(-300,880,1320,700);
+ rrect(224,470,272,400,60,'#8a1a2a');rrect(244,490,232,360,46,'#a32436');
+ if(o.host!==false)drawHost(Object.assign({x:360,y:905,s:1.38,upper:1,t,crown:1,eye:'open',mshape:'smile'},o.host||{}));
+ rrect(40,830,640,40,12,'#7d4a2c');rrect(70,868,580,330,10,'#55301c');rrect(250,930,220,56,10,'#d7b04a');txt('KUNLIK PREZIDENT',360,960,19,'#3a2408',0,'center',900);
+ rrect(80,790,60,40,6,'#fff');ell(100,780,20,8,'#cbd3ea');
+ rrect(560,760,90,70,6,'#1b2a6b');ell(605,745,26,10,'#ffd45a');glow(605,745,90,'#ffd45a',.35)}
+function sceneCalendar(t,o={}){ctx.fillStyle=rgrad(360,600,0,900,[[0,'#1b2160'],[1,'#07091f']]);ctx.fillRect(-300,-300,1320,1900);
+ ctx.save();ctx.translate(360,560);ctx.rotate(-.04);ctx.shadowColor='rgba(0,0,0,.6)';ctx.shadowBlur=40;rrect(-250,-330,500,660,22,'#f5f2e8');ctx.shadowBlur=0;rrect(-250,-330,500,120,22,'#d62a3a');rrect(-250,-250,500,40,0,'#d62a3a');
+ [-170,-60,60,170].forEach(x=>{ell(x,-330,12,12,'#1a1a28')});txt('NOYABR',0,-270,46,'#fff',0);txt('DUSHANBA',0,-70,74,'#1b1d2e',0);txt('23',0,100,170,'#1b1d2e',0);
+ const k=o.x||0;if(k>0){ctx.strokeStyle='#e0152b';ctx.lineWidth=34;ctx.lineCap='round';const a=ramp(k,0,.5),b=ramp(k,.5,1);ctx.beginPath();ctx.moveTo(-200,-260);ctx.lineTo(lerp(-200,200,a),lerp(-260,300,a));ctx.stroke();if(b>0){ctx.beginPath();ctx.moveTo(200,-260);ctx.lineTo(lerp(200,-200,b),lerp(-260,300,b));ctx.stroke()}
+  if(k>.95){ctx.save();ctx.rotate(-.2);ctx.strokeStyle='#e0152b';ctx.lineWidth=8;ctx.strokeRect(-150,150,300,90);txt('BEKOR',0,196,64,'#e0152b',0);ctx.restore()}}
+ ctx.restore();
+ if((o.x||0)>.95){for(let i=0;i<40;i++){const ph=(t*.8+hash(i))%1,x=hash(i+3)*720,y=ph*1300;ctx.save();ctx.translate(x,y);ctx.rotate(t*3+i);ctx.fillStyle=['#ffd23a','#ff4fd8','#22e4ff','#7aff7a'][i%4];ctx.fillRect(-6,-3,12,6);ctx.restore()}}}
+function reelCards(t,u){const L=[['HORROR','#d62a3a',-1],['QIZIQARLI','#ffb020',0],['AI','#22e4ff',1]];L.forEach(([n,c,k],i)=>{const a=ease(ramp(u,i*.12,.25+i*.12)),y=330+Math.sin(t*2+i)*10;ctx.save();ctx.translate(360+k*196,y);ctx.rotate(k*.08);ctx.scale(a,a);ctx.shadowColor='rgba(0,0,0,.5)';ctx.shadowBlur=24;rrect(-84,-150,168,300,20,lgrad(0,-150,0,150,[[0,c],[1,'#0b0f33']]));ctx.shadowBlur=0;ctx.fillStyle='rgba(255,255,255,.92)';ctx.beginPath();ctx.moveTo(-14,-24);ctx.lineTo(18,0);ctx.lineTo(-14,24);ctx.closePath();ctx.fill();txt(n,0,112,26,'#fff',0);ctx.restore()})}
+function igProfile(t,u,o={}){const a=ease(ramp(u,0,.2));ctx.save();ctx.globalAlpha=a;ctx.translate(360,360+(1-a)*40);ctx.shadowColor='rgba(0,0,0,.5)';ctx.shadowBlur=30;rrect(-290,-250,580,520,34,'#ffffff');ctx.shadowBlur=0;
+ const g=ctx.createLinearGradient(-250,-210,-130,-90);g.addColorStop(0,'#feda75');g.addColorStop(.5,'#d62976');g.addColorStop(1,'#4f5bd5');ctx.fillStyle=g;ctx.beginPath();ctx.arc(-190,-130,66,0,7);ctx.fill();ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(-190,-130,58,0,7);ctx.fill();
+ ctx.save();ctx.beginPath();ctx.arc(-190,-130,54,0,7);ctx.clip();ctx.fillStyle='#142054';ctx.fillRect(-250,-190,120,120);ctx.translate(-190,-130);ctx.scale(.62,.62);drawHost({x:0,y:214,s:1,upper:1,t,mouth:0,mshape:'smile'});ctx.restore();
+ txt('jasur.ai_',-90,-168,34,'#111',0,'left',900);rrect(-90,-130,180,44,10,'#efefef');txt('Obuna bo‘lish',0,-108,22,'#222',0,'center',800);ctx.save();ctx.translate(-90,0);ctx.restore();
+ txt('🎬 AI bilan video yasash',-250,-30,26,'#222',0,'left',700);txt('🤖 AI yangiliklari va darslar',-250,16,26,'#222',0,'left',700);txt('👇 Telegram kanalimiz:',-250,62,26,'#222',0,'left',700);
+ const p=.5+.5*Math.sin(t*6);ctx.strokeStyle=`rgba(0,153,255,${.55+.45*p})`;ctx.lineWidth=5;ctx.beginPath();ctx.roundRect(-262,98,524,58,16);ctx.stroke();ctx.fillStyle=`rgba(0,153,255,${.1+.1*p})`;ctx.fill();
+ txt('🔗 t.me/aicreator_n1',-240,128,30,'#0a58c8',0,'left',900);
+ const f=ramp(u,.35,.7);ctx.font='84px "Noto Color Emoji"';ctx.textAlign='center';ctx.fillText('👆',lerp(300,150,ease(f)),lerp(330,190,ease(f))+(f>.95?8*Math.sin(t*14):0));ctx.restore()}
+function tgChannelCard(t,u,o={}){const a=ease(ramp(u,0,.18));ctx.save();ctx.globalAlpha=a;ctx.translate(360,380+(1-a)*40);ctx.shadowColor='rgba(0,0,0,.5)';ctx.shadowBlur=30;rrect(-290,-290,580,590,34,'#17212b');ctx.shadowBlur=0;rrect(-290,-290,580,130,34,'#242f3d');planeIcon(-220,-225,40,'#2aa3ef');
+ txt('AI Creator',-160,-250,34,'#fff',0,'left',900);txt('AI yangiliklari va darslar',-160,-206,22,'#8ea4bd',0,'left',700);
+ const rows=[['🤖','AI yangiliklari — har kuni'],['🎬','AI bilan video yasash darslari'],['💰','AI bilan pul ishlash yo‘llari']];
+ rows.forEach((r,i)=>{const k=ease(ramp(u,.15+i*.2,.35+i*.2));ctx.save();ctx.globalAlpha=k;ctx.translate((1-k)*60,0);rrect(-262,-130+i*104,524,86,22,'#2b5278');txt(r[0],-226,-87+i*104,40);txt(r[1],-180,-87+i*104,26,'#fff',0,'left',800);ctx.restore()});
+ const pk=ramp(u,.8,1);if(o.cta!==false&&pk>0){ctx.globalAlpha=pk;const pu=1+.04*Math.sin(t*8);ctx.save();ctx.translate(0,225);ctx.scale(pu,pu);rrect(-210,-34,420,68,34,'#2aa3ef');txt('KANALGA O‘TISH',0,2,30,'#fff',0);ctx.restore()}
+ ctx.restore()}
+function chipPop(txtS,x,y,u,col='#ffd23a',tc='#1b1d2e',size=34){const a=ease(ramp(u,0,1));ctx.save();ctx.translate(x,y);ctx.scale(.6+.4*a,.6+.4*a);ctx.globalAlpha=a;ctx.font=`900 ${size}px Inter`;const w=ctx.measureText(txtS).width+54;rrect(-w/2,-size,w,size*2,size,col);txt(txtS,0,2,size,tc,0);ctx.restore()}
+function headline(lines,u,y0=170,size=74,cols=['#fff','#ffd23a']){lines.forEach((l,i)=>{const a=ease(ramp(u,i*.12,.25+i*.12));if(a<=0)return;ctx.save();ctx.translate(360,y0+i*(size+10)+(1-a)*30);ctx.globalAlpha=a;ctx.scale(.8+.2*a,.8+.2*a);ctx.font=`900 ${size}px Inter`;let sz=size;const w=ctx.measureText(l).width;if(w>650)sz=size*650/w;txt(l,0,0,sz,cols[i%cols.length],sz*.2);ctx.restore()})}
