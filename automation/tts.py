@@ -1,4 +1,4 @@
-import json,sys,base64,urllib.request,os,wave,time
+import json,sys,base64,urllib.request,os,wave,time,datetime
 KEYS=[k for k in (os.environ.get('GEMINI_API_KEY'),os.environ.get('GEMINI_API_KEY_2')) if k]
 d=json.load(open('scripts.json'))
 def tts(text,model,key,multi=False):
@@ -21,7 +21,14 @@ for vid in sys.argv[1:]:
                 pcm,mt=tts(text,model,key,multi);break
             except urllib.error.HTTPError as e:
                 msg=e.read().decode();print(vid,ki,model,e.code,msg[:200].replace("\n"," "),flush=True);pcm=None
-                if e.code==429 and "PerDay" in msg: open(f"skip_{ki}_{model}","w").close();break
+                if e.code in (400,404):break
+                if e.code==429 and "PerDay" in msg:
+                    now=datetime.datetime.utcnow();rs=now.replace(hour=8,minute=1,second=0,microsecond=0)
+                    if rs<=now: rs+=datetime.timedelta(days=1)
+                    w=(rs-now).total_seconds()
+                    if w<=7200 and not os.path.exists(f"waited_{ki}_{model}"):
+                        print(f"Kunlik limit: {int(w)} s kutaman (08:00 UTC tiklanishi)",flush=True);open(f"waited_{ki}_{model}","w").close();time.sleep(w);continue
+                    open(f"skip_{ki}_{model}","w").close();break
                 time.sleep(65)
         if pcm: break
       if pcm: break

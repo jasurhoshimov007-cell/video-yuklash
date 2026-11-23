@@ -29,6 +29,14 @@ Egasi hech narsa qilmaydi. Savol bermang, oxirigacha o'zingiz bajaring. Egasiga 
 - **Kanal reklamasi videolari (3 ta/kun)**: 2D, 20-26 s, namuna `examples/r01_ad_2d.js` (hook mavzusi har kuni yangi: 1 kunlik prezident/milliarder/robot..., siyosatchi va partiyasiz; keyin qahramon `drawHost` pastda, `igProfile` (havola), `tgChannelCard`, `subscribeBtn`). Ovoz turi `fun`. Matn: hook, shunday videolar kerakmi/yasashni o'rganasizmi, profildagi havola -> Telegram, AI bilan pul ishlash/video yasash/AI yangiliklari, obuna+like+fikr.
 - Barcha videolar `reference_analysis.md` talablariga mos bo'lsin (hook, UI maketlari, doimiy qahramon, cliffhanger).
 
+## 1.2 Shablonlar va xavfsizlik qoidalari (sinovdan o'tgan)
+- **A yoki B** (`tmpl_ab.js`, blokli 3D): `vNN/spec.json` ({A:{label,emoji},B:{label,emoji},roles:[har gap uchun hook|A|B|choose|comment|natija|cta],hookBig}) va `scripts.json` (type fun) yarating; `cp tmpl_ab.js vNN.js`. Namuna: `examples/ab_spec_example.json`. Matn 75-85 so'z (30-38 s). `roles` dagi `natija` faqat 1 ta videoda ("Natija Telegram kanalimizda!"), qolganlarida o'rniga `comment`. SAXTA foiz/natija ko'rsatmang.
+- **Claude suhbat** (`tmpl_claude.js`, blokli 3D): `spec.json` ({speakers:["H","C",..],moods:[...],look,shirt,wide:[...],hookBig,hookSub,alert}); `scripts.json`da `"dialog":true,"speakers":["Q"/"C",...]` (Q = odam Algenib, C = Claude Kore; multi-speaker TTS faqat gemini-2.5-flash-preview-tts da ishlaydi, 3.8 da 400 xato beradi). Namuna: `examples/claude_spec_example.json`. Matn 75-90 so'z (35-45 s).
+- **Birinchi 3 soniya testi (majburiy)**: har video tayyor bo'lgach `python3 hookcheck.py final.mp4`. "HOOK MUAMMO" chiqsa, birinchi shotni kuchaytiring (katta matn/raqam, tez harakat, ovozli zarba) va qayta render qiling. 1-kadr hech qachon qora/bo'sh bo'lmasin.
+- **Sahna sinovi (majburiy)**: har videoning `node render.js vNN sheet` kontakt-varag'ini ko'ring; qahramon ko'rinmasa, matn kesilsa yoki kadr bo'sh bo'lsa, tuzating.
+- **Xato tutish**: bitta video 2 urinishda chiqmasa uni o'tkazib yuboring va hisobotga yozing; butun ishni to'xtatmang. TTS 400 xatosi: boshqa modelga o'ting (`tts.py` o'zi qiladi). Kunlik TTS limiti tugasa `tts.py` 08:00 UTC gacha (<=2 soat) kutadi.
+- Ovoz uzunligi nishoni: 1 so'z ~0.45 s (pauzalar bilan). Horror 90-100 so'z (45-50 s).
+
 ## 1. Instagram: 18 ta video (avval shu)
 - Talablar: `instagram_prompt.md` (qat'iy).
 - Trend: boshlashdan oldin WebSearch bilan shu haftaning Instagram Reels / TikTok trendlarini (formatlar, hook'lar, mavzular, O'zbekiston va dunyo bo'yicha) qidiring va bugungi 18 ta mavzuni ularga moslang. Har kuni mavzu, hook, shablon va vizual uslub yangi bo'lsin; history.md dagilarni takrorlamang.
