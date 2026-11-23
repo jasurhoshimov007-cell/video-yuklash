@@ -54,6 +54,13 @@ Egasi hech narsa qilmaydi. Savol bermang, oxirigacha o'zingiz bajaring. Egasiga 
 - Agar chaqiruv 60 s da timeout bo'lsa, QAYTA YUBORMANG: avval `get_data` (fields `media_id`, `media_permalink`, date_preset `last_3dT`) bilan chiqqanini tekshiring.
 - Tarmoq o'chirish kerak emas (`git push --delete` bu muhitda taqiqlangan); ertasi kuni `media` force-push bilan tozalanadi.
 
+## 1.5 YouTube Shorts (Instagram'dan keyin, XUDDI SHU videolar)
+- Windsor `youtube` connector (hisob id `114580`, monetyoutube9@gmail.com), action `upload_video` (params: `video_url`, `title`<=100, `made_for_kids:false`, `privacy_status:"public"`, `description`, `tags`, `category_id:"22"`). Video ochiq URL'dan olinadi (xuddi Instagram kabi `media` tarmog'i; YouTube yuklashlari tugamaguncha tarmoqni yangilamang), hajmi <=100 MB.
+- Yuklanadigan: Instagram'ga joylangan 18 ta video (+ kanal uchun 2 ta AI yangilik videosi ham bo'lsa). Har video: sarlavha = video nomi (kichik harfda chiroyli) + " #Shorts"; tavsif = 1-2 gap qiziqtiruvchi matn + "Telegram kanal: https://t.me/aicreator_n1" + 6-8 heshteg (#Shorts #uzbek #...); teglar 5-8 ta.
+- YouTube tezlik cheklovi (rate limit) bo'lsa: 60-90 s kuting va qayta urining (3 martagacha); "tekshiring: oldingi urinish tugagan bo'lishi mumkin" deyilsa, avval `get_data` (youtube, video maydonlari) bilan yuklanganini tekshiring, takror yuklamang. Baribir chiqmasa o'tkazib yuboring va hisobotga yozing.
+- Natijani `report.json` ga `"youtube":{"plan":N,"done":[nomlar],"failed":[nomlar]}` qilib yozing.
+- Eslatma: tasdiqlanmagan API loyihalari yuklagan videolarni YouTube yopiq (private) qilib qo'yishi mumkin; hisobotda "public/private" holatini yozing.
+
 ## 2. Telegram kanal: 2 ta video + 1 promo post (Instagram'dan keyin)
 - Mavzular: AI yangiliklari, AI bilan video yasashni o'rgatish, AI bilan qilingan ishlar, blog. Bugungi eng dolzarb AI yangiligini WebSearch bilan toping. Faktlar to'g'ri bo'lsin.
 - Format: 25-30 s, o'zbekcha, 9:16, motion grafika + 3D fon, pastda AI qahramon `host.png` (har videoda albatta), har gapdan keyin qimirlaydi (`ai_lib.js`: `aiShot`, `hostDraw`, `head`, `chip`, `typeBox`, `arrow`, `emo`; namuna `examples/t01.js`). `boot({fovK:1,subY:.5})`.

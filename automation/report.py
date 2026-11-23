@@ -14,7 +14,7 @@ ICON={"Horror":"😱","Claude suhbat":"🤖","Kanal reklamasi":"📢","A yoki B"
 def build(r):
     ig=r.get("instagram",{});n=sum(len(v) for v in ig.values());plan=r.get("instagram_plan",18)
     probs=r.get("problems",[]);nd=r.get("not_done",[])
-    ok=(n>=plan and not nd)
+    ok=(n>=plan and not nd and not (r.get("youtube") or {}).get("failed"))
     head="✅ Hammasi tayyor!" if ok and not probs else ("⚠️ Ish bajarildi, lekin e'tibor kerak" if n>0 else "❌ Ish bajarilmadi")
     out=[f"{head}\n📅 {r.get('date','')}".strip()]
     b=[f"📱 INSTAGRAM (@jasur.ai_)\n{n}/{plan} ta Reels joylandi"]
@@ -25,6 +25,12 @@ def build(r):
         for name,sec in items:
             b.append(f"{i}. {name} — {round(float(sec))} s");i+=1
     out.append("\n".join(b))
+    yt=r.get("youtube")
+    if yt:
+        d=yt.get("done",[]);f=yt.get("failed",[]);pl=yt.get("plan",len(d)+len(f))
+        b=[f"▶️ YOUTUBE (Shorts)\n{len(d)}/{pl} ta video yuklandi"]
+        if f: b.append("Yuklanmadi: "+", ".join(f))
+        out.append("\n".join(b))
     ch=r.get("channel",[])
     if ch: out.append("📢 TELEGRAM KANAL (@aicreator_n1)\n"+"\n".join(f"{k+1}. {x}" for k,x in enumerate(ch)))
     if nd: out.append("🚫 Bajarilmagan ishlar\n"+"\n".join(f"• {x}" for x in nd))
