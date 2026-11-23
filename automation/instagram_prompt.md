@@ -9,7 +9,7 @@
 - Gaplar qisqa, 3-9 so'z; ~2 so'z/soniya (TTS tezligi), 25-35 s uchun ~50-65 so'z.
 - Ovoz: gemini-3.8-flash-tts, ovoz Algenib; 429 bo'lsa gemini-2.5-flash-preview-tts, Algenib. TTS ga FAQAT ssenariy matni (hech qanday uslub ko'rsatmasi yo'q). Ovozdan keyin boshidagi 4 s ni gemini-3-flash-preview bilan tekshiring (check.py). Pauzalar <=0.45 s, atempo <=1.12.
 - Har 1.5-3 s da yangi kadr, kamera doim harakatda, kamera devor ichiga kirmasin, sahna qorong'i bo'lmasin. Render oldidan kontakt-varaq bilan har shotni tekshiring va tuzating.
-- Subtitr: sariq, qalin qora kontur, 1-3 so'z, ovozga sinxron, ekran o'rtasidan pastroqda.
+- Subtitr: KO'K (#3db4ff), qalin qora kontur, kalit so'z sariq, 1-3 so'z, ovozga sinxron, ekran o'rtasidan pastroqda.
 - Musiqa/SFX numpy bilan (oddiy, g'alati emas), loudnorm I=-14, video ~6.5 Mbit/s, fayl <50 MB.
 - Instagramga to'g'ridan-to'g'ri Reels qilib yuklang: CAPTION/NOM/HESHTEG YO'Q (caption bo'sh).
 
@@ -26,7 +26,7 @@ Maqsad: tomoshabinni oxirigacha ushlab turish va biz nima qilishimizni tushuntir
 - Syujet: qahramon qiyin vaziyatda (deadline, xato kod, yo'qolgan fayl, mijoz jahli, imtihon, taqdimot...) -> vahima, hazil dialog -> Claude kulgili, tez va aqlli yechim beradi -> kutilmagan yakun (twist). Har kuni yangi vaziyat va yangi kasb; namunadagi "8:55 da uyg'onish, 10 ta slayd, qahva" syujetini aynan takrorlamang.
 - Dialog: 2 ovoz. Gemini TTS multiSpeakerVoiceConfig (1 so'rov): qahramon = Algenib, Claude = Kore. Matnda faqat "Qahramon: ..." / "Claude: ..." qatorlari, boshqa ko'rsatma yo'q. Ovozdan keyin check.py bilan tekshiring.
 - Oxirida Claude aytadi: "Video yoqqan bo'lsa, like bosing, obuna bo'ling va fikringizni yozing! Slayd, video yoki shunga o'xshash ish kerak bo'lsa, profildagi havola orqali Telegram kanalimizga yozing — yasab beramiz."
-- 30-40 s, subtitrda kim gapirayotgani rang bilan ajralsin (qahramon sariq, Claude to'q sariq).
+- 30-40 s, subtitr ko'k, kalit so'z sariq.
 
 ## Boshqacha videolar (har kuni 2 ta)
 - Odatiy shablonlardan tashqari noodatiy format: POV, "1 kunlik eksperiment", vaqt sayohati, kichik hayvon nigohidan, teskari hikoya, "24 soat davomida" va hokazo. Har kuni yangi format.

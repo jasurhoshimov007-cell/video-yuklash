@@ -191,7 +191,7 @@ function camAt(cam,u,T,shake=0){const A=cam[0],Bc=cam[1]||cam[0];const e=ease(u)
  c.fov*=(OPT.fovK||1);const hs=.05+shake;c.eye=c.eye.map((v,i)=>v+noise1(T*1.3+i*10)*hs*2);c.at=c.at.map((v,i)=>v+noise1(T*1.1+i*20+5)*hs);if(shake>.2){c.roll+=noise1(T*30)*.03*shake}return c}
 function drawSub(t){const s=SUBS.find(s=>t>=s.t0&&t<s.t1);if(!s)return;const p=clamp((t-s.t0)/.12,0,1);const sc=p<1?.7+.38*p:1+(.08*Math.max(0,1-(t-s.t0-.12)/.1));
  const str=uz(s.words.join(' ')).toUpperCase().replace(/[.,:!?]+$/,m=>m.includes('!')?'!':m.includes('?')?'?':'');ctx.save();ctx.translate(W2/2,H2*(OPT.subY||.64));ctx.scale(sc,sc);ctx.font='900 76px Inter';let size=76;const w=ctx.measureText(str).width;if(w>640)size=76*640/w;
- txt(str,0,0,size,(OPT.subCols&&OPT.subCols[s.line])||'#FFE600',size*.2);ctx.restore()}
+ txt(str,0,0,size,(OPT.subCols&&OPT.subCols[s.line])||'#3db4ff',size*.22);ctx.restore()}
 function renderFrame(t,opt){const sh=SHOTS.find(s=>t>=s.t0&&t<s.t1)||SHOTS[SHOTS.length-1];const u=clamp((t-sh.t0)/(sh.t1-sh.t0),0,1);
  const env=typeof sh.env=='function'?sh.env(t,u):(sh.env||ENV.night);
  const cam=camAt(typeof sh.cam=='function'?sh.cam(u,t):sh.cam,u,t,typeof sh.shake=='function'?sh.shake(u,t):(sh.shake||0));

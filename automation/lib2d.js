@@ -43,9 +43,7 @@ function drawHost(p){
  rrect(-15,-14,30,28,9,P.skinS);ctx.translate(0,-64);
  ell(-50,6,9,13,P.skin);ell(50,6,9,13,P.skin);ell(0,0,50,58,P.skin);
  // quloqchin
- if(!p.shadow){ctx.save();ctx.translate(-55,8);limb(0,0,8,22,4,P.cy);ell(8,24,4,4,P.cy);ctx.restore()}
- // soqol (jag' bo'ylab) + mo'ylov + cho'qqi soqol
- if(!p.shadow){ctx.save();ctx.beginPath();ctx.ellipse(0,0,50,58,0,0,7);ctx.clip();ctx.fillStyle='rgba(52,34,26,.78)';ctx.fillRect(-60,4,120,70);ctx.fillStyle=P.skin;ctx.beginPath();ctx.ellipse(0,12,37,33,0,0,7);ctx.fill();ctx.fillStyle='rgba(52,34,26,.78)';ctx.beginPath();ctx.moveTo(-16,24);ctx.quadraticCurveTo(0,17,16,24);ctx.quadraticCurveTo(0,28,-16,24);ctx.fill();ctx.beginPath();ctx.ellipse(0,50,13,9,0,0,7);ctx.fill();ctx.restore()}
+ if(!p.shadow){ctx.save();ctx.translate(-56,6);limb(0,0,4,22,3,P.cy);limb(4,22,22,36,3,P.cy);ell(25,37,6,4.5,P.cy);ctx.restore()}
  // soch
  ctx.beginPath();ctx.moveTo(-54,2);ctx.bezierCurveTo(-60,-40,-34,-74,4,-68);ctx.bezierCurveTo(30,-76,56,-52,54,2);ctx.bezierCurveTo(48,-10,44,-26,34,-32);ctx.bezierCurveTo(14,-22,-18,-40,-38,-24);ctx.bezierCurveTo(-46,-20,-50,-10,-54,2);ctx.closePath();ctx.fillStyle=P.hair;ctx.fill();
  [[-26,-66,-34,-82,-14,-70],[-4,-70,-6,-88,10,-72],[16,-70,26,-86,32,-66],[34,-60,52,-72,48,-48]].forEach(a=>{ctx.beginPath();ctx.moveTo(a[0],a[1]);ctx.lineTo(a[2],a[3]);ctx.lineTo(a[4],a[5]);ctx.fillStyle=P.hair;ctx.fill()});
@@ -174,7 +172,7 @@ function uz(s){return s.replace(/([OoGg])'/g,"$1‘").replace(/'/g,'’')}
 function drawSub(t){const s=SUBS.find(s=>t>=s.t0&&t<s.t1);if(!s)return;const k=clamp((t-s.t0)/.1,0,1),sc=.78+.22*ease(k)+.07*Math.max(0,1-(t-s.t0-.1)/.1);
  let size=66;ctx.font=`900 ${size}px Inter`;const ws=s.words.map(w=>uz(w).toUpperCase());const gap=18;let tot=ws.reduce((a,w)=>a+ctx.measureText(w).width,0)+gap*(ws.length-1);if(tot>650){size=size*650/tot;ctx.font=`900 ${size}px Inter`;tot=ws.reduce((a,w)=>a+ctx.measureText(w).width,0)+gap*(ws.length-1)}
  ctx.save();ctx.translate(360,OPT.subY||1010);ctx.scale(sc,sc);let x=-tot/2;ctx.textAlign='left';ctx.textBaseline='middle';ctx.lineJoin='round';
- ws.forEach((w,i)=>{const key=KW.has(norm(s.words[i]));ctx.strokeStyle='#000';ctx.lineWidth=size*.24;ctx.strokeText(w,x,0);ctx.fillStyle=key?'#ff4a3d':'#FFE600';ctx.fillText(w,x,0);x+=ctx.measureText(w).width+gap});ctx.restore()}
+ ws.forEach((w,i)=>{const key=KW.has(norm(s.words[i]));ctx.strokeStyle='#000';ctx.lineWidth=size*.24;ctx.strokeText(w,x,0);ctx.fillStyle=key?'#ffe600':'#3db4ff';ctx.fillText(w,x,0);x+=ctx.measureText(w).width+gap});ctx.restore()}
 
 // ---------- vaqt chizig'i ----------
 function build2d(timing,lineShots,opt={}){TIMING=timing;OPT=Object.assign(OPT,opt);KW=new Set((opt.kw||[]).map(norm));const L=timing.lines;DUR=timing.dur+(opt.tail||1.3);SHOTS=[];SFX.length=0;

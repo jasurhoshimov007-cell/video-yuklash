@@ -1,6 +1,6 @@
 # Kunlik avtomatik ish (har kuni 12:00, Toshkent)
 
-MAJBURIY: HAR BIR videoda (Instagram ham, kanal ham, reklama ham) ovozga sinxron sariq subtitr bo'lsin (lib.js `drawSub`, har gap uchun). Subtitrsiz video joylanmaydi: yuklashdan oldin kadrlarda subtitr borligini tekshiring.
+MAJBURIY: HAR BIR videoda (Instagram ham, kanal ham, reklama ham) ovozga sinxron KO'K subtitr (#3db4ff, qora kontur; kalit so'z sariq) bo'lsin (lib.js `drawSub`, har gap uchun). Subtitrsiz video joylanmaydi: yuklashdan oldin kadrlarda subtitr borligini tekshiring.
 
 Egasi hech narsa qilmaydi. Savol bermang, oxirigacha o'zingiz bajaring. Egasiga faqat Telegram botga qisqa o'zbekcha hisobot yozing.
 
@@ -19,7 +19,7 @@ Egasi hech narsa qilmaydi. Savol bermang, oxirigacha o'zingiz bajaring. Egasiga 
 - `git push` da "push negotiation failed" ogohlantirishi chiqishi normal, push baribir o'tadi; URL ni `curl -sI` bilan tekshiring.
 
 ## 1.1 Yangi qoidalar (egasi 2026-11-23 da tasdiqlagan, QAT'IY)
-- **Horror/sirli (5 ta/kun): 2D flat-vector uslub**, uzunligi **40-50 s** (kerak: ~90-100 so'z), AI ovoz. Dvigatel: `lib2d.js` (+ `page2d.html`, `render2d.js` o'rniga `render.js` ni `page2d.html` bilan ishlating: `node render2d.js vNN sheet|full`). Namuna: `examples/h01_2d_horror.js` ("RAQAMIM"). Doimiy hikoyachi qahramon `drawHost` (nomi Jasur), pastda @jasur.ai_, subtitrda kalit so'z qizil (`kw`), UI maketlari (telefon `scenePhone`, CCTV `cctv`, taymer, TV ogohlantirish, xarita — kerak bo'lsa `lib2d.js` ga qo'shing), "sen/men" hikoyasi, vaqt/raqam bilan hook, oxirida cliffhanger.
+- **Horror/sirli (5 ta/kun): 2D flat-vector uslub**, uzunligi **40-50 s** (kerak: ~90-100 so'z), AI ovoz. Dvigatel: `lib2d.js` (+ `page2d.html`, `render2d.js` o'rniga `render.js` ni `page2d.html` bilan ishlating: `node render2d.js vNN sheet|full`). Namuna: `examples/h01_2d_horror.js` ("RAQAMIM"). Doimiy hikoyachi qahramon `drawHost` (nomi Jasur, SOQOLSIZ — egasi talabi), pastda @jasur.ai_, subtitr ko'k, kalit so'z (`kw`) sariq, UI maketlari (telefon `scenePhone`, CCTV `cctv`, taymer, TV ogohlantirish, xarita — kerak bo'lsa `lib2d.js` ga qo'shing), "sen/men" hikoyasi, vaqt/raqam bilan hook, oxirida cliffhanger.
 - Ovoz uchun kadrlar ro'yxati: `ENVA` (ovoz amplitudasi, `env.json`) bilan qahramon og'zi harakatlanadi: har horror uchun `h01` dagi kabi `env.json` yarating.
 - **Telegram voronkasi (har kuni):**
   1. Horrorlardan **1 tasi** eng qiziq joyda uziladi: oxirida "Davomi Telegram kanalimizda!" (`endCard`) + "OBUNA BO'LINDI ✓" (`subscribeBtn`). Shu kuni kanalga uning DAVOMI/YAKUNI joylanadi (matn 6-10 gap + videodan kadr rasmi), tugma bilan.
