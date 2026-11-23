@@ -1,22 +1,28 @@
 import json,sys,base64,urllib.request,os,wave,time
 key=os.environ['GEMINI_API_KEY']
 d=json.load(open('scripts.json'))
-def tts(text,model):
-    body={"contents":[{"parts":[{"text":text}]}],"generationConfig":{"responseModalities":["AUDIO"],"speechConfig":{"voiceConfig":{"prebuiltVoiceConfig":{"voiceName":"Algenib"}}}}}
+def tts(text,model,multi=False):
+    sc={"voiceConfig":{"prebuiltVoiceConfig":{"voiceName":"Algenib"}}}
+    if multi: sc={"multiSpeakerVoiceConfig":{"speakerVoiceConfigs":[{"speaker":"Qahramon","voiceConfig":{"prebuiltVoiceConfig":{"voiceName":"Algenib"}}},{"speaker":"Claude","voiceConfig":{"prebuiltVoiceConfig":{"voiceName":"Kore"}}}]}}
+    body={"contents":[{"parts":[{"text":text}]}],"generationConfig":{"responseModalities":["AUDIO"],"speechConfig":sc}}
     req=urllib.request.Request(f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={key}",data=json.dumps(body).encode(),headers={"Content-Type":"application/json"})
     r=json.load(urllib.request.urlopen(req,timeout=300))
     p=r['candidates'][0]['content']['parts'][0]['inlineData']
     return base64.b64decode(p['data']),p.get('mimeType')
 for vid in sys.argv[1:]:
-    text="\n".join(d[vid].get("tts_lines") or d[vid]["lines"])
+    pcm=None
+    tl=d[vid].get("tts_lines") or d[vid]["lines"];multi=bool(d[vid].get("dialog"))
+    text="\n".join((("Qahramon: " if sp=="Q" else "Claude: ")+l) for sp,l in zip(d[vid]["speakers"],tl)) if multi else "\n".join(tl)
     for model in ["gemini-3.8-flash-tts","gemini-2.5-flash-preview-tts"]:
         if os.path.exists(f"skip_{model}"): continue
-        try:
-            pcm,mt=tts(text,model);break
-        except urllib.error.HTTPError as e:
-            msg=e.read().decode()[:300];print(vid,model,e.code,msg,flush=True)
-            if e.code==429: open(f"skip_{model}","w").close()
-            pcm=None
+        for att in range(4):
+            try:
+                pcm,mt=tts(text,model,multi);break
+            except urllib.error.HTTPError as e:
+                msg=e.read().decode();print(vid,model,e.code,msg[:200].replace("\n"," "),flush=True);pcm=None
+                if e.code==429 and "PerDay" in msg: open(f"skip_{model}","w").close();break
+                time.sleep(65)
+        if pcm: break
     if not pcm: print(vid,"FAILED");continue
     os.makedirs(vid,exist_ok=True)
     if pcm[:4]==b"RIFF": open(f"{vid}/raw.wav","wb").write(pcm)
