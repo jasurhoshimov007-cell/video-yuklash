@@ -51,9 +51,12 @@ Egasi hech narsa qilmaydi. Savol bermang, oxirigacha o'zingiz bajaring. Egasiga 
 - Kanalga `sendVideo` (`chat_id=@aicreator_n1`), ostida qisqa, maksimal tushunarli matn: 3-5 qator + savol + obuna chaqirig'i + 3-4 heshteg.
 - Promo post: bugungi 18 Instagram videodan eng qiziqarlisini kanalga `sendVideo` qiling. Matn: "🔥 Bugungi yangi video! Instagramga kirib like bosing va obuna bo'lib qo'ying 👍❤️🔔" + Reels havolasi (`media_permalink`) + 😍🔥👇.
 
-## 3. Hisobot (botga, TELEGRAM_CHAT_ID)
-- Oxirida 2-3 qator: Instagram'ga nechta joylandi (nomlari va uzunliklari), kanalga nimalar chiqdi.
-- Muammo bo'lsa (limit, xato), o'zingiz hal qilishga urining. Hal bo'lmasa, botga qisqa yozing: nima bo'ldi, nima qilinmadi.
+## 3. Hisobot (botga, TELEGRAM_CHAT_ID) — QAT'IY SHAKL
+- Hisobotni FAQAT `report.py` bilan yuboring (matnni qo'lda yozib curl bilan yubormang): ish oxirida `report.json` yarating va `python3 report.py report.json` ni ishga tushiring. Shakl namunasi: `python3 report.py --preview --print`.
+- Tuzilma: sarlavha (✅/⚠️/❌) -> 📱 Instagram (soni, tur bo'yicha raqamlangan ro'yxat: NOM — soniya) -> 📢 Telegram kanal (raqamlangan) -> 🚫 bajarilmagan ishlar -> ⚠️ muammolar va qanday hal qilingani -> yakuniy gap. Har blok bo'sh qatordan ajratilgan, matn tiqilib qolmasin.
+- Instagram ro'yxatida har videoning nomi va uzunligi (soniya) bo'lsin; nomlar qisqa va BOSH HARFDA.
+- Ish davomida jiddiy muammo bo'lib hal bo'lmasa (masalan Instagram uzildi, limit tugadi), darhol botga shu uslubda qisqa xabar yuboring (⚠️ sarlavha, nima bo'ldi, nima qilinmadi).
+- Muammo bo'lsa (limit, xato), o'zingiz hal qilishga urining. Hal bo'lmasa, botga yozing.
 
 ## 4. Yakshanba qo'shimchasi: "Haftaning top AI vositasi"
 - Faqat yakshanba kunlari (Toshkent vaqti) kanalga 1 ta qo'shimcha post: WebSearch bilan shu haftaning eng foydali/yangi AI vositasini toping (faktlarni rasmiy manbadan tekshiring).
