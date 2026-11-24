@@ -19,14 +19,14 @@ Egasi hech narsa qilmaydi. Savol bermang, oxirigacha o'zingiz bajaring. Egasiga 
 - `git push` da "push negotiation failed" ogohlantirishi chiqishi normal, push baribir o'tadi; URL ni `curl -sI` bilan tekshiring.
 
 ## 0.3 Egasi 2026-11-24 (kech) QAT'IY qoidalari
-- **Har qanday video 45 soniyadan OSHMASIN** (horror 40-45 s, boshqalar 25-45 s). Tayyor videoni `ffprobe` bilan tekshiring; 45 s dan oshsa matnni qisqartirib qayta yarating.
+- **Har qanday video 40 soniyadan OSHMASIN. Uzunlik 30-40 s oralig'ida bo'lsin (30, 35, 40 s aralash, hammasi bir xil emas).** Horror ham 30-40 s (~65-85 so'z), boshqalar 30-40 s. Tayyor videoni `ffprobe` bilan tekshiring; 40 s dan oshsa matnni qisqartirib qayta yarating.
 - **Horror videolardan 2 tasi** oxirida Telegram kanalni reklama qilib tugasin ("Shunday hikoyalar va AI yangiliklari uchun profildagi havola orqali Telegram kanalimizga o'ting!" + `endCard`/`subscribeBtn`). Qolgan 3 tasi odatiy cliffhanger/savol bilan tugaydi. Bu 1.1-bo'limdagi "davomi Telegramda" videosidan alohida emas: bittasi shu ikkisining ichida bo'lishi mumkin.
 - **Qahramonda ko'k quloqchin/mikrofon YO'Q** (hamma videoda). `drawHost` da faqat `headset:true` berilsa chiziladi; hech qachon bermang.
 - **Horror uchun yuklangan skillarni ishlating**: `anthropic-skills:qishloq-horror-2d` (2D tungi qishloq, 40-55 s -> 45 s ga qisqartiring), `anthropic-skills:3d-horror-videolar` (hikoya tuzilmasi, yovuz/joy/syujet g'oyalari). Skilldagi blokli/Roblox vizualni ISHLATILMAYDI, faqat ssenariy, struktura va g'oyalar. 5 horrordan kamida 1 tasi `qishloq-horror-2d` uslubida bo'lsin.
 - **Hisobot**: Instagramga hammasi yuklangach botga QISQA matn: "Hammasi muvaffaqiyatli yuklandi (soni/reja)", yo'nalish bo'yicha videolar nomi va soniyasi (`report.py` shu shaklda). Uzun matn yozmang.
 
 ## 1.1 Yangi qoidalar (egasi 2026-11-23 da tasdiqlagan, QAT'IY)
-- **Horror/sirli (5 ta/kun): 2D flat-vector uslub**, uzunligi **40-45 s** (kerak: ~85-95 so'z), AI ovoz. Dvigatel: `lib2d.js` (+ `page2d.html`, `render2d.js` o'rniga `render.js` ni `page2d.html` bilan ishlating: `node render2d.js vNN sheet|full`). Namuna: `examples/h01_2d_horror.js` ("RAQAMIM"). Doimiy hikoyachi qahramon `drawHost` (nomi Jasur, SOQOLSIZ — egasi talabi), pastda @jasur.ai_, subtitr ko'k, kalit so'z (`kw`) sariq, UI maketlari (telefon `scenePhone`, CCTV `cctv`, taymer, TV ogohlantirish, xarita — kerak bo'lsa `lib2d.js` ga qo'shing), "sen/men" hikoyasi, vaqt/raqam bilan hook, oxirida cliffhanger.
+- **Horror/sirli (5 ta/kun): 2D flat-vector uslub**, uzunligi **30-40 s** (kerak: ~65-85 so'z), AI ovoz. Dvigatel: `lib2d.js` (+ `page2d.html`, `render2d.js` o'rniga `render.js` ni `page2d.html` bilan ishlating: `node render2d.js vNN sheet|full`). Namuna: `examples/h01_2d_horror.js` ("RAQAMIM"). Doimiy hikoyachi qahramon `drawHost` (nomi Jasur, SOQOLSIZ — egasi talabi), pastda @jasur.ai_, subtitr ko'k, kalit so'z (`kw`) sariq, UI maketlari (telefon `scenePhone`, CCTV `cctv`, taymer, TV ogohlantirish, xarita — kerak bo'lsa `lib2d.js` ga qo'shing), "sen/men" hikoyasi, vaqt/raqam bilan hook, oxirida cliffhanger.
 - Ovoz uchun kadrlar ro'yxati: `ENVA` (ovoz amplitudasi, `env.json`) bilan qahramon og'zi harakatlanadi: har horror uchun `h01` dagi kabi `env.json` yarating.
 - **Telegram voronkasi (har kuni):**
   1. Horrorlardan **1 tasi** eng qiziq joyda uziladi: oxirida "Davomi Telegram kanalimizda!" (`endCard`) + "OBUNA BO'LINDI ✓" (`subscribeBtn`). Shu kuni kanalga uning DAVOMI/YAKUNI joylanadi (matn 6-10 gap + videodan kadr rasmi), tugma bilan.
@@ -78,7 +78,7 @@ Egasi hech narsa qilmaydi. Savol bermang, oxirigacha o'zingiz bajaring. Egasiga 
 - **Birinchi 3 soniya testi (majburiy)**: har video tayyor bo'lgach `python3 hookcheck.py final.mp4`. "HOOK MUAMMO" chiqsa, birinchi shotni kuchaytiring (katta matn/raqam, tez harakat, ovozli zarba) va qayta render qiling. 1-kadr hech qachon qora/bo'sh bo'lmasin.
 - **Sahna sinovi (majburiy)**: har videoning `node render.js vNN sheet` kontakt-varag'ini ko'ring; qahramon ko'rinmasa, matn kesilsa yoki kadr bo'sh bo'lsa, tuzating.
 - **Xato tutish**: bitta video 2 urinishda chiqmasa uni o'tkazib yuboring va hisobotga yozing; butun ishni to'xtatmang. TTS 400 xatosi: boshqa modelga o'ting (`tts.py` o'zi qiladi). Kunlik TTS limiti tugasa `tts.py` 08:00 UTC gacha (<=2 soat) kutadi.
-- Ovoz uzunligi nishoni: 1 so'z ~0.45 s (pauzalar bilan). Horror 85-95 so'z (40-45 s).
+- Ovoz uzunligi nishoni: 1 so'z ~0.45 s (pauzalar bilan). Horror 65-85 so'z (30-40 s).
 
 ## 1. Instagram: 18 ta video (avval shu)
 - Talablar: `instagram_prompt.md` (qat'iy).
