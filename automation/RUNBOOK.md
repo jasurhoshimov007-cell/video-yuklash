@@ -45,6 +45,11 @@ Siz 10 yillik tajribali Instagram Reels strateg, tahlilchi va prodyuserisiz. Maq
 - Story ochiq URL'dan (media papka) yuklanadi, xuddi Reels kabi. Highlights'ga qo'shishni API qilolmaydi: egasi Instagram ilovasida qo'lda qo'shadi. Story'ni O'CHIRMANG.
 - Hisobotga bitta qator: "Story: 2 ta yuklandi".
 
+## 0.6 Musiqa va sound effect (egasi 2026-11-24)
+- Har videoga tur va kayfiyatga mos ORIGINAL musiqa va SFX (`mix.py`, numpy bilan o'zimiz sintez qilamiz: mualliflik huquqi muammosi yo'q). Horror: past drone, tik-tak, shitirlash, zarba; jang/kimni tanlaysiz: tez ritmik beat, "ding", tovush zarbalari; Claude: yengil, quvnoq melodiya, "pop" va "click".
+- Har kuni musiqa va SFX oldingi kundan boshqacha va boyroq bo'lsin (tempo, tonallik, qatlamlar), ovoz (ovoz yetakchi) ustidan bosmasin: musiqa -22..-18 LUFS ostida, ovoz aniq eshitilsin. Birinchi 3 soniyada zarba/whoosh bilan hook kuchaytirilsin.
+- Internetdan tayyor musiqa/SFX yuklamang (litsenziya xavfi), faqat o'zimiz yaratganlari.
+
 ## 1.1 Yangi qoidalar (egasi 2026-11-23 da tasdiqlagan, QAT'IY)
 - **Horror/sirli (5 ta/kun): 2D flat-vector uslub**, uzunligi **30-40 s** (kerak: ~65-85 so'z), AI ovoz. Dvigatel: `lib2d.js` (+ `page2d.html`, `render2d.js` o'rniga `render.js` ni `page2d.html` bilan ishlating: `node render2d.js vNN sheet|full`). Namuna: `examples/h01_2d_horror.js` ("RAQAMIM"). Doimiy hikoyachi qahramon `drawHost` (nomi Jasur, SOQOLSIZ — egasi talabi), pastda @jasur.ai_, subtitr ko'k, kalit so'z (`kw`) sariq, UI maketlari (telefon `scenePhone`, CCTV `cctv`, taymer, TV ogohlantirish, xarita — kerak bo'lsa `lib2d.js` ga qo'shing), "sen/men" hikoyasi, vaqt/raqam bilan hook, oxirida cliffhanger.
 - Ovoz uchun kadrlar ro'yxati: `ENVA` (ovoz amplitudasi, `env.json`) bilan qahramon og'zi harakatlanadi: har horror uchun `h01` dagi kabi `env.json` yarating.
