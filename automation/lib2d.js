@@ -24,7 +24,7 @@ const SPAL={skin:'#0a0a10',skinS:'#050508',hair:'#040406',hood:'#07070b',hoodL:'
 function armPts(sx,sy,a1,a2,mir,l1=62,l2=58){const x1=sx+mir*Math.sin(a1)*l1,y1=sy+Math.cos(a1)*l1;return[x1,y1,x1+mir*Math.sin(a2)*l2,y1+Math.cos(a2)*l2]}
 // p: {x,y,s,flip,t,upper,shadow,eye,look,brow,mouth,mshape,tilt,hx,hy,aL,aR,glow,prop,sweat}
 function drawHost(p){
- const P=p.shadow?SPAL:Object.assign({},PAL,p.look||{}),s=p.s||1,t=p.t||0,br=Math.sin(t*2.2)*1.6;
+ const P=p.shadow?SPAL:Object.assign({},PAL,p.pal||(p.look&&typeof p.look==='object'?p.look:{})),s=p.s||1,t=p.t||0,br=Math.sin(t*2.2)*1.6;
  ctx.save();ctx.translate(p.x,p.y);ctx.scale(p.flip?-s:s,s);
  if(!p.upper){rrect(-42,-6,36,150,15,P.jeans);rrect(6,-6,36,150,15,P.jeans);rrect(-50,126,48,26,13,P.shoe);rrect(2,126,48,26,13,P.shoe)}
  ell(0,-150+br,66,30,P.hoodL);
@@ -49,7 +49,7 @@ function drawHost(p){
  [[-26,-66,-34,-82,-14,-70],[-4,-70,-6,-88,10,-72],[16,-70,26,-86,32,-66],[34,-60,52,-72,48,-48]].forEach(a=>{ctx.beginPath();ctx.moveTo(a[0],a[1]);ctx.lineTo(a[2],a[3]);ctx.lineTo(a[4],a[5]);ctx.fillStyle=P.hair;ctx.fill()});
  if(p.crown){poly([[-31,-56],[-35,-100],[-17,-78],[0,-106],[17,-78],[35,-100],[31,-56]],'#ffc933');rrect(-32,-66,64,11,4,'#e8a512');ell(0,-86,4.6,4.6,'#ff3b5c');ell(-21,-76,3.4,3.4,'#3bd1ff');ell(21,-76,3.4,3.4,'#3bd1ff')}
  // koz
- const blink=(t%3.7)<.11,st=p.eye||'open',look=p.look||0;
+ const blink=(t%3.7)<.11,st=p.eye||'open',look=(typeof p.look==='number'&&isFinite(p.look))?p.look:0;
  [-21,21].forEach((ex,i)=>{
   let ry=13,rx=12;if(st==='wide'){ry=17;rx=13.5}if(st==='squint')ry=6;if(blink||st==='closed')ry=1.6;
   if(p.shadow){ctx.save();ctx.shadowColor='#ff2a3a';ctx.shadowBlur=18;ell(ex,-6,rx*.95,Math.max(2,ry*.55),'#ff3040');ctx.restore()}

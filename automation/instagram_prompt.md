@@ -11,7 +11,7 @@
 - Har 1.5-3 s da yangi kadr, kamera doim harakatda, kamera devor ichiga kirmasin, sahna qorong'i bo'lmasin. Render oldidan kontakt-varaq bilan har shotni tekshiring va tuzating.
 - Subtitr: KO'K (#3db4ff), qalin qora kontur, kalit so'z sariq, 1-3 so'z, ovozga sinxron, ekran o'rtasidan pastroqda.
 - Musiqa/SFX numpy bilan (oddiy, g'alati emas), loudnorm I=-14, video ~6.5 Mbit/s, fayl <50 MB.
-- Instagramga to'g'ridan-to'g'ri Reels qilib yuklang: CAPTION/NOM/HESHTEG YO'Q (caption bo'sh).
+- Instagramga Reels qilib yuklang: qisqa caption majburiy (1-qator hook + 2-qator bitta harakat chaqirig'i); sarlavha-nom va heshteg yo'q.
 
 ## Kanal reklamasi (har kuni 18 videodan 2 tasi)
 Maqsad: Instagram tomoshabinini Telegram kanal @aicreator_n1 ga o'tkazish. Ikkalasi ham professional, kuchli hookli bo'lsin. Oxirgi qismda AI qahramon (`host.png`, `ai_lib.js` dagi `hostDraw`) va Instagram profil maketi (`@jasur.ai_`, bio'da "🔗 Telegram: AI Creator_N1" havolasi, unga ko'rsatgich/strelka) ko'rsatilsin. Real Instagram logotipini chizmang, faqat oddiy profil maketi.

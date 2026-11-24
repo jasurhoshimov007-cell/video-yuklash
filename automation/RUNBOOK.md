@@ -26,15 +26,23 @@ Egasi hech narsa qilmaydi. Savol bermang, oxirigacha o'zingiz bajaring. Egasiga 
   2. A yoki B savol-javoblardan **1 tasi**: oxirida "Natija Telegram kanalimizda!". Shu kuni kanalga o'sha savol `sendPoll` (anonim, A va B variant) bilan joylanadi: kanalga kirgan odam ovoz beradi va natijani ko'radi.
   3. **AI yangilik videolari (Instagram 2 + kanal 2)**: oxirida Telegram kanalimiz reklamasi ("Har kuni AI yangiliklari va darslar, profildagi havola").
 - A yoki B savol-javob: 2D (`tmpl2d_ab.js`), VS ekrani, 30-40 s, oxirida "Siz qaysi birini tanlaysiz? Izohda A yoki B yozing". Mavzu: umumiy + o'zbek hayotiga yaqin aralash, har kuni oldingidan qiziqarliroq (history.md ni tekshiring).
-- **Kanal reklamasi videolari (3 ta/kun)**: 2D, 20-26 s, namuna `examples/r01_ad_2d.js` (hook mavzusi har kuni yangi: 1 kunlik prezident/milliarder/robot..., siyosatchi va partiyasiz; keyin qahramon `drawHost` pastda, `igProfile` (havola), `tgChannelCard`, `subscribeBtn`). Ovoz turi `fun`. Matn: hook, shunday videolar kerakmi/yasashni o'rganasizmi, profildagi havola -> Telegram, AI bilan pul ishlash/video yasash/AI yangiliklari, obuna+like+fikr.
+- **Kanal reklamasi videolari (1 ta/kun; to'g'ridan-to'g'ri 'xizmat sotish' reklamasi qilmang: tomoshabin tashlab ketadi, reklama hikoya ichida bo'lsin)**: 2D, 20-26 s, namuna `examples/r01_ad_2d.js` (hook mavzusi har kuni yangi: 1 kunlik prezident/milliarder/robot..., siyosatchi va partiyasiz; keyin qahramon `drawHost` pastda, `igProfile` (havola), `tgChannelCard`, `subscribeBtn`). Ovoz turi `fun`. Matn: hook, shunday videolar kerakmi/yasashni o'rganasizmi, profildagi havola -> Telegram, AI bilan pul ishlash/video yasash/AI yangiliklari, obuna+like+fikr.
 - Barcha videolar `reference_analysis.md` talablariga mos bo'lsin (hook, UI maketlari, doimiy qahramon, cliffhanger).
 
 ## 1.0 USLUB QOIDASI (egasi 2026-11-23, QAT'IY)
 - **Roblox / blokli (kubik) uslub BUTUNLAY TAQIQLANGAN.** Faqat: (1) 2D flat-vector (`lib2d.js`) yoki (2) 3D Pixar-uslubidagi qahramon rasmi (`host.png`, AI yangilik videolarida). `lib.js` dagi blokli 3D sahnalari (`drawChar`, `room`...) ishlatilmaydi; `examples/v01-v10.js` ESKI blokli videolar edi: nusxa olmang.
 - AI yangilik videolari (Instagram va kanal): `host.png` (3D rasm qahramon) + `ai_lib.js` kartalari.
 
+## 0.2 Kecha natijasi -> bugungi tarkib (har kuni, ishni boshlashdan oldin)
+- Windsor `instagram` `get_data` (maydonlar: `timestamp`, `media_permalink`, `media_views`, `media_reach`, `media_like_count`, `media_comments_count`, `media_shares`, `media_saved`; oxirgi 2-3 kun, story'siz) bilan kechagi/oldingi reellar natijasini oling. Skip foizi mavjud emas: ko'rish, izoh, ulashish, saqlash bilan baholang. Reel turini `history.md` dagi tartibdan toping (yuklash vaqti tartibi).
+- `history.md` ga har reel uchun bitta qator yozing: nom | tur | uslub | ko'rish | like | izoh | ulashish. Har turning o'rtacha ko'rishini hisoblang.
+- Qoida: turning o'rtacha ko'rishi umumiy o'rtachaning 40% idan past bo'lsa va 2 kun ketma-ket shunday bo'lsa, uni 1 taga kamaytiring va eng yaxshi tur (ko'rish+izoh+ulashish) ni 1 taga ko'paytiring. Jami 18 dan oshmasin. O'zgarishni hisobotga yozing.
+- Tomoshabin tashlab ketgan uslublar (past ko'rish) takrorlanmasin: bir xil sahna/qahramon pozasi/hook 2 kun qaytmasin.
+
 ## 1.1b Sifat qoidalari (2026-11-24 tahlilidan)
 - Instagram'ga yuboriladigan video bitreyti kamida ~3 Mbit/s bo'lsin (crf <= 23). Kecha crf 27 (0.6-0.9 Mbit/s) ishlatildi: tasvir xiralashdi. Repo hajmini tejash uchun media papkasini har kuni tozalang (git rm), bitrayt pastlatmang.
+- **Har reelda bitta asosiy harakat chaqirig'i** (izohda A/B yozing, davomi Telegramda, saqlang yoki ulashing) + qisqa like/obuna. Serial qismlari o'zi tushunarli bo'lsin, "oldingi qismda..." bilan boshlanmasin.
+- **Qahramon ko'zi doim ko'rinsin** (qorachiq bilan). `drawHost` da `look` faqat raqam (-1..1); rang palitrasi `pal` orqali beriladi. Kontakt-varaqda ko'zsiz (oq doira yoki bo'sh) qahramon bo'lsa, tuzatmasdan joylamang.
 - Matn (hook, sarlavha, variant nomi) ekran kengligiga sig'sin: uzun matnni avtomatik kichraytiring (A yoki B hook'i kecha kesilib qolgan).
 - Horror 2D: bitta joyda (masalan faqat zinapoya) o'tmasin: kamida 4 xil sahna/ob'ekt (xona, telefon/ekran, koridor, tashqari...), hikoyachi qahramon kamida 5 kadrda ko'rinsin.
 - Claude suhbat 3 videosi bir-biriga o'xshamasin: har birida boshqa joy (ofis, shifoxona, uy, auditoriya...), boshqa qo'shimcha ob'ektlar.
@@ -51,13 +59,13 @@ Egasi hech narsa qilmaydi. Savol bermang, oxirigacha o'zingiz bajaring. Egasiga 
 ## 1. Instagram: 18 ta video (avval shu)
 - Talablar: `instagram_prompt.md` (qat'iy).
 - Trend: boshlashdan oldin WebSearch bilan shu haftaning Instagram Reels / TikTok trendlarini (formatlar, hook'lar, mavzular, O'zbekiston va dunyo bo'yicha) qidiring va bugungi 18 ta mavzuni ularga moslang. Har kuni mavzu, hook, shablon va vizual uslub yangi bo'lsin; history.md dagilarni takrorlamang.
-- Tarkib (jami 18, egasi 2026-11-23 da belgilagan): horror/sirli hikoya 5; Claude AI bilan suhbat-video 3; Telegram kanal reklamasi 3; qiziqarli "A yoki B" savol-javob / ovoz jangi 5; AI yangilik 2. Telegram kanal uchun alohida: AI yangilik videosi 2 (Instagram'ga emas). Namunalar tahlili: `reference_analysis.md` (qat'iy bajaring).
+- Tarkib (jami 18, 2026-11-24 dan; ko'rishlar tahlili asosida): horror/sirli 5; **A yoki B savol-javob / izoh=ovoz 8** (eng yaxshi ishlaydi); Claude suhbat 2; Telegram kanal reklamasi 1 (faqat hikoya/hook ichida, to'g'ridan-to'g'ri sotuv emas); AI yangilik 2. Telegram kanal uchun alohida: AI yangilik videosi 2. Natija tahlili asosida tarkib har kuni moslanadi (0.2-bo'lim).
 - Ish tartibi har video uchun: `scripts.json` -> `python3 tts.py vNN` -> `python3 prep.py vNN` -> `python3 check.py vNN` -> `vNN.js` sahna (namunalar: `examples/v01.js`...`v10.js`; `lib.js` dagi set/prop/overlay funksiyalari) -> `node render.js vNN sheet` + kontakt-varaqni ko'rib tuzatish -> `node render.js vNN full` -> `python3 mix.py vNN` -> ffmpeg mux (`-c copy -movflags +faststart`) -> `final.mp4`.
 - 3 ta videoni parallel render qiling.
 - TTS kalitlari: `GEMINI_API_KEY` va zaxira `GEMINI_API_KEY_2` (muhitda bo'lsa; boshqa Google loyihasidan). `tts.py` birinchi kalit kunlik limiti tugasa o'zi ikkinchisiga o'tadi. Har ikki kalitning limiti tugasa, qolganini qilmang va hisobotda ayting.
 - TTS limiti: har model uchun kuniga ~10 so'rov (jami ~20). 18 Instagram + 2 kanal uchun so'rovlarni tejang, qayta yozdirmang. Limit tugasa, qolganini qilmasdan hisobotda ayting.
 - Joylash (ochiq URL): bitta `media` tarmog'idan foydalaning va uni har kuni yangidan, tarixsiz yozing: `git checkout --orphan media-tmp && git rm -rfq --cached . && git add vNN.mp4 story.jpg ... && git commit -m media && git push -f origin HEAD:media` (eski videolar shu bilan o'chadi, ombor kattalashmaydi). URL: `https://raw.githubusercontent.com/jasurhoshimov007-cell/video-yuklash/media/vNN.mp4`. Yangi videolar qo'shilganda shu tarmoqqa oddiy commit + push qiling. Agar `media` ga push rad etilsa, sessiyaning o'z ishchi tarmog'iga `media/` papka qilib push qiling va hisobotda ayting.
-- Instagram'ga `create_video_post` bilan yuklang: `caption` BO'SH (nom/heshteg yo'q), `share_to_feed: true`, `thumb_offset: 1500`. Har video tayyor bo'lishi bilan yuklang.
+- Instagram'ga `create_video_post` bilan yuklang: `caption` MAJBURIY va qisqa: **1-qator hook (video boshidagi savol/jumla) + 2-qator bitta aniq harakat chaqirig'i** (masalan "Izohda A yoki B yozing 👇", "Davomi Telegramda, havola profilda"). Sarlavha-nom, heshteg va uzun matn YO'Q. `share_to_feed: true`, `thumb_offset: 1500`. Har video tayyor bo'lishi bilan yuklang.
 - Agar chaqiruv 60 s da timeout bo'lsa, QAYTA YUBORMANG: avval `get_data` (fields `media_id`, `media_permalink`, date_preset `last_3dT`) bilan chiqqanini tekshiring.
 - Tarmoq o'chirish kerak emas (`git push --delete` bu muhitda taqiqlangan); ertasi kuni `media` force-push bilan tozalanadi.
 
