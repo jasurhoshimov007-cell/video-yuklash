@@ -48,6 +48,7 @@ Siz 10 yillik tajribali Instagram Reels strateg, tahlilchi va prodyuserisiz. Maq
 ## 0.6 Musiqa va sound effect (egasi 2026-11-24)
 - Har videoga tur va kayfiyatga mos ORIGINAL musiqa va SFX (`mix.py`, numpy bilan o'zimiz sintez qilamiz: mualliflik huquqi muammosi yo'q). Horror: past drone, tik-tak, shitirlash, zarba; jang/kimni tanlaysiz: tez ritmik beat, "ding", tovush zarbalari; Claude: yengil, quvnoq melodiya, "pop" va "click".
 - Har kuni musiqa va SFX oldingi kundan boshqacha va boyroq bo'lsin (tempo, tonallik, qatlamlar), ovoz (ovoz yetakchi) ustidan bosmasin: musiqa -22..-18 LUFS ostida, ovoz aniq eshitilsin. Birinchi 3 soniyada zarba/whoosh bilan hook kuchaytirilsin.
+- **Mosligi va joyida bo'lishi MAJBURIY:** har SFX voqea bilan bir vaqtda (eshik ochilishi, telefon xabari, zarba, tugma bosilishi, kartaning ochilishi), keraksiz joyga qo'yilmasin; musiqa kayfiyatga mos va hikoya bilan o'zgarsin (taranglik oshganda kuchayadi, pauzada tinadi). Tekshiruvda har SFX vaqtini sahna bilan solishtiring, mos kelmasa tuzating.
 - Internetdan tayyor musiqa/SFX yuklamang (litsenziya xavfi), faqat o'zimiz yaratganlari.
 
 ## 1.1 Yangi qoidalar (egasi 2026-11-23 da tasdiqlagan, QAT'IY)
