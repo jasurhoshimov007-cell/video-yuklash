@@ -34,7 +34,7 @@ Texnik eslatmalar: ovoz — offline `espeak-ng -v uz` (edge-tts, gTTS, HuggingFa
 ### Yuklash natijasi (2026-11-24)
 - Windsor `upload_video` hamma urinishda "YouTube rate-limited the upload" xatosi berdi (1-video: 4 urinish, 60/90/150 soniya kutib; 2-video: 1 urinish). Dublikat yo'q — get_data bilan tekshirildi (oxirgi 3 kunda yangi video yo'q). Yuklangan video: 0, video_id yo'q.
 - 8 ta fayl `queue/` da qoldi; ertaga (2026-11-25) yuklanadi, publish_at ertangi kun emas, KEYINGI kun (2026-11-26, 08:00–22:00, har 2 soatda) qilib qo'yiladi. Navbat: prompt_formula (08:00), ai_xato_3 (10:00), ai_video_3qadam (12:00), ai_afsona (14:00), ai_oqish (16:00), ai_xalusinatsiya (18:00), ai_cv (20:00), ai_til_organ (22:00). Ertaga yangi videolar yasashdan oldin shu 8 tasini yuklang (yangi mavzu yasash o'rniga; kunlik limit oshib ketmasin).
-- Metadata tayyor (sarlavha/tag/tavsif) — `scratchpad/videos.json` ning mazmuni: sarlavhalar "... #Shorts" bilan tugaydi, kategoriya 28 (Science & Technology), made_for_kids=false.
+- Metadata tayyor (sarlavha/tag/tavsif) — `youtube_jasur_ai/queue_metadata_20261124.json` faylida (slug = fayl nomi, title/desc/tags): sarlavhalar "... #Shorts" bilan tugaydi, kategoriya 28 (Science & Technology), made_for_kids=false.
 - Izohlar: oxirgi 30 kunda kanalda izoh yo'q (0 qator) — javob berilmadi, moderatsiya kerak bo'lmadi.
 
 ### Qo'shimcha saboq
