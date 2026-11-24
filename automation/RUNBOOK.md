@@ -33,6 +33,13 @@ Egasi hech narsa qilmaydi. Savol bermang, oxirigacha o'zingiz bajaring. Egasiga 
 - **Roblox / blokli (kubik) uslub BUTUNLAY TAQIQLANGAN.** Faqat: (1) 2D flat-vector (`lib2d.js`) yoki (2) 3D Pixar-uslubidagi qahramon rasmi (`host.png`, AI yangilik videolarida). `lib.js` dagi blokli 3D sahnalari (`drawChar`, `room`...) ishlatilmaydi; `examples/v01-v10.js` ESKI blokli videolar edi: nusxa olmang.
 - AI yangilik videolari (Instagram va kanal): `host.png` (3D rasm qahramon) + `ai_lib.js` kartalari.
 
+## 1.1b Sifat qoidalari (2026-11-24 tahlilidan)
+- Instagram'ga yuboriladigan video bitreyti kamida ~3 Mbit/s bo'lsin (crf <= 23). Kecha crf 27 (0.6-0.9 Mbit/s) ishlatildi: tasvir xiralashdi. Repo hajmini tejash uchun media papkasini har kuni tozalang (git rm), bitrayt pastlatmang.
+- Matn (hook, sarlavha, variant nomi) ekran kengligiga sig'sin: uzun matnni avtomatik kichraytiring (A yoki B hook'i kecha kesilib qolgan).
+- Horror 2D: bitta joyda (masalan faqat zinapoya) o'tmasin: kamida 4 xil sahna/ob'ekt (xona, telefon/ekran, koridor, tashqari...), hikoyachi qahramon kamida 5 kadrda ko'rinsin.
+- Claude suhbat 3 videosi bir-biriga o'xshamasin: har birida boshqa joy (ofis, shifoxona, uy, auditoriya...), boshqa qo'shimcha ob'ektlar.
+- AI yangilik: birinchi kadrda aniq natija/raqam/savol ("1 mln token narxi 5 baravar tushdi!"), faqat nom emas.
+
 ## 1.2 Shablonlar va xavfsizlik qoidalari (sinovdan o'tgan)
 - **A yoki B** (`tmpl2d_ab.js`, 2D flat-vector, `render2d.js`): `vNN/spec.json` ({A:{label,emoji},B:{label,emoji},roles:[har gap uchun hook|A|B|choose|comment|natija|cta],hookBig}) va `scripts.json` (type fun) yarating; `cp tmpl2d_ab.js vNN.js`. Namuna: `examples/ab_spec_example.json`. Matn 75-85 so'z (30-38 s). `roles` dagi `natija` faqat 1 ta videoda ("Natija Telegram kanalimizda!"), qolganlarida o'rniga `comment`. SAXTA foiz/natija ko'rsatmang.
 - **Claude suhbat** (`tmpl2d_claude.js`, 2D flat-vector, `render2d.js`; Claude personaji `drawClaude2d`, stol `deskBack`/`deskFront`; odam `drawHost` + `look:{hood,hair,skin}` bilan har kuni boshqa ko'rinish): `spec.json` ({speakers:["H","C",..],moods:[...],look,shirt,wide:[...],hookBig,hookSub,alert}); `scripts.json`da `"dialog":true,"speakers":["Q"/"C",...]` (Q = odam Algenib, C = Claude Kore; multi-speaker TTS faqat gemini-2.5-flash-preview-tts da ishlaydi, 3.8 da 400 xato beradi). Namuna: `examples/claude_spec_example.json`. Matn 75-90 so'z (35-45 s).
