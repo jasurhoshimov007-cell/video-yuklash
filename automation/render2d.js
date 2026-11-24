@@ -7,7 +7,7 @@ const {chromium}=require('playwright');const fs=require('fs');const {spawn}=requ
  await pg.goto('file://'+__dirname+'/page2d.html');
  await pg.evaluate(async()=>{await document.fonts.load('900 40px Inter');await document.fonts.load('40px "Noto Color Emoji"')});
  const timing=JSON.parse(fs.readFileSync(`${vid}/timing.json`));
- const envA=fs.existsSync(`${vid}/env.json`)?fs.readFileSync(`${vid}/env.json`,'utf8'):'[]';await pg.waitForFunction(()=>document.getElementById('host')?document.getElementById('host').complete:true);await pg.addScriptTag({content:`TIMINGDATA=${JSON.stringify(timing)};ENVA=${envA};SPEC=${(fs.existsSync(`${vid}/spec.json`)?fs.readFileSync(`${vid}/spec.json`,'utf8'):'null')};`+fs.readFileSync(`${vid}.js`,'utf8')});
+ const envA=fs.existsSync(`${vid}/env.json`)?fs.readFileSync(`${vid}/env.json`,'utf8'):'[]';await pg.waitForFunction(()=>document.getElementById('host')?document.getElementById('host').complete:true);await pg.addScriptTag({content:`TIMINGDATA=${JSON.stringify(timing)};ENVA=${envA};SPEC=${(fs.existsSync(`${vid}/spec.json`)?fs.readFileSync(`${vid}/spec.json`,'utf8'):'null')};`+(fs.existsSync("hlib.js")?fs.readFileSync("hlib.js","utf8"):"")+fs.readFileSync(`${vid}.js`,"utf8")});
  const info=await pg.evaluate(()=>({dur:DUR,shots:SHOTS.map(s=>[s.t0,s.t1,s.line]),sfx:SFX}));
  fs.writeFileSync(`${vid}/info.json`,JSON.stringify(info));
  if(mode=='sheet'){ // one frame per shot middle

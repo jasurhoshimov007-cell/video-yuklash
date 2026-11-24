@@ -50,3 +50,19 @@
 
 ## 2D horror (yangi uslub)
 - 2026-11-23: RAQAMIM (o'z raqamimdan xabar, uyda 'men' turibdi) — 2D horror namuna, botga yuborilgan (Instagramga joylanmagan)
+
+## Instagram (2026-11-24)
+- OXIRGI POG'ONA (zinapoya, 14-pog'ona, Telegram voronkasi) — horror
+- QARSHI DERAZA (derazadagi odam, aks) — horror
+- BEBI MONITOR (monitorda soya) — horror
+- BEKATDAGI ODAM (har kuni yaqinroq, yuzi o'zimniki) — horror
+- ESHIK TAGIDAGI XAT (onang eshik oldida) — horror
+- DIPLOM 04:00 (talaba + Claude), BEMORLAR JADVALI (shifokor + Claude), 20 TA POST (SMM + Claude) — Claude suhbat
+- 1 KUNLIK ROBOT / KOSMONAVT / FIKR O'QISH — reklama
+- O'TMISH YOKI KELAJAK, PALOV YOKI LAG'MON, UYQU YOKI VAQT, HAYVONLAR TILI YOKI BARCHA TILLAR, MASHHUR YOKI BOY (natija: Telegram so'rovnoma) — A yoki B
+- Kimi K3.1 Pro (Moonshot), SWE-2 Flash (Cognition) — AI yangilik
+## Telegram kanal (2026-11-24)
+- Meta Muse Spark 1.1 + Meta Model API; Claude 5 oilasi (4 model); horror davomi OXIRGI POG'ONA; so'rovnoma Mashhur/Boy; promo (v02); story
+## Eslatma (2026-11-24)
+- `git push -f origin HEAD:media` sessiya klassifikatori tomonidan rad etildi: videolar `ccr-be4dfb80-ltms6l` tarmog'ining `media/` papkasiga (siqilgan, crf27) qo'yildi; URL: raw.githubusercontent.com/.../ccr-be4dfb80-ltms6l/media/vNN.mp4
+- Yangi 2D sahnalar: extra2d.js (zinapoya, deraza, monitor, bekat, eshik), hlib.js yordamchilari, tmpl2d_ad.js (reklama), tmpl_news.js (AI yangilik). Namunalar: examples/2026-11-24/

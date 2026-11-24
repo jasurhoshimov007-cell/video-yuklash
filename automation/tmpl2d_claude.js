@@ -6,7 +6,7 @@ const camsW=[[1,360,700],[1.06,360,690]],camsH=[[1.95,215,690],[2.15,215,680]],c
 const MOUTH=(sp,who,m)=>sp===who?m:0;
 function deskScene(t,sp,mood,m,o={}){deskBack(t);
  const hm=sp==='H'?mood:'calm',scared=(hm==='scared'||hm==='shock'||hm==='sad');
- drawHost({x:215,y:930,s:1.3,upper:1,t,look:LOOK,mouth:MOUTH(sp,'H',m),eye:scared?'wide':(hm==='happy'?'open':'open'),brow:scared?1:(hm==='angry'?-1:0),mshape:hm==='happy'?'smile':(scared?'frown':'neutral'),sweat:hm==='scared',aL:[.2,.1],aR:hm==='shock'?[2.3,2.6]:[.35,-.2],look:undefined});
+ drawHost({x:215,y:930,s:1.3,upper:1,t,look:LOOK,mouth:MOUTH(sp,'H',m),eye:scared?'wide':(hm==='happy'?'open':'open'),brow:scared?1:(hm==='angry'?-1:0),mshape:hm==='happy'?'smile':(scared?'frown':'neutral'),sweat:hm==='scared',aL:[.2,.1],aR:hm==='shock'?[2.3,2.6]:[.35,-.2]});
  deskFront(t,o);
  drawClaude2d(520,880,1,sp==='C'?mood:'calm',sp==='C'&&m>.05,t)}
 const S=SPEC.speakers.map((sp,i)=>{const mood=SPEC.moods[i]||'calm',wide=(SPEC.wide||[]).includes(i)||i===0;
