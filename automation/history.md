@@ -66,3 +66,11 @@
 ## Eslatma (2026-11-24)
 - `git push -f origin HEAD:media` sessiya klassifikatori tomonidan rad etildi: videolar `ccr-be4dfb80-ltms6l` tarmog'ining `media/` papkasiga (siqilgan, crf27) qo'yildi; URL: raw.githubusercontent.com/.../ccr-be4dfb80-ltms6l/media/vNN.mp4
 - Yangi 2D sahnalar: extra2d.js (zinapoya, deraza, monitor, bekat, eshik), hlib.js yordamchilari, tmpl2d_ad.js (reklama), tmpl_news.js (AI yangilik). Namunalar: examples/2026-11-24/
+
+## Qoidalar (o'rganilgan) — har kuni o'qing, yangisini qo'shing
+1. (2026-11-24) A yoki B eng yaxshi ishlagan (izoh/ulashish), Claude va AI yangilik eng past. Yangi 12 talik tarkibda hook va ovoz sifatini oshirish bilan yechiladi.
+2. (2026-11-24) Past bitreyt (crf 27) tasvirni xiralashtirdi: crf <= 23.
+3. (2026-11-24) Qahramon ko'zi doim ko'rinsin; matn ekranga sig'sin; quloqchin/mikrofon yo'q.
+4. (2026-11-24) Video 30-40 s, 40 s dan oshmasin.
+5. (2026-11-24) Har reelda bitta aniq chaqiriq (izoh/ulashish/Telegram).
+## Kunlik tahlil jadvali (har kuni to'ldiring): sana | video | tur | uzunlik | ko'rish | ushlab turish % | skip % | saqlash | ulashish | izoh | xulosa

@@ -17,6 +17,8 @@ def build(r):
     ok=(n>=plan and not nd)
     head=f"✅ Hammasi muvaffaqiyatli yuklandi! ({n}/{plan})" if ok else (f"⚠️ {n}/{plan} ta yuklandi" if n>0 else "❌ Yuklanmadi")
     out=[f"{head}\n📅 {r.get('date','')}".strip()]
+    if r.get("followers") is not None:
+        d=r.get("followers_delta");out.append(f"👥 Obunachilar: {r['followers']}"+(f" ({'+' if d>=0 else ''}{d} kecha)" if d is not None else ""))
     b=["📱 Instagram (@jasur.ai_)"]
     for cat,items in ig.items():
         if not items: continue
@@ -26,6 +28,11 @@ def build(r):
     if ch: out.append("📢 Kanal: "+"; ".join(ch))
     if nd: out.append("🚫 Bajarilmadi: "+"; ".join(nd))
     if probs: out.append("⚠️ Muammo: "+"; ".join(probs))
+    L=r.get("lines",[])
+    if L:
+        T=["Bugun nima qildim","Nima o'zgardi","Kechagi natija","Xulosa","Ertaga sinayman"]
+        out.append("\n".join(f"{k+1}) {T[k] if k<5 else ''}: {x}" for k,x in enumerate(L)))
+    if ok and not probs: out.append("Hammasi tayyor, ertangi kunga tayyorman.")
     return "\n\n".join(out)
 def send(text):
     tok=os.environ["TELEGRAM_BOT_TOKEN"];chat=os.environ["TELEGRAM_CHAT_ID"]
