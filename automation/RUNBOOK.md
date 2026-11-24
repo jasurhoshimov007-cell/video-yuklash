@@ -40,6 +40,11 @@ Siz 10 yillik tajribali Instagram Reels strateg, tahlilchi va prodyuserisiz. Maq
 - **Ovoz (egasi: bugungi ovoz yaxshi, lekin har kuni oldingisidan yaxshiroq bo'lsin):** botga qo'shimcha video YUBORMANG. Ovozni o'zingiz tahlil qiling (ohang, tempo, pauza, urg'u, emotsiya, talaffuz) va har kuni bitta aniq yaxshilanish qo'llang; jurnalga yozing.
 - Ovoz: har videoda emotsiya (horror: past, sekin, taranglik; jang/kimni tanlaysiz: baland energiya, tez tempo; Claude: odam hayajonli, Claude iliq). Ovoz sifati pastligi (robotlik, noto'g'ri urg'u) bo'lsa, `tts_lines` da imlo/urg'uni tuzatib qayta yarating yoki boshqa modelni sinang.
 
+## 0.5 Instagram Story (har kuni, egasi 2026-11-24)
+- Har kuni **2 ta story** (Windsor `create_story`): (1) kunning eng yaxshi/yangi Reels'idan 15-30 s qirqim (`ffmpeg -t`, 9:16, 3-60 s, MP4) yoki hook kadri + "Yangi video chiqdi, profilga kiring" matni; (2) savol/ovoz kartasi (rasm JPEG, 9:16): "A yoki B?", "Qaysi horror yoqdi?" va h.k., oxirida @jasur.ai_ va Telegram kanal havolasi eslatmasi. Har kuni story mavzusi boshqa bo'lsin.
+- Story ochiq URL'dan (media papka) yuklanadi, xuddi Reels kabi. Highlights'ga qo'shishni API qilolmaydi: egasi Instagram ilovasida qo'lda qo'shadi. Story'ni O'CHIRMANG.
+- Hisobotga bitta qator: "Story: 2 ta yuklandi".
+
 ## 1.1 Yangi qoidalar (egasi 2026-11-23 da tasdiqlagan, QAT'IY)
 - **Horror/sirli (5 ta/kun): 2D flat-vector uslub**, uzunligi **30-40 s** (kerak: ~65-85 so'z), AI ovoz. Dvigatel: `lib2d.js` (+ `page2d.html`, `render2d.js` o'rniga `render.js` ni `page2d.html` bilan ishlating: `node render2d.js vNN sheet|full`). Namuna: `examples/h01_2d_horror.js` ("RAQAMIM"). Doimiy hikoyachi qahramon `drawHost` (nomi Jasur, SOQOLSIZ — egasi talabi), pastda @jasur.ai_, subtitr ko'k, kalit so'z (`kw`) sariq, UI maketlari (telefon `scenePhone`, CCTV `cctv`, taymer, TV ogohlantirish, xarita — kerak bo'lsa `lib2d.js` ga qo'shing), "sen/men" hikoyasi, vaqt/raqam bilan hook, oxirida cliffhanger.
 - Ovoz uchun kadrlar ro'yxati: `ENVA` (ovoz amplitudasi, `env.json`) bilan qahramon og'zi harakatlanadi: har horror uchun `h01` dagi kabi `env.json` yarating.
