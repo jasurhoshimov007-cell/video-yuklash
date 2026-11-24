@@ -4,7 +4,7 @@ Ishlatish: python3 report.py report.json   (yoki --preview bilan namuna)
 report.json:
 {"date":"24-noyabr",
  "instagram":{"Horror":[["NOM",45.2],...],"Claude suhbat":[...],"Kanal reklamasi":[...],"A yoki B":[...],"AI yangilik":[...]},
- "instagram_plan":18,
+ "instagram_plan":12,
  "channel":["Video: NOM (27 s)","So'rovnoma: ...","Promo post: ..."],
  "problems":["..."],            # bo'sh bo'lsa yozilmaydi
  "not_done":["..."]}            # bo'lmagan ishlar
@@ -14,28 +14,18 @@ ICON={"Horror":"😱","Claude suhbat":"🤖","Kanal reklamasi":"📢","A yoki B"
 def build(r):
     ig=r.get("instagram",{});n=sum(len(v) for v in ig.values());plan=r.get("instagram_plan",12)
     probs=r.get("problems",[]);nd=r.get("not_done",[])
-    ok=(n>=plan and not nd and not (r.get("youtube") or {}).get("failed"))
-    head="✅ Hammasi tayyor!" if ok and not probs else ("⚠️ Ish bajarildi, lekin e'tibor kerak" if n>0 else "❌ Ish bajarilmadi")
+    ok=(n>=plan and not nd)
+    head=f"✅ Hammasi muvaffaqiyatli yuklandi! ({n}/{plan})" if ok else (f"⚠️ {n}/{plan} ta yuklandi" if n>0 else "❌ Yuklanmadi")
     out=[f"{head}\n📅 {r.get('date','')}".strip()]
-    b=[f"📱 INSTAGRAM (@jasur.ai_)\n{n}/{plan} ta Reels joylandi"]
-    i=1
+    b=["📱 Instagram (@jasur.ai_)"]
     for cat,items in ig.items():
         if not items: continue
-        b.append(f"\n{ICON.get(cat,'🎬')} {cat} ({len(items)})")
-        for name,sec in items:
-            b.append(f"{i}. {name} — {round(float(sec))} s");i+=1
+        b.append(f"{ICON.get(cat,'🎬')} {cat} ({len(items)}): "+", ".join(f"{nm} {round(float(sec))}s" for nm,sec in items))
     out.append("\n".join(b))
-    yt=r.get("youtube")
-    if yt:
-        d=yt.get("done",[]);f=yt.get("failed",[]);pl=yt.get("plan",len(d)+len(f))
-        b=[f"▶️ YOUTUBE (Shorts)\n{len(d)}/{pl} ta video yuklandi"]
-        if f: b.append("Yuklanmadi: "+", ".join(f))
-        out.append("\n".join(b))
     ch=r.get("channel",[])
-    if ch: out.append("📢 TELEGRAM KANAL (@aicreator_n1)\n"+"\n".join(f"{k+1}. {x}" for k,x in enumerate(ch)))
-    if nd: out.append("🚫 Bajarilmagan ishlar\n"+"\n".join(f"• {x}" for x in nd))
-    if probs: out.append("⚠️ Muammolar va ular qanday hal qilingani\n"+"\n".join(f"• {x}" for x in probs))
-    out.append("Hammasi muvaffaqiyatli bajarildi." if ok and not probs else ("Qolgan ishlar ertangi ishga o'tadi." if nd else "Qo'shimcha harakat kerak emas."))
+    if ch: out.append("📢 Kanal: "+"; ".join(ch))
+    if nd: out.append("🚫 Bajarilmadi: "+"; ".join(nd))
+    if probs: out.append("⚠️ Muammo: "+"; ".join(probs))
     return "\n\n".join(out)
 def send(text):
     tok=os.environ["TELEGRAM_BOT_TOKEN"];chat=os.environ["TELEGRAM_CHAT_ID"]
@@ -51,6 +41,6 @@ def send(text):
     return len(parts)
 if __name__=="__main__":
     if sys.argv[1]=="--preview":
-        r={"date":"24-noyabr (NAMUNA: ertangi hisobot shunday ko'rinadi)","instagram_plan":18,"instagram":{"Horror":[["RAQAMIM",49],["QORLI DOVON",44],["KAMERA 03:17",46],["QUDUQ",43],["OXIRGI QATOR",47]],"Claude suhbat":[["SAYT YIQILDI",44],["TO'Y NUTQI",41],["HISOBOT KECHASI",46]],"Kanal reklamasi":[["1 KUNLIK PREZIDENT",24],["1 KUNLIK MILLIARDER",22],["OXIRGI ODAM",21]],"A yoki B":[["1 MLN YOKI 1 YIL",36],["YOZ YOKI QISH",34],["MAKTAB YOKI ISH",35],["TELEFON YOKI DO'ST",37],["KECHA YOKI TONG",33]],"AI yangilik":[["YANGI AI MODELI",38],["AI NARXLARI",36]]},"channel":["Video: AI yangiligi 1 (27 s)","Video: AI yangiligi 2 (28 s)","Horror davomi: RAQAMIM (matn + rasm)","So'rovnoma: 1 MLN YOKI 1 YIL","Promo post: eng yaxshi Reels + havola","Instagram story joylandi"],"problems":[]}
+        r={"date":"24-noyabr (NAMUNA: ertangi hisobot shunday ko'rinadi)","instagram_plan":12,"instagram":{"Horror":[["RAQAMIM",49],["QORLI DOVON",44],["KAMERA 03:17",46],["QUDUQ",43],["OXIRGI QATOR",47]],"Claude suhbat":[["SAYT YIQILDI",44],["TO'Y NUTQI",41],["HISOBOT KECHASI",46]],"Kanal reklamasi":[["1 KUNLIK PREZIDENT",24],["1 KUNLIK MILLIARDER",22],["OXIRGI ODAM",21]],"A yoki B":[["1 MLN YOKI 1 YIL",36],["YOZ YOKI QISH",34],["MAKTAB YOKI ISH",35],["TELEFON YOKI DO'ST",37],["KECHA YOKI TONG",33]],"AI yangilik":[["YANGI AI MODELI",38],["AI NARXLARI",36]]},"channel":["Video: AI yangiligi 1 (27 s)","Video: AI yangiligi 2 (28 s)","Horror davomi: RAQAMIM (matn + rasm)","So'rovnoma: 1 MLN YOKI 1 YIL","Promo post: eng yaxshi Reels + havola","Instagram story joylandi"],"problems":[]}
     else: r=json.load(open(sys.argv[1]))
     print(build(r) if "--print" in sys.argv else f"yuborildi: {send(build(r))} xabar")

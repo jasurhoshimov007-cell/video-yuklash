@@ -44,7 +44,7 @@ function drawHost(p){
  if(p.longHair)rrect(-58,-32,116,150,46,P.hair);
  ell(-50,6,9,13,P.skin);ell(50,6,9,13,P.skin);ell(0,0,50,58,P.skin);
  // quloqchin
- if(!p.shadow){ctx.save();ctx.translate(-56,6);limb(0,0,4,22,3,P.cy);limb(4,22,22,36,3,P.cy);ell(25,37,6,4.5,P.cy);ctx.restore()}
+ if(p.headset&&!p.shadow){ctx.save();ctx.translate(-56,6);limb(0,0,4,22,3,P.cy);limb(4,22,22,36,3,P.cy);ell(25,37,6,4.5,P.cy);ctx.restore()}
  // soch
  ctx.beginPath();ctx.moveTo(-54,2);ctx.bezierCurveTo(-60,-40,-34,-74,4,-68);ctx.bezierCurveTo(30,-76,56,-52,54,2);ctx.bezierCurveTo(48,-10,44,-26,34,-32);ctx.bezierCurveTo(14,-22,-18,-40,-38,-24);ctx.bezierCurveTo(-46,-20,-50,-10,-54,2);ctx.closePath();ctx.fillStyle=P.hair;ctx.fill();
  (p.scarf||p.longHair?[]:[[-26,-66,-34,-82,-14,-70],[-4,-70,-6,-88,10,-72],[16,-70,26,-86,32,-66],[34,-60,52,-72,48,-48]]).forEach(a=>{ctx.beginPath();ctx.moveTo(a[0],a[1]);ctx.lineTo(a[2],a[3]);ctx.lineTo(a[4],a[5]);ctx.fillStyle=P.hair;ctx.fill()});
