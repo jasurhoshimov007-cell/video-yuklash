@@ -48,6 +48,19 @@ Egasi hech narsa qilmaydi. Savol bermang, oxirigacha o'zingiz bajaring. Egasiga 
 - Claude suhbat 3 videosi bir-biriga o'xshamasin: har birida boshqa joy (ofis, shifoxona, uy, auditoriya...), boshqa qo'shimcha ob'ektlar.
 - AI yangilik: birinchi kadrda aniq natija/raqam/savol ("1 mln token narxi 5 baravar tushdi!"), faqat nom emas.
 
+## 1.3 Claude suhbat videosi qoidalari
+- Qahramon: egasi yuborgan rasm `claude.png` (agar yo'q bo'lsa `drawClaude2d`). Har safar BOSHQA muhit (ofis, shifoxona, maktab, kosmos, oshxona...), BOSHQA muammo, BOSHQA stil; odam qahramoni va kasbi ham har kuni yangi.
+- **Video o'rtasida (taxminan 40-60% da)** Claude to'xtaydi: "To'xtang! Davom etishdan oldin Telegram kanalimizga o'tib oling, u yerda AI yangiliklari va darslar bor!" va hikoya davom etadi.
+- **Oxirida**: "Sizga ham shunday videolar, slayd yasash yoki AI yangiliklari kerak bo'lsa, profildagi havola orqali Telegram kanalimizga o'ting!" + obuna/like.
+
+## 1.4a Tayyor shablonlar (sinovdan o'tgan, 2026-11-24)
+- `tmpl2d_battle.js` (+`examples/battle_spec_example.json`): izoh=ovoz jang. `tmpl2d_choice.js` (+`examples/choice_spec_example.json`): poyezd dilemmasi; boshqa dilemma/taqqoslash (Ronaldo-Messi va h.k.) uchun yangi sahna yozing (`sceneTracks` o'rniga), qolgan tuzilma bir xil. `examples/h2d_camp_horror.js`: yangi joy/stil horror namunasi (`sceneCamp`, `sceneTentIn`). Horror uchun HAR KUNI yangi sahna funksiyalari yozing (joy, muhit, rang, stil boshqa bo'lsin).
+- TTS: `tts.py` 4 ta modelni sinaydi (3.8-flash, 2.5-flash, 3.8-flash-lite, 3.1-flash-preview); barchasi Algenib ovozi.
+
+## 1.4 Kimni tanlaysiz (2 ta/kun) va izoh=ovoz jang (3 ta/kun)
+- Kimni tanlaysiz: kuchli hissiy yoki futbol/pop-madaniyat dilemmasi (poyezd oldida sevgan qiz va ona; Ronaldo yoki Messi; 1 mln yoki do'st...). Zo'ravonlik/qon ko'rsatilmaydi, siyosat/din yo'q. Oxirida "Siz kimni tanlaysiz? Izohda yozing, obuna bo'ling, like bosing".
+- Izoh=ovoz jang: 8 ishtirokchi kartasi birma-bir ochiladi, "1 izoh = 1 ovoz", "do'stingizni chaqiring", "faqat 3 tasi finalga chiqadi", oxirida 3 tugma. Namuna tuzilma: `izoh-ovoz-jangi-roblox` skill jadvali (faqat jadval, vizual uslub 2D).
+
 ## 1.2 Shablonlar va xavfsizlik qoidalari (sinovdan o'tgan)
 - **A yoki B** (`tmpl2d_ab.js`, 2D flat-vector, `render2d.js`): `vNN/spec.json` ({A:{label,emoji},B:{label,emoji},roles:[har gap uchun hook|A|B|choose|comment|natija|cta],hookBig}) va `scripts.json` (type fun) yarating; `cp tmpl2d_ab.js vNN.js`. Namuna: `examples/ab_spec_example.json`. Matn 75-85 so'z (30-38 s). `roles` dagi `natija` faqat 1 ta videoda ("Natija Telegram kanalimizda!"), qolganlarida o'rniga `comment`. SAXTA foiz/natija ko'rsatmang.
 - **Claude suhbat** (`tmpl2d_claude.js`, 2D flat-vector, `render2d.js`; Claude personaji `drawClaude2d`, stol `deskBack`/`deskFront`; odam `drawHost` + `look:{hood,hair,skin}` bilan har kuni boshqa ko'rinish): `spec.json` ({speakers:["H","C",..],moods:[...],look,shirt,wide:[...],hookBig,hookSub,alert}); `scripts.json`da `"dialog":true,"speakers":["Q"/"C",...]` (Q = odam Algenib, C = Claude Kore; multi-speaker TTS faqat gemini-2.5-flash-preview-tts da ishlaydi, 3.8 da 400 xato beradi). Namuna: `examples/claude_spec_example.json`. Matn 75-90 so'z (35-45 s).
@@ -59,7 +72,7 @@ Egasi hech narsa qilmaydi. Savol bermang, oxirigacha o'zingiz bajaring. Egasiga 
 ## 1. Instagram: 18 ta video (avval shu)
 - Talablar: `instagram_prompt.md` (qat'iy).
 - Trend: boshlashdan oldin WebSearch bilan shu haftaning Instagram Reels / TikTok trendlarini (formatlar, hook'lar, mavzular, O'zbekiston va dunyo bo'yicha) qidiring va bugungi 18 ta mavzuni ularga moslang. Har kuni mavzu, hook, shablon va vizual uslub yangi bo'lsin; history.md dagilarni takrorlamang.
-- Tarkib (jami 18, 2026-11-24 dan; ko'rishlar tahlili asosida): horror/sirli 5; **A yoki B savol-javob / izoh=ovoz 8** (eng yaxshi ishlaydi); Claude suhbat 2; Telegram kanal reklamasi 1 (faqat hikoya/hook ichida, to'g'ridan-to'g'ri sotuv emas); AI yangilik 2. Telegram kanal uchun alohida: AI yangilik videosi 2. Natija tahlili asosida tarkib har kuni moslanadi (0.2-bo'lim).
+- **Tarkib (Instagram'ga KUNIGA 12 ta Reels, egasi 2026-11-24 da belgilagan, QAT'IY):** (1) horror/sirli hikoya **5** — har safar boshqa mavzu, joy, muhit va uslub, shablon takrorlanmasin; (2) **"izoh = ovoz" jang-jadval 3** (`tmpl2d_battle.js`, har safar boshqa qiziqarli mavzu: telefonlar, o'yinlar, multfilmlar, taomlar, futbolchilar, mashinalar...); (3) **Claude AI bilan suhbat 2** (Claude qahramon rasmi `claude.png`, har safar boshqa muhit/muammo/uslub; video o'rtasida va oxirida kanal reklamasi, 1.3-bo'lim); (4) **"kimni tanlaysiz" 2** (`tmpl2d_choice.js`: dilemma yoki Ronaldo-Messi turidagi qiziqarli taqqoslash). A yoki B, alohida reklama reeli va Instagram uchun AI yangilik videolari ENDI YO'Q. Telegram kanal uchun (2 AI yangilik, horror davomi, so'rovnoma, promo, story) o'zgarishsiz. Natija tahlili asosida tarkib 0.2-bo'limga ko'ra moslanadi.
 - Ish tartibi har video uchun: `scripts.json` -> `python3 tts.py vNN` -> `python3 prep.py vNN` -> `python3 check.py vNN` -> `vNN.js` sahna (namunalar: `examples/v01.js`...`v10.js`; `lib.js` dagi set/prop/overlay funksiyalari) -> `node render.js vNN sheet` + kontakt-varaqni ko'rib tuzatish -> `node render.js vNN full` -> `python3 mix.py vNN` -> ffmpeg mux (`-c copy -movflags +faststart`) -> `final.mp4`.
 - 3 ta videoni parallel render qiling.
 - TTS kalitlari: `GEMINI_API_KEY` va zaxira `GEMINI_API_KEY_2` (muhitda bo'lsa; boshqa Google loyihasidan). `tts.py` birinchi kalit kunlik limiti tugasa o'zi ikkinchisiga o'tadi. Har ikki kalitning limiti tugasa, qolganini qilmang va hisobotda ayting.

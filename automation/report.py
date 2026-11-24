@@ -10,9 +10,9 @@ report.json:
  "not_done":["..."]}            # bo'lmagan ishlar
 """
 import json,sys,os,urllib.request,urllib.parse
-ICON={"Horror":"😱","Claude suhbat":"🤖","Kanal reklamasi":"📢","A yoki B":"🅰️🅱️","AI yangilik":"📰","Boshqa":"🎬"}
+ICON={"Horror":"😱","Claude suhbat":"🤖","Kanal reklamasi":"📢","A yoki B":"🅰️🅱️","AI yangilik":"📰","Jang (izoh=ovoz)":"🏆","Kimni tanlaysiz":"🤔","Boshqa":"🎬"}
 def build(r):
-    ig=r.get("instagram",{});n=sum(len(v) for v in ig.values());plan=r.get("instagram_plan",18)
+    ig=r.get("instagram",{});n=sum(len(v) for v in ig.values());plan=r.get("instagram_plan",12)
     probs=r.get("problems",[]);nd=r.get("not_done",[])
     ok=(n>=plan and not nd and not (r.get("youtube") or {}).get("failed"))
     head="✅ Hammasi tayyor!" if ok and not probs else ("⚠️ Ish bajarildi, lekin e'tibor kerak" if n>0 else "❌ Ish bajarilmadi")
