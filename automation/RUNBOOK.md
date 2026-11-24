@@ -49,6 +49,7 @@ Egasi hech narsa qilmaydi. Savol bermang, oxirigacha o'zingiz bajaring. Egasiga 
 - AI yangilik: birinchi kadrda aniq natija/raqam/savol ("1 mln token narxi 5 baravar tushdi!"), faqat nom emas.
 
 ## 1.3 Claude suhbat videosi qoidalari
+- **Claude qahramoni** = pikselli apelsin-rang qisqichbaqa (`claude.png`, `drawClaude2d` shunga mos chizadi: ikkita qora kvadrat ko'z, yon qo'llar, 4 oyoq). Boshqa shaklda chizmang. Sahna `SPEC.scene` bilan (`desk` yoki `space`; yangi sahnalarni `tmpl2d_claude.js` ga qo'shing). Namuna: `examples/claude_space_spec.json` (kosmik stantsiya, kislorod).
 - Qahramon: egasi yuborgan rasm `claude.png` (agar yo'q bo'lsa `drawClaude2d`). Har safar BOSHQA muhit (ofis, shifoxona, maktab, kosmos, oshxona...), BOSHQA muammo, BOSHQA stil; odam qahramoni va kasbi ham har kuni yangi.
 - **Video o'rtasida (taxminan 40-60% da)** Claude to'xtaydi: "To'xtang! Davom etishdan oldin Telegram kanalimizga o'tib oling, u yerda AI yangiliklari va darslar bor!" va hikoya davom etadi.
 - **Oxirida**: "Sizga ham shunday videolar, slayd yasash yoki AI yangiliklari kerak bo'lsa, profildagi havola orqali Telegram kanalimizga o'ting!" + obuna/like.
@@ -58,6 +59,9 @@ Egasi hech narsa qilmaydi. Savol bermang, oxirigacha o'zingiz bajaring. Egasiga 
 - TTS: `tts.py` 4 ta modelni sinaydi (3.8-flash, 2.5-flash, 3.8-flash-lite, 3.1-flash-preview); barchasi Algenib ovozi.
 
 ## 1.4 Kimni tanlaysiz (2 ta/kun) va izoh=ovoz jang (3 ta/kun)
+- **Egasi 2026-11-24 javoblari (QAT'IY):** "Kimni tanlaysiz" mavzulari xilma-xil bo'lsin (pul yoki do'st, ona yoki sevgan, kasb tanlash, futbol va h.k.), faqat poyezd emas. Futbolchilar (Ronaldo/Messi va h.k.) YUZsiz chiziladi, lekin tomoshabin tanishi uchun forma ranglari va raqami (Ronaldo: qizil-yashil Portugaliya 7; Messi: ko'k-oq Argentina 10), ism yozuvi bilan. Jadval/dilemma qahramoni: bizning Jasur (`drawHost`), chopon/do'ppi emas.
+- **Ovoz professional bo'lsin:** `scripts.json` da har video uchun `"style"` maydoni (inglizcha ovoz yo'riqnomasi, masalan horror: "slow, low, tense, whispery narrator"; kimni tanlaysiz va jang: "energetic, excited announcer"; Claude suhbat: odam hayajonli, Claude xotirjam va iliq). `tts.py` uni matn oldiga qo'shadi. Ovoz Algenib (yoki 3.1 modelda ishlaydigan eng yaxshi variant) qoladi.
+- **Instagram'dagi hech bir videoni egasining ruxsatisiz O'CHIRMANG** (qat'iy taqiq).
 - Kimni tanlaysiz: kuchli hissiy yoki futbol/pop-madaniyat dilemmasi (poyezd oldida sevgan qiz va ona; Ronaldo yoki Messi; 1 mln yoki do'st...). Zo'ravonlik/qon ko'rsatilmaydi, siyosat/din yo'q. Oxirida "Siz kimni tanlaysiz? Izohda yozing, obuna bo'ling, like bosing".
 - Izoh=ovoz jang: 8 ishtirokchi kartasi birma-bir ochiladi, "1 izoh = 1 ovoz", "do'stingizni chaqiring", "faqat 3 tasi finalga chiqadi", oxirida 3 tugma. Namuna tuzilma: `izoh-ovoz-jangi-roblox` skill jadvali (faqat jadval, vizual uslub 2D).
 

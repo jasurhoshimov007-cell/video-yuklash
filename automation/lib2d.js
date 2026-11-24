@@ -240,13 +240,23 @@ function chipPop(txtS,x,y,u,col='#ffd23a',tc='#1b1d2e',size=34){const a=ease(ram
 function headline(lines,u,y0=170,size=74,cols=['#fff','#ffd23a']){lines.forEach((l,i)=>{const a=ease(ramp(u,i*.12,.25+i*.12));if(a<=0)return;ctx.save();ctx.translate(360,y0+i*(size+10)+(1-a)*30);ctx.globalAlpha=a;ctx.scale(.8+.2*a,.8+.2*a);ctx.font=`900 ${size}px Inter`;let sz=size;const w=ctx.measureText(l).width;if(w>650)sz=size*650/w;txt(l,0,0,sz,cols[i%cols.length],sz*.2);ctx.restore()})}
 
 // ---------- Claude personaji (2D, o'zimizning dizayn) va ish stoli sahnasi ----------
-function drawClaude2d(x,y,s,mood,speaking,t){const bob=Math.sin(t*2.2)*2.5,sq=speaking?1+.04*Math.sin(t*15):1;ctx.save();ctx.translate(x,y);ctx.scale(s,s*sq);
- if(speaking)glow(0,-130,200,'#ff9a55',.45);
- [[-86,-34],[-48,-34],[22,-34],[60,-34]].forEach(a=>rrect(a[0],a[1],28,36,8,'#d9651f'));
- ctx.translate(0,bob);poly([[110,-224],[134,-248],[134,-58],[110,-34]],'#e2701f');poly([[-110,-224],[-84,-248],[134,-248],[110,-224]],'#ffb878');rrect(-110,-224,220,190,30,lgrad(0,-224,0,-34,[['0','#ff9a55'],['1','#ff8137']]));
- const bl=(t%3.4)<.12;ctx.fillStyle='#2a1812';ctx.strokeStyle='#2a1812';ctx.lineWidth=11;ctx.lineCap='round';
- [-48,48].forEach(ex=>{if(bl){rrect(ex-12,-130,24,7,3,'#2a1812')}else if(mood==='happy'){ctx.beginPath();ctx.arc(ex,-122,16,PI*1.08,PI*1.92);ctx.stroke()}else{const h=(mood==='shock'||mood==='scared')?86:66;rrect(ex-12,-160,24,h,10,'#2a1812');ell(ex+2,-160+h*.28,4,6,'rgba(255,255,255,.55)')}});
- if(mood==='happy'){ctx.strokeStyle='#2a1812';ctx.lineWidth=7;ctx.beginPath();ctx.arc(0,-88,18,.15*PI,.85*PI);ctx.stroke()}
+function drawClaude2d(x,y,s,mood,speaking,t){const h=22,bob=Math.sin(t*2.2)*2,sq=speaking?1+.04*Math.sin(t*15):1;ctx.save();ctx.translate(x,y);ctx.scale(s,s*sq);
+ if(speaking)glow(0,-4*h,200,'#ff9a55',.4);
+ const C='#da7758',D='#b85d40',K='#0a0a0a';ctx.translate(0,bob);
+ const px=(gx,gy,gw,gh,c)=>{ctx.fillStyle=c;ctx.fillRect(gx*h,gy*h,gw*h,gh*h)};
+ // gx: -4..4 (tana), gy: -8..0 (oyoqdan tepaga)
+ const wave=speaking?Math.round(Math.sin(t*11)):0,up=(mood==='shock'||mood==='scared'||mood==='happy')?-1:0;
+ px(-4,-8,8,6,C);px(-4,-8,8,.5,'#e88a6a');
+ px(-6,-6+up+(wave>0?-1:0),2,2,C);px(4,-6+up+(wave<0?-1:0),2,2,C);
+ [-4,-2,1,3].forEach(l=>px(l,-2,1,2,D));
+ const bl=(t%3.4)<.12;
+ if(bl){px(-3,-6.5,1,.3,K);px(2,-6.5,1,.3,K)}
+ else if(mood==='happy'){[-3,2].forEach(ex=>{px(ex,-6,1,.4,K);px(ex-.4,-5.6,.4,.5,K);px(ex+1,-5.6,.4,.5,K)})}
+ else if(mood==='shock'||mood==='scared'){px(-3,-7,1,2,K);px(2,-7,1,2,K)}
+ else{px(-3,-7,1,1,K);px(2,-7,1,1,K)}
+ if(mood==='happy'){px(-1,-4.5,2,.35,K);px(-1.4,-4.9,.4,.4,K);px(1,-4.9,.4,.4,K)}
+ else if(mood==='shock'){px(-.5,-4.6,1,1,K)}
+ else if(mood==='sad'||mood==='scared'){px(-1,-4.3,2,.35,K)}
  ctx.restore()}
 function deskBack(t){ctx.fillStyle=lgrad(0,-100,0,900,[[0,'#171d52'],[1,'#0b1038']]);ctx.fillRect(-300,-300,1320,1200);
  rrect(40,200,250,290,10,'#0a0d28');rrect(50,210,230,270,6,lgrad(0,210,0,480,[[0,'#27358f'],[1,'#121b57']]));for(let i=0;i<8;i++)rrect(60+i*27,390-hash(i)*70,20,90+hash(i)*70,3,'#0b1038');for(let i=0;i<16;i++)ell(60+hash(i+4)*210,240+hash(i+9)*200,2.2,2.2,'#ffd27a');

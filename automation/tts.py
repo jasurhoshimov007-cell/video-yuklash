@@ -12,7 +12,8 @@ def tts(text,model,key,multi=False):
 for vid in sys.argv[1:]:
     pcm=None
     tl=d[vid].get("tts_lines") or d[vid]["lines"];multi=bool(d[vid].get("dialog"))
-    text="\n".join((("Qahramon: " if sp=="Q" else "Claude: ")+l) for sp,l in zip(d[vid]["speakers"],tl)) if multi else "\n".join(tl)
+    sty=d[vid].get("style","");text="\n".join((("Qahramon: " if sp=="Q" else "Claude: ")+l) for sp,l in zip(d[vid]["speakers"],tl)) if multi else "\n".join(tl)
+    if sty: text=sty+"\n"+text
     for ki,key in enumerate(KEYS):
       for model in ["gemini-3.8-flash-tts","gemini-2.5-flash-preview-tts","gemini-3.8-flash-lite-tts","gemini-3.1-flash-tts-preview"]:
         if os.path.exists(f"skip_{ki}_{model}"): continue
