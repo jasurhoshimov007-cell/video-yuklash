@@ -198,11 +198,10 @@ function renderFrame(t,opt){const sh=SHOTS.find(s=>t>=s.t0&&t<s.t1)||SHOTS[SHOTS
  R.begin(env,cam);if(sh.draw)sh.draw(t,u);
  ctx.globalAlpha=1;ctx.filter=sh.filter||OPT.filter||'none';ctx.drawImage(glc,0,0,W2,H2);ctx.filter='none';
  if(OPT.horror){vignette(.6);grain(t,.08)}else vignette(.25);
- if(sh.ov)sh.ov(t,u);
+ if(sh.ov)sh.ov(t,sh===SHOTS[0]?Math.max(u,.35):u); // 2026-11-25: hook 1-kadrdanoq ko'rinadi
  if(OPT.global)OPT.global(t);
  drawSub(t);
  if(sh.flash)flash(sh.flash(u,t));
- const fi=clamp(t/.15,0,1);if(fi<1)flash(1-fi,'#000');
  return glc2.toDataURL('image/jpeg',.9)}
 let glc,glc2,OPT={};
 function boot(opt){OPT=opt;glc=document.createElement('canvas');glc.width=W2;glc.height=H2;R=initGL(glc);glc2=document.getElementById('c');ctx=glc2.getContext('2d')}
