@@ -19,7 +19,7 @@ const HOSTB=(t,m,x={})=>Object.assign({x:360,y:1330,s:.95,upper:1,t,mouth:m,msha
 function grid(t,sts){for(let i=0;i<8;i++)drawCard(i,t,sts(i))}
 const camB=[[1,360,640],[1.03,360,640]];
 const SH={
- hook:()=>({cam:[[1,360,640],[1.07,360,620]],scene:(t,u,m)=>{battleBG(t);drawHost(HOSTB(t,m,{s:1.9,y:1300,eye:'wide',brow:.4,aL:[2.3,2.6],aR:[2.3,2.6]}))},ov:(T,u)=>headline(SPEC.hookTitle,u*2,190,96,['#fff','#ffd23a']),sfx:[[0,'hit'],[.15,'whoosh']]}),
+ hook:()=>({cam:[[1,360,640],[1.07,360,620]],scene:(t,u,m)=>{battleBG(t);drawHost(HOSTB(t,m,{s:1.7,y:1440,eye:'wide',brow:.4,aL:[2.3,2.6],aR:[2.3,2.6]}))},ov:(T,u)=>headline(SPEC.hookTitle,u*2,190,96,['#fff','#ffd23a']),sfx:[[0,'hit'],[.15,'whoosh']]}),
  intro:()=>({cam:camB,scene:(t,u,m)=>{battleBG(t);grid(t,i=>({rev:0}));drawHost(HOSTB(t,m))},ov:(T,u)=>{hdr('JANGDA QATNASHADI','8 '+(SPEC.unit||'TA'),u);dots(0)},sfx:[[0,'whoosh'],[.4,'pop']]}),
  reveal:()=>{const W=TIMINGDATA.lines[RL].words,L0=TIMINGDATA.lines[RL].t0-.05;return{cam:camB,scene:(t,u,m)=>{battleBG(t);grid(t,i=>{const t0=(W[i]?W[i].t0:99)-.05,r=ramp(t,t0,t0+.38);return{rev:r,pop:r>0&&r<1?1:0}});drawHost(HOSTB(t,m))},ov:(T,u)=>{hdr('JANGDA QATNASHADI','8 '+(SPEC.unit||'TA'),1);dots(W.filter(w=>T>=w.t0).length)},sfx:W.slice(0,8).map(w=>[w.t0-L0-.05,'pop'])}},
  only1:()=>({cam:camB,scene:(t,u,m)=>{battleBG(t);const h=Math.floor(u*14)%8;grid(t,i=>({hi:i===h,crown:i===h,dim:i!==h?.4:0}));drawHost(HOSTB(t,m))},ov:(T,u)=>hdr('FAQAT BITTASI','G‘OLIB BO‘LADI',u),sfx:[[0,'whoosh'],[.4,'tick'],[.8,'tick'],[1.2,'tick']]}),

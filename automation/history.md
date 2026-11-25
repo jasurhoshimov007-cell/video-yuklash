@@ -74,3 +74,49 @@
 4. (2026-11-24) Video 30-40 s, 40 s dan oshmasin.
 5. (2026-11-24) Har reelda bitta aniq chaqiriq (izoh/ulashish/Telegram).
 ## Kunlik tahlil jadvali (har kuni to'ldiring): sana | video | tur | uzunlik | ko'rish | ushlab turish % | skip % | saqlash | ulashish | izoh | xulosa
+
+## Instagram (2026-11-25) — 12/12 yuklandi (08:31-08:40 UTC)
+| # | nom | tur | uslub | uzunlik |
+|---|---|---|---|---|
+| v01 | QOR ODAM (har kecha 1 qadam, 0 iz, orqadan nafas) | horror | 2D qorli hovli (sceneSnowYard/sceneWinInside) | 37.7 s |
+| v06 | ENG ZO'R MASHINA (Gentra...Onix) | jang izoh=ovoz | tmpl2d_battle | 39.7 s |
+| v02 | METRO 00:47 (Qora bekat, onangning raqami) — DAVOMI TELEGRAMDA | horror | 2D metro + xarita + telefon | 39.4 s |
+| v09 | 300 KISHILIK OSH (oshpaz + Claude, tuz twist) | Claude suhbat | tmpl2d_claude scene=kitchen | 35.2 s |
+| v03 | TANDIR (yuzsiz buvi, issiq non) | horror | qishloq-horror-2d uslubi (qVillage/sceneTandir) | 37.5 s |
+| v04 | VIDEOQO'NG'IROQ 03:00 + kanal reklamasi | horror | 2D videoqo'ng'iroq (sceneVideoCall) | 38.0 s |
+| v05 | NAVIGATOR (chapda mozor, ko'zguda yo'lovchi) | horror | 2D mashina/navigator (sceneCar/sceneMap) | 38.7 s |
+| v11 | RONALDO YOKI MESSI (penalti) | kimni tanlaysiz | tmpl2d_choice2 scene=pitch | 39.5 s |
+| v07 | ENG ZO'R MULTFILM QAHRAMONI | jang izoh=ovoz | tmpl2d_battle | 30.2 s |
+| v10 | MAJLIS 20 DAQIQADA (o'qituvchi + Claude) | Claude suhbat | tmpl2d_claude scene=class | 33.8 s |
+| v12 | 1 MLN $ YOKI DO'ST (natija Telegram so'rovnomada) | kimni tanlaysiz | tmpl2d_choice2 scene=vault | 37.8 s |
+| v08 | CHOYGA ENG MAZALI SHIRINLIK | jang izoh=ovoz | tmpl2d_battle | 35.2 s |
+## Telegram kanal (2026-11-25)
+- Gemini 4 Neon (t01), Meta Muse Instagramda (t02); horror davomi METRO 00:47 (jeton 1987); so'rovnoma 1 mln $ / do'st; chorshanba so'rovnomasi "AI'dan nima uchun foydalanasiz?"; promo v11 Ronaldo/Messi
+- Story: 2 ta (v11 dan 15 s qirqim, Ronaldo/Messi savol kartasi + Telegram eslatma)
+
+## Kunlik tahlil (2026-11-25 da o'lchangan: 2026-11-24 reellari ~24 soatdan keyin)
+Faraz: tartib = 11-24 ro'yxati (horror 5 -> Claude 3 -> reklama 3 -> A/B 5 -> AI yangilik 2), yuklash vaqti bo'yicha.
+| video | tur | ko'rish | o'rt. tomosha | skip | saqlash | ulashish | izoh |
+|---|---|---|---|---|---|---|---|
+| OXIRGI POG'ONA | horror | 1972 | 11.3 s | 42% | 0 | 1 | 1 |
+| QARSHI DERAZA | horror | 3164 | 16.7 s | 37% | 2 | 6 | 0 |
+| BEBI MONITOR | horror | 2053 | 12.9 s | 39% | 0 | 1 | 1 |
+| BEKATDAGI ODAM | horror | 2486 | 17.5 s | 37% | 4 | 2 | 0 |
+| ESHIK TAGIDAGI XAT | horror | 1311 | 8.4 s | 44% | 1 | 1 | 0 |
+| Claude 3 + reklama 3 | claude/reklama | 1156/1092/255/447/1531/2344 | 3.6-15.8 s | 35-73% | 0-3 | 0-1 | 0 |
+| A/B 5 | A/B | 1615/1574/2009/2802/1997 | 9.7-11.9 s | 36-43% | 0-3 | 0-1 | 7/7/3/109/27 |
+| AI yangilik 2 | yangilik | 344/419 | 2.5-3.1 s | 73-80% | 0-1 | 0 | 0 |
+| 16:58 dagi 4 sinov reeli (faraz: jang/tanlov sinovi) | ? | 1947/1639/2591/426 | 7.6-12 s | 38-58% | - | 0/0/201/0 | 0/0/59/13 |
+- O'rtacha (18 reel) ~1590. Tur: horror ~2200, A/B ~2000 (izoh ko'p), Claude/reklama ~1080, AI yangilik ~380.
+- Eng yaxshi: QARSHI DERAZA 3164; A/B "natija Telegramda" 2802 (109 izoh); sinov reeli 2591 (201 ulashish). Eng yomon: 255/344/419 (AI yangilik/reklama, skip 73-80%).
+- Obunachi: 4542 (11-24 kunlik o'sish hali 0 ko'rsatilyapti; 11-23: +366).
+- 7 kunlik eng zo'rlar: 183k (interaktiv, 9.8k ulashish), 34.8k jumboq, 25.9k "onalar gapi" -> interaktiv mexanika + o'zbek hayotiga yaqin mavzu ishlaydi.
+## Bugun nima o'zgardi (2026-11-25)
+- Ovoz: "Read ... aloud as ..." yo'riq shakli; horror "steady medium pace" (sekin yo'riq 55-60 s berdi, 2 tasi qayta yozildi).
+- Musiqa: mix.py har video uchun boshqa tonallik/tempo, horror'ga soat tik-taki + kuchayuvchi puls, oxirida riser.
+- Yangi sahnalar (extra2d.js), tmpl2d_choice2.js (pitch/vault), Claude: kitchen/class + chips. Media crf 23.
+## Qoidalar (o'rganilgan) — qo'shimcha
+6. (2026-11-25) TTS style'da "slow" 3.8-flash ovozini 1.5x cho'zadi: horror uchun "steady medium pace".
+7. (2026-11-25) check.py (4 s) gallyutsinatsiya qilishi mumkin: shubhada fullcheck.py bilan butun audioni tekshiring.
+8. (2026-11-25) Windsor trial: force_refresh yo'q; timeout yuklashni boshqa maydonlar to'plami bilan tekshiring (bugun v02, v12 timeout - ikkalasi chiqqan, takror yuborilmadi).
+9. (2026-11-25) Faraz: "do'stingizni belgilang" ulashish mexanikasi 201 ulashish bergan - har jang/tanlovda bo'lsin.

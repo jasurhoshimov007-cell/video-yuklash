@@ -75,18 +75,23 @@ def sfx(ty):
     if ty=='tick':
         n=t(.08);return bp(noise(.08),2000,5000)*np.exp(-n*60)*.4+np.sin(2*np.pi*1000*n)*np.exp(-n*60)*.2
     return np.zeros(10)
+KEY=1.0;BPM=104
 def horror_music(D):
-    n=t(D);x=(np.sin(2*np.pi*55*n)+.7*np.sin(2*np.pi*82.4*n+np.sin(2*np.pi*.1*n))+.4*np.sin(2*np.pi*110.5*n))*(.6+.4*np.sin(2*np.pi*.07*n))*.12
+    n=t(D);r=55*KEY;x=(np.sin(2*np.pi*r*n)+.7*np.sin(2*np.pi*r*1.498*n+np.sin(2*np.pi*.1*n))+.4*np.sin(2*np.pi*r*2.01*n))*(.6+.4*np.sin(2*np.pi*.07*n))*.12
+    # 2026-11-25: sekin soat tik-taki (60 bpm) + kuchayib boruvchi past puls (taranglik oshadi)
+    for k,ts in enumerate(np.arange(0.3,D-1,1.0)):
+        m=t(.05);s=bp(noise(.05),2500,6000)*np.exp(-m*90)*(.05 if k%2 else .035);i=int(ts*SR);s=s[:len(x)-i];x[i:i+len(s)]+=s
+    x+=np.sin(2*np.pi*r*.5*n)*(n/D)**2*.10
     x+=lowp(noise(D),300)*.05
-    notes=[220,261.6,329.6,246.9,220,196,174.6,164.8]
+    notes=[f*KEY for f in [220,261.6,329.6,246.9,220,196,174.6,164.8]]
     for k,ts in enumerate(np.arange(0.5,D-1,2.2)):
         f=notes[k%len(notes)];m=t(2.5);s=(np.sin(2*np.pi*f*m)+.3*np.sin(2*np.pi*2*f*m)+.1*np.sin(2*np.pi*3*f*m))*np.exp(-m*1.6)*.09
         i=int(ts*SR);s=s[:len(x)-i];x[i:i+len(s)]+=s
     return x
 def fun_music(D):
-    bpm=104;beat=60/bpm;n=len(t(D));x=np.zeros(n)
-    prog=[[261.6,329.6,392.0],[196.0,246.9,293.7],[220.0,261.6,329.6],[174.6,220.0,261.6]]
-    bass=[65.4,49.0,55.0,43.7]
+    bpm=BPM;beat=60/bpm;n=len(t(D));x=np.zeros(n)
+    prog=[[f*KEY for f in c] for c in [[261.6,329.6,392.0],[196.0,246.9,293.7],[220.0,261.6,329.6],[174.6,220.0,261.6]]]
+    bass=[f*KEY for f in [65.4,49.0,55.0,43.7]]
     nb=int(D/beat)+1
     for b in range(nb):
         ts=b*beat;i=int(ts*SR);ch=prog[(b//4)%4];bs=bass[(b//4)%4]
@@ -106,7 +111,8 @@ def fun_music(D):
         # pad
         m=t(beat);s=sum(np.sin(2*np.pi*f*m)+.2*np.sin(2*np.pi*f*1.003*m) for f in ch)*.025;s=s[:n-i];x[i:i+len(s)]+=s
     return x
-vid=sys.argv[1];typ=json.load(open("scripts.json"))[vid]["type"];info=json.load(open(f"{vid}/info.json"));D=info["dur"]
+vid=sys.argv[1];import zlib;_h=zlib.crc32(vid.encode());KEY=[1.0,1.0595,0.9439,1.1225,0.8909][_h%5];BPM=[100,108,112,118,124][(_h//5)%5]
+typ=json.load(open("scripts.json"))[vid]["type"];info=json.load(open(f"{vid}/info.json"));D=info["dur"]
 subprocess.run(['ffmpeg','-y','-loglevel','error','-i',f'{vid}/voice.wav','-ar',str(SR),'-ac','1',f'{vid}/v44.wav'])
 w=wave.open(f'{vid}/v44.wav');v=np.frombuffer(w.readframes(w.getnframes()),np.int16).astype(float)/32768
 N=int(D*SR);voice=np.zeros(N);voice[:min(N,len(v))]=v[:N]
@@ -118,6 +124,9 @@ for e in info['sfx']:
     if e['type']=='silence':
         i=int(e['t']*SR);duck[max(0,i-int(.4*SR)):i]=np.linspace(1,.1,min(i,int(.4*SR)));continue
     s=sfx(e['type'])*e.get('v',1);i=int(max(0,e['t'])*SR);s=s[:max(0,N-i)];fx[i:i+len(s)]+=s
+rs=int(2.5*SR)
+if N>rs*2:
+    m=t(2.5);fx[N-rs-int(1.5*SR):N-int(1.5*SR)]+=bp(noise(2.5),800,5000)*(m/2.5)**2*.25
 # duck music under voice slightly
 from scipy.signal import butter,sosfilt
 venv=np.convolve(np.abs(voice),np.ones(4410)/4410,'same');vd=1-.35*np.clip(venv/0.05,0,1)

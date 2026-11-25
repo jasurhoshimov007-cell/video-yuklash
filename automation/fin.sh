@@ -1,6 +1,6 @@
 #!/bin/bash
 v=$1; cd "$(dirname "$0")"
-R=render2d.js; case $v in v17|v18|t01|t02) R=render.js;; esac
+R=render2d.js; case $v in t01|t02) R=render.js;; esac
 if [ ! -f $v/video.mp4 ] || [ -f $v/.rendering ]; then :; fi
 grep -q " done " r_$v.log 2>/dev/null && touch $v/video.done
 while pgrep -f "render2d.js $v full" >/dev/null; do sleep 5; done
