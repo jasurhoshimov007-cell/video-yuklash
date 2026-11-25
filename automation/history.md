@@ -120,3 +120,13 @@ Faraz: tartib = 11-24 ro'yxati (horror 5 -> Claude 3 -> reklama 3 -> A/B 5 -> AI
 7. (2026-11-25) check.py (4 s) gallyutsinatsiya qilishi mumkin: shubhada fullcheck.py bilan butun audioni tekshiring.
 8. (2026-11-25) Windsor trial: force_refresh yo'q; timeout yuklashni boshqa maydonlar to'plami bilan tekshiring (bugun v02, v12 timeout - ikkalasi chiqqan, takror yuborilmadi).
 9. (2026-11-25) Faraz: "do'stingizni belgilang" ulashish mexanikasi 201 ulashish bergan - har jang/tanlovda bo'lsin.
+## Sifat auditi (2026-11-25, egasi so'rovi bilan, bugungi 12 reel)
+10. Birinchi kadr (0.0-0.3 s) xira: hook matni ramp bilan paydo bo'ladi, 0.1 s da deyarli ko'rinmaydi. QOIDA: hook matni 1-kadrdanoq 100% ko'rinsin (ramp yo'q, faqat kichik scale-pop).
+11. Musiqa ovozga juda yaqin: so'zlar orasidagi fon -22..-26 dB, ovoz -13..-15 dB (farq ~10 dB). QOIDA: ovoz paytida musiqa/drone kamida 16-18 dB past (sidechain ducking), horror drone'ning past chastotasini (<120 Hz) kesing: ovoz loyqalanmasin.
+12. Ovoz dinamikasi tekis (LRA 1.6-3.2 LU): emotsiya sezilmaydi. QOIDA: hook va kulminatsiya gaplarini balandroq/tezroq, sirli gaplarni pastroq (gap bo'yicha +-3 dB), kulminatsiyadan oldin 0.4-0.6 s pauza; LRA 4-7 LU nishon.
+13. Subtitr bo'laklari so'zni noto'g'ri bo'ladi ("QOR ODAM HAR", "TUNGI SOAT O'N"): QOIDA: bo'lak ma'no birligida (ism+fe'l, raqam butun: "TUNGI SOAT O'N IKKI"), 2-3 so'z.
+14. Jang (battle) videolari: boshlovchi juda kichik, @jasur va subtitr yuzini yopadi; karta nomlari va "0 ovoz" mayda. QOIDA: kartalar kattaroq (nom >= 34 px), boshlovchi yoki kattaroq yoki yo'q, subtitr kartalar ustiga tushmasin.
+15. Claude yaqin kadrlarida faqat katta to'q-sariq blok (3 kadr ketma-ket): zerikarli. QOIDA: Claude yaqin kadri 1.2x dan oshmasin, fonda harakat/ob'ekt, ko'zlar va qo'llar animatsiyasi; Claude kadrlari ketma-ket 2 tadan oshmasin.
+16. Horror TANDIR va METRO juda qorong'i, sahna bo'sh: QOIDA: asosiy ob'ekt kontrasti yuqori (rim-light/glow), kadr markazida aniq narsa bo'lsin.
+17. Ronaldo-Messi va 1 MLN: subtitr futbolchi/ism yozuvlari ustiga tushadi, "$1 000 000" chapda kesilgan; boshlovchi subtitr bilan ustma-ust. QOIDA: subtitr zonasi (y 1000-1100) bo'sh qoldirilsin, matn kadr chegarasidan 40 px ichkarida.
+18. Natija (bir necha soatlik, dastlabki): eng zo'r ENG ZO'R MULTFILM QAHRAMONI 12.8k ko'rish, 757 izoh, skip 29%. Eng past: Claude videolari (90, 150 ko'rish, skip 49-70%), 1 MLN (253), METRO (90). Horror o'rtacha 1.6-3.2k, skip 32-38%. Xulosa: bolalik/nostalgiya + izoh=ovoz eng kuchli; Claude formati hozircha zaif (hook va birinchi kadrni kuchaytirish kerak).
