@@ -111,12 +111,59 @@ def fun_music(D):
         # pad
         m=t(beat);s=sum(np.sin(2*np.pi*f*m)+.2*np.sin(2*np.pi*f*1.003*m) for f in ch)*.025;s=s[:n-i];x[i:i+len(s)]+=s
     return x
+
+# ---- 2026-11-25: musiqa kutubxonasi (hammasi original sintez, mualliflik muammosi yo'q). scripts.json da "music" maydoni bilan tanlanadi.
+def mbox_music(D):  # horror: buzilgan musiqa qutisi + past drone
+    n=t(D);x=np.sin(2*np.pi*55*KEY*n)*.06*(.6+.4*np.sin(2*np.pi*.05*n))
+    mel=[659.3,587.3,523.3,493.9,440.0,493.9,523.3,392.0];beat=.42
+    for k,ts in enumerate(np.arange(0.2,D-1,beat)):
+        f=mel[k%len(mel)]*KEY*(1-.012*np.sin(k*.7));m=t(1.2);s=(np.sin(2*np.pi*f*m)+.35*np.sin(2*np.pi*3.01*f*m))*np.exp(-m*4)*.07
+        if k%16>=12: s*=.3
+        i=int(ts*SR);s=s[:len(x)-i];x[i:i+len(s)]+=s
+    x+=lowp(noise(D),500)*.03;return x
+def strings_music(D):  # horror: sekin o'sib boruvchi dissonans torlar
+    n=t(D);x=np.zeros(len(n));base=110*KEY
+    for f,a in [(1,.06),(1.189,.05),(1.414,.035*0+.04),(2.0,.03)]:
+        x+=a*np.sin(2*np.pi*base*f*n+3*np.sin(2*np.pi*5.2*n)*.002*n)*(.3+.7*(n/D))
+    for ts in np.arange(4,D-1,4.0):
+        m=t(.6);s=np.sin(2*np.pi*(45+60*np.exp(-m*8))*m)*np.exp(-m*5)*.4;i=int(ts*SR);s=s[:len(x)-i];x[i:i+len(s)]+=s
+    return x
+def epic_music(D):  # jang: barabanlar + kuchli akkordlar
+    beat=60/(BPM+10);n=len(t(D));x=np.zeros(n);prog=[[146.8,174.6,220.0],[116.5,146.8,174.6],[130.8,164.8,196.0],[110.0,130.8,164.8]]
+    for b in range(int(D/beat)+1):
+        i=int(b*beat*SR);m=t(.5)
+        s=np.sin(2*np.pi*(55+70*np.exp(-m*25))*m)*np.exp(-m*7)*(.6 if b%4 in(0,2) else .35)
+        if b%2: s=s+bp(noise(.5),200,2500)*np.exp(-m*14)*.25
+        s=s[:n-i];x[i:i+len(s)]+=s
+        if b%4==0:
+            ch=[f*KEY for f in prog[(b//4)%4]];m=t(beat*4);s=sum(np.sign(np.sin(2*np.pi*f*m))*.3+np.sin(2*np.pi*f*2*m)*.4 for f in ch)*np.exp(-m*.5)*.035
+            s=lowp(s,.3) if False else s;s=s[:n-i];x[i:i+len(s)]+=s
+    return x
+def tense_music(D):  # kimni tanlaysiz: tik-tak + o'sib boruvchi puls
+    n=t(D);x=np.zeros(len(n));beat=60/BPM
+    for k,ts in enumerate(np.arange(0,D-1,beat/2)):
+        m=t(.04);s=bp(noise(.04),3000,8000)*np.exp(-m*120)*(.07 if k%2 else .05);i=int(ts*SR);s=s[:len(x)-i];x[i:i+len(s)]+=s
+    x+=np.sin(2*np.pi*73.4*KEY*n)*.08*(n/D)**1.5*(.5+.5*np.sign(np.sin(2*np.pi*n/beat)))
+    x+=np.sin(2*np.pi*293.7*KEY*n)*.02*(n/D)
+    return x
+def lofi_music(D):  # Claude suhbat: yumshoq lo-fi
+    beat=60/(BPM-20);n=len(t(D));x=np.zeros(n);prog=[[261.6,329.6,392.0,493.9],[220.0,261.6,329.6,392.0],[174.6,220.0,261.6,329.6],[196.0,246.9,293.7,349.2]]
+    for b in range(int(D/beat)+1):
+        i=int(b*beat*SR);m=t(.4)
+        s=np.sin(2*np.pi*(50+50*np.exp(-m*20))*m)*np.exp(-m*9)*.4 if b%2==0 else bp(noise(.4),1500,5000)*np.exp(-m*18)*.12
+        s=s[:n-i];x[i:i+len(s)]+=s
+        if b%4==0:
+            ch=[f*KEY for f in prog[(b//4)%4]];m=t(beat*4);s=sum(np.sin(2*np.pi*f*m)+.15*np.sin(2*np.pi*2*f*m) for f in ch)*np.exp(-m*.6)*.03;s=s[:n-i];x[i:i+len(s)]+=s
+    x+=bp(noise(len(x)/SR),2000,7000)[:len(x)]*.006;return x
+MUSIC={'horror':horror_music,'musicbox':mbox_music,'strings':strings_music,'fun':fun_music,'epic':epic_music,'tense':tense_music,'lofi':lofi_music}
 vid=sys.argv[1];import zlib;_h=zlib.crc32(vid.encode());KEY=[1.0,1.0595,0.9439,1.1225,0.8909][_h%5];BPM=[100,108,112,118,124][(_h//5)%5]
 typ=json.load(open("scripts.json"))[vid]["type"];info=json.load(open(f"{vid}/info.json"));D=info["dur"]
 subprocess.run(['ffmpeg','-y','-loglevel','error','-i',f'{vid}/voice.wav','-ar',str(SR),'-ac','1',f'{vid}/v44.wav'])
 w=wave.open(f'{vid}/v44.wav');v=np.frombuffer(w.readframes(w.getnframes()),np.int16).astype(float)/32768
 N=int(D*SR);voice=np.zeros(N);voice[:min(N,len(v))]=v[:N]
-mus=horror_music(D) if typ=='horror' else fun_music(D);mus=mus[:N]
+_sc=json.load(open("scripts.json"))[vid];_mk=_sc.get("music") or ('horror' if typ=='horror' else 'fun')
+if _mk not in MUSIC: _mk='horror' if typ=='horror' else 'fun'
+print('musiqa:',_mk);mus=MUSIC[_mk](D);mus=np.pad(mus,(0,max(0,N-len(mus))))[:N]
 # silences for 'silence' events: duck music
 duck=np.ones(N)
 fx=np.zeros(N)
