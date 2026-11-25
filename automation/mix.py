@@ -197,14 +197,27 @@ def guitar_sad_music(D):  # r3: sekin fingerpicking akustik gitara, 3/4, ~72 BPM
             ts=bar*beat*3+k*beat/2;f=c[pat[k]];_place(x,ks(f,1.6,.997,.45)*(.16 if k==0 else .1),ts)
     m=t(D);x+=lowp(noise(D),900)[:len(x)]*.004;return x
 MUSIC.update({'quirky':quirky_music,'whistle':whistle_music,'guitar':guitar_sad_music})
+
+# ---- 2026-11-25: egasi bergan musiqa fayllari (automation/music/*.mp3). scripts.json: "music":"file:depreshot", ixtiyoriy "music_start" (s).
+def file_music(name,D,start=12.0):
+    import os;p=os.path.join(os.path.dirname(os.path.abspath(__file__)),'music',name+'.mp3')
+    raw=subprocess.run(['ffmpeg','-loglevel','error','-i',p,'-ac','1','-ar',str(SR),'-f','s16le','-'],capture_output=True).stdout
+    y=np.frombuffer(raw,np.int16).astype(float)/32768;y=y[int(start*SR):]
+    n=int(D*SR)
+    while len(y)<n: y=np.concatenate([y,y[int(16*SR):]])
+    y=y[:n];fi=int(.3*SR);y[:fi]*=np.linspace(0,1,fi)
+    return y/(np.sqrt((y**2).mean())+1e-9)*.09
 vid=sys.argv[1];import zlib;_h=zlib.crc32(vid.encode());KEY=[1.0,1.0595,0.9439,1.1225,0.8909][_h%5];BPM=[100,108,112,118,124][(_h//5)%5]
 typ=json.load(open("scripts.json"))[vid]["type"];info=json.load(open(f"{vid}/info.json"));D=info["dur"]
 subprocess.run(['ffmpeg','-y','-loglevel','error','-i',f'{vid}/voice.wav','-ar',str(SR),'-ac','1',f'{vid}/v44.wav'])
 w=wave.open(f'{vid}/v44.wav');v=np.frombuffer(w.readframes(w.getnframes()),np.int16).astype(float)/32768
 N=int(D*SR);voice=np.zeros(N);voice[:min(N,len(v))]=v[:N]
 _sc=json.load(open("scripts.json"))[vid];_mk=_sc.get("music") or ('horror' if typ=='horror' else 'fun')
-if _mk not in MUSIC: _mk='horror' if typ=='horror' else 'fun'
-print('musiqa:',_mk);mus=MUSIC[_mk](D);mus=np.pad(mus,(0,max(0,N-len(mus))))[:N]
+if _mk.startswith('file:'): mus=file_music(_mk[5:],D,float(_sc.get('music_start',12)));print('musiqa:',_mk)
+else:
+    if _mk not in MUSIC: _mk='horror' if typ=='horror' else 'fun'
+    print('musiqa:',_mk);mus=MUSIC[_mk](D);
+mus=np.pad(mus,(0,max(0,N-len(mus))))[:N]
 # silences for 'silence' events: duck music
 duck=np.ones(N)
 fx=np.zeros(N)
