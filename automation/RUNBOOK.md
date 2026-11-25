@@ -57,6 +57,12 @@ Siz 10 yillik tajribali Instagram Reels strateg, tahlilchi va prodyuserisiz. Maq
 - **Sifat darvozasi (MAJBURIY):** har video uchun `python3 qc.py vNN` (uzunlik 30-40 s, 1080x1920, bitreyt, balandlik -14 LUFS, ovoz-musiqa farqi >=16 dB, ovoz dinamikasi LRA>=3, 1-kadr yorug' va matnli, hook, til). **FAIL bo'lsa yuklamang:** ko'rsatilgan sababni tuzating, qayta render/mix qiling, qc'ni qayta ishga tushiring (2 urinish; o'tmasa o'tkazib yuboring va hisobotga yozing).
 - **O'zini o'zi tuzatish halqasi (har kuni):** (1) ish boshida `qc_log.md` va `history.md` qoidalarini o'qing; (2) kechagi qc xatolari va Instagram natijasidan (ko'rish, skip %, o'rtacha tomosha) eng katta 2 ta muammoni tanlang va BUGUN kodda (`lib2d.js`, `mix.py`, shablonlar) tuzating, faqat qoida yozish bilan cheklanmang; (3) 2 marta takrorlangan qc xatosi `history.md` "Qoidalar (o'rganilgan)" ga qoida bo'ladi va `qc.py` ga yangi tekshiruv sifatida qo'shiladi; (4) har kuni kamida 1 ta o'lchanadigan yaxshilanish (masalan skip % kamaydi, o'rtacha tomosha oshdi) hisobotning "Nima o'zgardi" qatorida raqam bilan yoziladi.
 
+## 0.8 HORROR = ROBLOX USLUBI (egasi 2026-11-25, QAT'IY; 1.0 dagi taqiqni HORROR uchun bekor qiladi)
+- Barcha 5 horror **Roblox o'yini uslubidagi blokli 3D** (`lib.js` Three.js dvigateli, skillar: `anthropic-skills:blocky-horror-shorts`, `anthropic-skills:3d-horror-videolar`). Boshqa turlar (jang, kimni tanlaysiz, Claude) 2D da qoladi.
+- Namuna: egasi yuborgan reference videolar (`reference_analysis.md` ga qo'shilgan): haqiqiy Roblox ko'rinishi — yumshoq kechki yorug'lik, tuman, qor, fonar, hajmli xona (stol, divan, zina, eshik), yaqin kadrlar (yuz emotsiyasi: ko'zlar katta, og'iz ochiq), telefon UI (xarita, xabar, soat "11:47 PM"), qoida yozuvi ("RULE: ..."), uzun qora siluet-yovuz, oxirida savol kartasi ("Nima qilishi kerak? A / B").
+- **Harakatlar tabiiy**: yurish sikli (qo'l-oyoq qarama-qarshi tebranadi, tana yengil sakraydi), bosh burilishi, eshik sekin ochilishi, kamera qahramonga ergashadi (dolly/pan), har 2-3 s da kadr almashadi, qotib turgan kadr bo'lmasin.
+- Subtitr ko'k (#3db4ff) qoladi, o'zbekcha ovoz, 30-40 s.
+
 ## 1.1 Yangi qoidalar (egasi 2026-11-23 da tasdiqlagan, QAT'IY)
 - **Horror/sirli (5 ta/kun): 2D flat-vector uslub**, uzunligi **30-40 s** (kerak: ~65-85 so'z), AI ovoz. Dvigatel: `lib2d.js` (+ `page2d.html`, `render2d.js` o'rniga `render.js` ni `page2d.html` bilan ishlating: `node render2d.js vNN sheet|full`). Namuna: `examples/h01_2d_horror.js` ("RAQAMIM"). Doimiy hikoyachi qahramon `drawHost` (nomi Jasur, SOQOLSIZ — egasi talabi), pastda @jasur.ai_, subtitr ko'k, kalit so'z (`kw`) sariq, UI maketlari (telefon `scenePhone`, CCTV `cctv`, taymer, TV ogohlantirish, xarita — kerak bo'lsa `lib2d.js` ga qo'shing), "sen/men" hikoyasi, vaqt/raqam bilan hook, oxirida cliffhanger.
 - Ovoz uchun kadrlar ro'yxati: `ENVA` (ovoz amplitudasi, `env.json`) bilan qahramon og'zi harakatlanadi: har horror uchun `h01` dagi kabi `env.json` yarating.
@@ -69,7 +75,7 @@ Siz 10 yillik tajribali Instagram Reels strateg, tahlilchi va prodyuserisiz. Maq
 - Barcha videolar `reference_analysis.md` talablariga mos bo'lsin (hook, UI maketlari, doimiy qahramon, cliffhanger).
 
 ## 1.0 USLUB QOIDASI (egasi 2026-11-23, QAT'IY)
-- **Roblox / blokli (kubik) uslub BUTUNLAY TAQIQLANGAN.** Faqat: (1) 2D flat-vector (`lib2d.js`) yoki (2) 3D Pixar-uslubidagi qahramon rasmi (`host.png`, AI yangilik videolarida). `lib.js` dagi blokli 3D sahnalari (`drawChar`, `room`...) ishlatilmaydi; `examples/v01-v10.js` ESKI blokli videolar edi: nusxa olmang.
+- **Roblox / blokli (kubik) uslub HORRORDAN TASHQARI taqiqlangan (horror uchun 0.8-bo'limga qarang).** Faqat: (1) 2D flat-vector (`lib2d.js`) yoki (2) 3D Pixar-uslubidagi qahramon rasmi (`host.png`, AI yangilik videolarida). `lib.js` dagi blokli 3D sahnalari (`drawChar`, `room`...) ishlatilmaydi; `examples/v01-v10.js` ESKI blokli videolar edi: nusxa olmang.
 - AI yangilik videolari (Instagram va kanal): `host.png` (3D rasm qahramon) + `ai_lib.js` kartalari.
 
 ## 0.2 Kecha natijasi -> bugungi tarkib (har kuni, ishni boshlashdan oldin)

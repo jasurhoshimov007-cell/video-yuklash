@@ -33,3 +33,7 @@ Tuzilma: odam (past poligonli 3D bola) + Claude (to'q sariq kub, 2 ta tik ko'z, 
 - Subtitr tepada oq, kichik, qora yumaloq fonda (bizda: ko'k subtitr, kalit so'z sariq).
 - Har qahramon alohida ovoz va rang.
 Bizning qoida: raqib AI TO'QIMA nomli bo'lsin (masalan "Tezkor", "Robo-X"), haqiqiy kompaniya yoki mahsulot nomini kamsitmang. Claude har doim aqlli, iliq va foydali tasvirlanadi. Syujet har kuni yangi (odam kasbi + qiyin vaziyat), nusxa ko'chirmang.
+
+## Roblox horror namunalari (egasi 2026-11-25, 3 video, 2-2.6 min, 720x1280)
+- r1 (o'zbekcha): bobo, uy ichi, uzun oyoqli kulrang maxluq; sariq subtitr. r2 (inglizcha "Theo"): qoida "DON'T ANSWER UPSTAIRS", telefon xarita, zinadagi qora siluet, oxirida A/B savol. r3 (o'zbekcha): qorli shahar, fonar, "Yo'ldosh ro'yxati" qog'ozi, uzun qora paltoli odam, oilaviy kechki ovqat.
+- Kuchli tomonlari: kinematik yorug'lik (oy/fonar/issiq lampa), tuman va qor zarrachalari, hajmli interyer, yaqin emotsional kadrlar, sana/vaqt yorlig'i, qoida yozuvi, A/B yakun, tabiiy yurish va kamera harakati.
