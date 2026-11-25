@@ -156,6 +156,47 @@ def lofi_music(D):  # Claude suhbat: yumshoq lo-fi
             ch=[f*KEY for f in prog[(b//4)%4]];m=t(beat*4);s=sum(np.sin(2*np.pi*f*m)+.15*np.sin(2*np.pi*2*f*m) for f in ch)*np.exp(-m*.6)*.03;s=s[:n-i];x[i:i+len(s)]+=s
     x+=bp(noise(len(x)/SR),2000,7000)[:len(x)]*.006;return x
 MUSIC={'horror':horror_music,'musicbox':mbox_music,'strings':strings_music,'fun':fun_music,'epic':epic_music,'tense':tense_music,'lofi':lofi_music}
+
+# ---- 2026-11-25: egasining Roblox horror namunalaridagi musiqa uslublari (original sintez, nusxa emas)
+def ks(f,d,damp=.996,bright=.5):  # Karplus-Strong gitara/pizzicato tori
+    n=int(d*SR);p=max(2,int(SR/f));buf=rng.uniform(-1,1,p)*bright;out=np.zeros(n)
+    for i in range(n):
+        out[i]=buf[i%p];buf[i%p]=damp*.5*(buf[i%p]+buf[(i+1)%p])
+    return out
+def _place(x,s,ts):
+    i=int(ts*SR);s=s[:max(0,len(x)-i)];x[i:i+len(s)]+=s
+def quirky_music(D):  # r1: o'ynoqi pizzicato + marimba, ~120 BPM, major
+    x=np.zeros(int(D*SR));beat=60/120;sc=[261.6,293.7,329.6,392.0,440.0];pat=[0,2,4,2,3,1,0,4]
+    for b in range(int(D/beat*2)):
+        ts=b*beat/2;f=sc[pat[b%8]]*KEY*(1 if (b//16)%2==0 else 1.122)
+        if b%2==0 or b%8==5: _place(x,ks(f,.35,.990,.6)*.22,ts)
+        if b%4==0: m=t(.5);_place(x,np.sin(2*np.pi*f*2*m)*np.exp(-m*12)*.08,ts+beat/4)
+        if b%4==0: _place(x,ks(f/4,.4,.985,.8)*.25,ts)
+        m=t(.03);_place(x,bp(noise(.03),5000,10000)*np.exp(-m*150)*.03,ts)
+    return x
+def whistle_music(D):  # r2: hushtak melodiyasi + akustik gitara + kontrabas, ~105 BPM, minor/modal
+    x=np.zeros(int(D*SR));beat=60/105;ch=[[220.0,261.6,329.6],[174.6,220.0,261.6],[196.0,246.9,293.7],[164.8,207.7,246.9]]
+    mel=[659.3,587.3,523.3,587.3,659.3,0,523.3,493.9,440.0,0,493.9,523.3,493.9,440.0,415.3,0]
+    for b in range(int(D/beat)):
+        ts=b*beat;c=[f*KEY for f in ch[(b//4)%4]]
+        for k,f in enumerate(c): _place(x,ks(f,beat*.9,.994,.5)*.07,ts+k*.012+(beat/2 if b%2 else 0)*0)
+        if b%2==1:
+            for k,f in enumerate(c): _place(x,ks(f,beat*.5,.99,.4)*.05,ts+beat/2+k*.01)
+        _place(x,ks(c[0]/2,beat*.8,.992,.9)*.22,ts)
+        m=t(.06);_place(x,bp(noise(.06),1500,6000)*np.exp(-m*60)*(.05 if b%2 else .02),ts)
+        if (b//16)%2==1:
+            f=mel[b%16]*KEY
+            if f: m=t(beat*.95);vib=np.sin(2*np.pi*f*m+ .6*np.sin(2*np.pi*5.5*m));_place(x,(vib+.05*rng.standard_normal(len(m)))*env(len(m),.04,.2)*.05,ts)
+    return x
+def guitar_sad_music(D):  # r3: sekin fingerpicking akustik gitara, 3/4, ~72 BPM, minor
+    x=np.zeros(int(D*SR));beat=60/72;ch=[[110.0,220.0,261.6,329.6],[87.3,174.6,220.0,261.6],[130.8,196.0,261.6,329.6],[98.0,196.0,246.9,293.7]]
+    pat=[0,2,3,1,3,2]
+    for bar in range(int(D/(beat*3))+1):
+        c=[f*KEY for f in ch[bar%4]]
+        for k in range(6):
+            ts=bar*beat*3+k*beat/2;f=c[pat[k]];_place(x,ks(f,1.6,.997,.45)*(.16 if k==0 else .1),ts)
+    m=t(D);x+=lowp(noise(D),900)[:len(x)]*.004;return x
+MUSIC.update({'quirky':quirky_music,'whistle':whistle_music,'guitar':guitar_sad_music})
 vid=sys.argv[1];import zlib;_h=zlib.crc32(vid.encode());KEY=[1.0,1.0595,0.9439,1.1225,0.8909][_h%5];BPM=[100,108,112,118,124][(_h//5)%5]
 typ=json.load(open("scripts.json"))[vid]["type"];info=json.load(open(f"{vid}/info.json"));D=info["dur"]
 subprocess.run(['ffmpeg','-y','-loglevel','error','-i',f'{vid}/voice.wav','-ar',str(SR),'-ac','1',f'{vid}/v44.wav'])
