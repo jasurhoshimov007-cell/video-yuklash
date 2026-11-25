@@ -51,7 +51,7 @@ function drawHost(p){
  if(p.scarf){ctx.fillStyle=p.scarf;ctx.beginPath();ctx.ellipse(0,-10,60,58,0,PI,0);ctx.fill();rrect(-62,-14,18,100,9,p.scarf);rrect(44,-14,18,100,9,p.scarf);ctx.beginPath();ctx.ellipse(0,-6,44,38,0,PI+.35,-.35);ctx.fillStyle=p.scarf;ctx.fill()}
  if(p.crown){poly([[-31,-56],[-35,-100],[-17,-78],[0,-106],[17,-78],[35,-100],[31,-56]],'#ffc933');rrect(-32,-66,64,11,4,'#e8a512');ell(0,-86,4.6,4.6,'#ff3b5c');ell(-21,-76,3.4,3.4,'#3bd1ff');ell(21,-76,3.4,3.4,'#3bd1ff')}
  // koz
- const blink=(t%3.7)<.11,st=p.eye||'open',look=(typeof p.look==='number'&&isFinite(p.look))?p.look:0;
+ const blink=((t+1.3)%3.7)<.11,st=p.eye||'open',look=(typeof p.look==='number'&&isFinite(p.look))?p.look:0;
  [-21,21].forEach((ex,i)=>{
   let ry=13,rx=12;if(st==='wide'){ry=17;rx=13.5}if(st==='squint')ry=6;if(blink||st==='closed')ry=1.6;
   if(p.shadow){ctx.save();ctx.shadowColor='#ff2a3a';ctx.shadowBlur=18;ell(ex,-6,rx*.95,Math.max(2,ry*.55),'#ff3040');ctx.restore()}
@@ -181,7 +181,13 @@ function build2d(timing,lineShots,opt={}){TIMING=timing;OPT=Object.assign(OPT,op
  for(let i=0;i<L.length;i++){const a=i==0?0:L[i].t0-.05,b=i==L.length-1?DUR:L[i+1].t0-.05;let sp=lineShots[i]||lineShots[lineShots.length-1];if(!Array.isArray(sp))sp=[sp];const n=sp.length,cuts=sp.map((s,k)=>s.at!==undefined?s.at:k/n);
   sp.forEach((s,k)=>{const t0=a+(b-a)*cuts[k],t1=k<n-1?a+(b-a)*cuts[k+1]:b;SHOTS.push(Object.assign({},s,{t0,t1,line:i}));(s.sfx||[]).forEach(([dt,ty,v])=>SFX.push({t:dt<0?t1+dt:t0+dt,type:ty,v:v||1}))})}
  SUBS=[];L.forEach((l,li)=>{let ch=[];const flush=()=>{if(ch.length)SUBS.push({t0:ch[0].t0,words:ch.map(w=>w.w),line:li});ch=[]};
-  l.words.forEach(w=>{const cur=ch.map(c=>c.w).join(' ');if(ch.length>=3||(cur.length+w.w.length>14&&ch.length)||(ch.length&&/[,.!?:]$/.test(ch[ch.length-1].w)))flush();ch.push(w)});flush()});
+  // 2026-11-25: ma'no birligi: raqam so'zlari ajratilmaydi, bog'lovchi/aniqlovchi (har, bir, eng, va...) keyingi so'z bilan qoladi, yolg'iz so'z oldingisiga qo'shiladi.
+  const NUM=/^(bir|ikki|uch|to['‘’]rt|besh|olti|yetti|sakkiz|to['‘’]qqiz|o['‘’]n|yigirma|o['‘’]ttiz|qirq|ellik|oltmish|yetmish|sakson|to['‘’]qson|yuz|ming|million|milliard|ikkiyu|[0-9:.,%$]+)[,.!?:]*$/i;
+  const STICK=/^(har|bir|eng|va|bu|shu|u|o['‘’]sha|juda|hech|yana|faqat|sen|men|biz|siz|ular|mening|sening|uning|bizning|qaysi|nima|kim|ham)$/i;
+  l.words.forEach(w=>{const cur=ch.map(c=>c.w).join(' '),lw=ch.length?ch[ch.length-1].w:'';const punct=/[,.!?:]$/.test(lw);
+   const keep=ch.length&&!punct&&((NUM.test(lw)&&NUM.test(w.w))||STICK.test(lw))&&ch.length<4&&cur.length+w.w.length<22;
+   if(!keep&&(ch.length>=3||(cur.length+w.w.length>14&&ch.length)||punct))flush();ch.push(w)});flush();
+  const st=SUBS.filter(x=>x.line===li);if(st.length>1){const a=st[st.length-2],b=st[st.length-1];if(b.words.length===1&&a.words.length<=2&&(a.words.join(' ')+b.words[0]).length<20&&!/[.!?]$/.test(a.words[a.words.length-1])){a.words=a.words.concat(b.words);SUBS.splice(SUBS.indexOf(b),1)}}});
  for(let i=0;i<SUBS.length;i++){const nx=SUBS[i+1],le=L[SUBS[i].line].t1;SUBS[i].t1=nx&&nx.line==SUBS[i].line?nx.t0:Math.min(le+.35,nx?nx.t0:le+.35)}}
 function mouthAt(t){const e=(typeof ENVA!=='undefined'&&ENVA[Math.floor(t*30)])||0;return clamp(e*1.5,0,1)*(.65+.35*Math.abs(sin(t*19)))}
 function renderFrame(t){
@@ -192,11 +198,10 @@ function renderFrame(t){
  ctx.save();ctx.translate(360+shx,640+shy);ctx.scale(z,z);ctx.rotate((c0[3]||0)*(1-e)+(c1[3]||0)*e);ctx.translate(-cx,-cy);
  sh.scene(t,u,mouthAt(t),sh);ctx.restore();
  vignette(sh.vig||.62);grain(t,.08);
- if(sh.ov)sh.ov(t,u);
+ if(sh.ov)sh.ov(t,sh===SHOTS[0]?Math.max(u,.4):u); // 2026-11-25: hook matni 1-kadrdanoq to'liq ko'rinadi
  ctx.globalAlpha=.55;txt('@jasur.ai_',360,1252,24,'#fff',0,'center',700);ctx.globalAlpha=1;
  if(!sh.noSub)drawSub(t);
  if(sh.flash)flashFx(sh.flash(u,t),sh.flashCol||'#fff');
- const fi=clamp(t/.15,0,1);if(fi<1)flashFx(1-fi,'#000');
  return cv.toDataURL('image/jpeg',.92)}
 
 // ---------- reklama sahnalari / UI kartalar ----------
@@ -249,7 +254,7 @@ function drawClaude2d(x,y,s,mood,speaking,t){const h=22,bob=Math.sin(t*2.2)*2,sq
  px(-4,-8,8,6,C);px(-4,-8,8,.5,'#e88a6a');
  px(-6,-6+up+(wave>0?-1:0),2,2,C);px(4,-6+up+(wave<0?-1:0),2,2,C);
  [-4,-2,1,3].forEach(l=>px(l,-2,1,2,D));
- const bl=(t%3.4)<.12;
+ const bl=((t+1.1)%3.4)<.12;
  if(bl){px(-3,-6.5,1,.3,K);px(2,-6.5,1,.3,K)}
  else if(mood==='happy'){[-3,2].forEach(ex=>{px(ex,-6,1,.4,K);px(ex-.4,-5.6,.4,.5,K);px(ex+1,-5.6,.4,.5,K)})}
  else if(mood==='shock'||mood==='scared'){px(-3,-7,1,2,K);px(2,-7,1,2,K)}

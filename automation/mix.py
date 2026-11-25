@@ -129,9 +129,14 @@ if N>rs*2:
     m=t(2.5);fx[N-rs-int(1.5*SR):N-int(1.5*SR)]+=bp(noise(2.5),800,5000)*(m/2.5)**2*.25
 # duck music under voice slightly
 from scipy.signal import butter,sosfilt
-venv=np.convolve(np.abs(voice),np.ones(4410)/4410,'same');vd=1-.35*np.clip(venv/0.05,0,1)
-mvol=.55 if typ=='horror' else .42
-out=voice*1.0+mus*mvol*vd*duck+fx*.55
+# 2026-11-25 audit: musiqa ovozdan ~10 dB past edi -> ovoz paytida ~16 dB pasaytirish (silliq attack/release), musiqadan <110 Hz kesiladi (gurillash ovozni loyqalatmasin), ovozdan <80 Hz kesiladi.
+mus=sosfilt(butter(4,110,'highpass',fs=SR,output='sos'),mus)
+voice=sosfilt(butter(2,80,'highpass',fs=SR,output='sos'),voice)
+venv=np.convolve(np.abs(voice),np.ones(4410)/4410,'same');act=np.clip(venv/0.02,0,1)
+k=int(.25*SR);act=np.convolve(act,np.ones(k)/k,'same');act=np.clip(act*1.6,0,1)
+vd=1-.84*act
+mvol=.5 if typ=='horror' else .4
+out=voice*1.0+mus*mvol*vd*duck+fx*.5
 # fade end
 fe=int(.6*SR);out[-fe:]*=np.linspace(1,0,fe)
 out=np.clip(out,-1,1)

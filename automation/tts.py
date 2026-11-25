@@ -13,7 +13,7 @@ for vid in sys.argv[1:]:
     pcm=None
     tl=d[vid].get("tts_lines") or d[vid]["lines"];multi=bool(d[vid].get("dialog"))
     sty=d[vid].get("style","");text="\n".join((("Qahramon: " if sp=="Q" else "Claude: ")+l) for sp,l in zip(d[vid]["speakers"],tl)) if multi else "\n".join(tl)
-    if sty: text=sty+"\n"+text
+    # 2026-11-25: style matnga QO'SHILMAYDI (TTS uni inglizcha o'qib yuborishi mumkin). Emotsiya faqat o'zbekcha matn, tinish belgilari va "..." pauzalar orqali.
     for ki,key in enumerate(KEYS):
       for model in ["gemini-3.8-flash-tts","gemini-2.5-flash-preview-tts","gemini-3.8-flash-lite-tts","gemini-3.1-flash-tts-preview"]:
         if os.path.exists(f"skip_{ki}_{model}"): continue
@@ -34,6 +34,8 @@ for vid in sys.argv[1:]:
         if pcm: break
       if pcm: break
     if not pcm: print(vid,"FAILED");continue
+    wc=sum(len(l.split()) for l in tl);dur=len(pcm)/48000
+    if dur>wc*0.62+4: print(vid,"OGOHLANTIRISH: ovoz kutilganidan uzun",round(dur,1),"s, so'zlar",wc,"- ortiqcha (inglizcha?) gap bo'lishi mumkin: langcheck.py bilan tekshiring",flush=True)
     os.makedirs(vid,exist_ok=True)
     if pcm[:4]==b"RIFF": open(f"{vid}/raw.wav","wb").write(pcm)
     else:
