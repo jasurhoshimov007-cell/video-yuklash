@@ -1,0 +1,310 @@
+{
+ "v01": {
+  "type": "horror",
+  "music": "file:depreshot",
+  "music_start": 12,
+  "lines": [
+   "Qoida: soat o'n birdan keyin doskaga qarama.",
+   "Sen maktabda tungi navbatchisan.",
+   "Birinchi kecha hammasi jim edi.",
+   "Oxirigacha ko'r, obuna bo'lishni unutma.",
+   "Soat o'n bir bo'ldi. Koridorda chiroqlar o'chdi.",
+   "Yettinchi sinfdan bo'r bilan yozayotgan ovoz keldi.",
+   "Eshikni ochding. Sinf bo'm-bo'sh.",
+   "Doskada esa sening isming yozilgan edi.",
+   "Ostida bitta so'z: navbatdagi.",
+   "Orqangda eshik o'zi yopildi.",
+   "A: derazadan qochaman. B: ismimni o'chiraman. Sen nima qilarding?",
+   "Davomi Telegram kanalimizda! Havola profilda, hozir obuna bo'l!"
+  ]
+ },
+ "v02": {
+  "type": "horror",
+  "music": "file:depreshot",
+  "music_start": 12,
+  "lines": [
+   "To'y tugadi. Lekin to'yxonadan hech kim chiqmadi.",
+   "Sen oxirgi bo'lib telefoningni izlab qolding.",
+   "Soat ikki edi. Musiqa birdan o'zi yondi.",
+   "Obuna bo'l, bu hikoya hali boshlanishi.",
+   "Stollarda mehmonlar jim o'tirardi.",
+   "Hammasi bir xil kulib turardi.",
+   "Hech kim ovqat yemasdi. Hech kim qimirlamasdi.",
+   "Tamada mikrofonni oldi va sening ismingni aytdi.",
+   "Endi tabriklash navbati senda!",
+   "Hamma mehmonlar birdan senga o'girildi.",
+   "A: sahnaga chiqaman. B: eshikka yuguraman. Sen nima qilarding?",
+   "Natija va davomi ertaga. Hozir obuna bo'l!"
+  ]
+ },
+ "v03": {
+  "type": "horror",
+  "music": "file:depreshot",
+  "music_start": 12,
+  "lines": [
+   "Buvim aytardi: tunda bozorda narx so'rama.",
+   "Sen kech qolding. Bozor allaqachon yopilgan edi.",
+   "Lekin bitta rastada chiroq yonib turardi.",
+   "Oxirigacha ko'r va obuna bo'l, afsuslanmaysan.",
+   "Sotuvchi juda qari chol edi.",
+   "Rastada olmalar, nonlar... va soatlar.",
+   "Sen bilmasdan so'rading: bu qancha turadi?",
+   "Chol jilmaydi: bir yil, bolam.",
+   "Qo'lingdagi soat birdan tez yura boshladi.",
+   "Sochlaring esa oqara boshladi.",
+   "A: qochaman. B: savdolashaman. Sen qaysi birini tanlarding?",
+   "Davomi ertaga! Hozir obuna bo'l, like bos!"
+  ]
+ },
+ "v04": {
+  "type": "horror",
+  "music": "file:depreshot",
+  "music_start": 12,
+  "lines": [
+   "Tungi soat uchda butun mahalla chiroqlari birdan yondi.",
+   "Sen suv ichgani turgan eding.",
+   "Derazadan qarading. Har bir derazada odam turardi.",
+   "Obuna bo'l, chunki davomi bundan ham qo'rqinchli.",
+   "Qo'shnilar, bolalar, hatto kampir xola ham.",
+   "Hammasi jim. Hammasi senga qarab turardi.",
+   "Keyin hammasi bir vaqtda qo'lini ko'tardi.",
+   "Barmoqlari bizning uyni ko'rsatardi.",
+   "Shu payt yerto'lamizda chiroq yondi.",
+   "Bizning uyda esa yerto'la yo'q edi.",
+   "A: tekshiraman. B: qochaman. Sen nima qilarding? Izohda yoz!",
+   "Davomi ertaga! Obuna bo'l. Telegram kanalimiz havolasi profilda!"
+  ]
+ },
+ "v05": {
+  "type": "horror",
+  "music": "file:depreshot",
+  "music_start": 12,
+  "lines": [
+   "Har kecha shkaf eshigi bir santimetr ochiladi.",
+   "Sen buni o'n kun oldin payqading.",
+   "Birinchi kecha tirqish ingichka edi.",
+   "Obuna bo'l, oxirida nima bo'lganini ko'rasan.",
+   "O'ninchi kecha esa qo'l sig'adigan bo'ldi.",
+   "Telefon chirog'ini yoqib ichiga qarading.",
+   "Ichida sening kiyimlaringni kiygan bola turardi.",
+   "U pichirladi: endi navbat menga.",
+   "Ertalab onang seni uyg'otdi.",
+   "Lekin ko'zguda sen emas, o'sha bola turardi.",
+   "A: onamga aytaman. B: shkafni ochaman. Sen qaysi birini tanlarding?",
+   "Davomi ertaga! O'tkazib yubormaslik uchun hozir obuna bo'l!"
+  ]
+ },
+ "v06": {
+  "type": "fun",
+  "music": "epic",
+  "lines": [
+   "Faqat to'qsoninchi yillar bolalari biladi!",
+   "Eng zo'r hovli o'yini qaysi edi?",
+   "Berkinmachoq, Quvlashmachoq, Lanka, Chillak, Oq terak, Arqon, Klassik, Futbol.",
+   "Faqat bittasi chempion bo'ladi.",
+   "Qoida oddiy: izohga o'yin nomini yozing.",
+   "Bitta izoh, bitta ovoz.",
+   "Bolalikdagi o'yin do'stingizni belgilang, u ham ovoz bersin!",
+   "Eng ko'p ovoz olgan uchtasi finalga chiqadi.",
+   "Siz qaysi birini tanlaysiz? Men Lankani!",
+   "Izohda yozing, obuna bo'ling, finalni o'tkazib yubormang!"
+  ]
+ },
+ "v07": {
+  "type": "fun",
+  "music": "epic",
+  "lines": [
+   "Sizning birinchi telefoningiz qaysi edi?",
+   "Eng zo'r eski telefonni tanlaymiz!",
+   "Nokia 3310, Nokia 1100, Motorola Razr, Sony Ericsson, Siemens, Samsung, Nokia N73, iPhone 4.",
+   "Faqat bittasi afsona bo'ladi.",
+   "Qoida oddiy: izohga telefon nomini yozing.",
+   "Bitta izoh, bitta ovoz.",
+   "O'sha telefonni eslaydigan do'stingizni belgilang!",
+   "Eng ko'p ovoz olgan uchtasi finalga chiqadi.",
+   "Men Nokia 3310 ni tanlayman. U hali ham ishlaydi!",
+   "Izohda yozing, like bosing, obuna bo'ling!"
+  ],
+  "tts_lines": [
+   "Sizning birinchi telefoningiz qaysi edi?",
+   "Eng zo'r eski telefonni tanlaymiz!",
+   "Nokia uch ming uch yuz o'n, Nokia ming yuz, Motorola Razr, Soni Erikson, Simens, Samsung, Nokia En yetmish uch, Ayfon to'rt.",
+   "Faqat bittasi afsona bo'ladi.",
+   "Qoida oddiy: izohga telefon nomini yozing.",
+   "Bitta izoh, bitta ovoz.",
+   "O'sha telefonni eslaydigan do'stingizni belgilang!",
+   "Eng ko'p ovoz olgan uchtasi finalga chiqadi.",
+   "Men Nokia uch ming uch yuz o'nni tanlayman. U hali ham ishlaydi!",
+   "Izohda yozing, like bosing, obuna bo'ling!"
+  ]
+ },
+ "v08": {
+  "type": "fun",
+  "music": "epic",
+  "lines": [
+   "Kompyuter klubdagi eng zo'r o'yin qaysi edi?",
+   "Jangda sakkizta afsonaviy o'yin qatnashadi.",
+   "GTA, Counter-Strike, NFS, Mortal Kombat, Mario, Tanchiki, Contra, Minecraft.",
+   "Faqat bittasi g'olib bo'ladi.",
+   "Qoida oddiy: izohga o'yin nomini yozing.",
+   "Bitta izoh, bitta ovoz.",
+   "Klubda birga o'ynagan do'stingizni chaqiring!",
+   "Eng ko'p ovoz olgan uchtasi finalga chiqadi.",
+   "Siz qaysi birini tanlaysiz? Tanchikimi yoki Kontrami?",
+   "Izohda yozing va obuna bo'ling, final tez orada!"
+  ],
+  "tts_lines": [
+   "Kompyuter klubdagi eng zo'r o'yin qaysi edi?",
+   "Jangda sakkizta afsonaviy o'yin qatnashadi.",
+   "Ji-Ti-Ey, Kaunter-Strayk, En-Ef-Es, Mortal Kombat, Mario, Tanchiki, Kontra, Maynkraft.",
+   "Faqat bittasi g'olib bo'ladi.",
+   "Qoida oddiy: izohga o'yin nomini yozing.",
+   "Bitta izoh, bitta ovoz.",
+   "Klubda birga o'ynagan do'stingizni chaqiring!",
+   "Eng ko'p ovoz olgan uchtasi finalga chiqadi.",
+   "Siz qaysi birini tanlaysiz? Tanchikimi yoki Kontrami?",
+   "Izohda yozing va obuna bo'ling, final tez orada!"
+  ]
+ },
+ "v09": {
+  "type": "fun",
+  "music": "lofi",
+  "dialog": true,
+  "speakers": [
+   "Q",
+   "C",
+   "Q",
+   "C",
+   "Q",
+   "C",
+   "Q",
+   "C",
+   "Q",
+   "C",
+   "C"
+  ],
+  "lines": [
+   "Kelin mashinamda, to'yga o'n besh daqiqa, yo'l esa tiqilib qoldi!",
+   "Xotirjam! Hozir qayerdasiz?",
+   "Ko'prik ustida! To'yxona esa shaharning narigi chetida!",
+   "Chapdagi ko'chaga buriling, u yerda tirbandlik yo'q.",
+   "Bu ko'cha bozorga olib boradi-ku!",
+   "To'xtang! Davom etishdan oldin Telegram kanalimizga o'tib oling, u yerda AI darslari bor!",
+   "Hozirmi?! Kelin menga qarab turibdi!",
+   "Bozor orqali yetti daqiqa. Kuyov tomonga xabar ham yozib qo'ydim.",
+   "Yetib keldik! Lekin to'yxona bo'm-bo'sh-ku!",
+   "To'g'ri. Kuyov hali tirbandlikda. Siz birinchisiz!",
+   "Video yoqqan bo'lsa, like bosing va obuna bo'ling! Slayd yoki video kerak bo'lsa, profildagi havola orqali Telegram kanalimizga yozing!"
+  ]
+ },
+ "v10": {
+  "type": "fun",
+  "music": "fun",
+  "dialog": true,
+  "speakers": [
+   "Q",
+   "C",
+   "Q",
+   "C",
+   "Q",
+   "C",
+   "Q",
+   "C",
+   "Q",
+   "C",
+   "C"
+  ],
+  "lines": [
+   "Bitta postim million ko'rish oldi! Ming ta buyurtma keldi!",
+   "Tabriklayman! Do'koningizda nechta mahsulot bor?",
+   "Atigi ellikta qo'lqop! Mijozlar esa yozishdan to'xtamayapti!",
+   "Avval hammaga bitta chiroyli javob tayyorlaymiz.",
+   "Mijozlarning jahli chiqsa-chi?",
+   "To'xtang! Davom etishdan oldin Telegram kanalimizga o'tib oling, u yerda AI bilan pul ishlash darslari bor!",
+   "Hozir emas! Telefonim portlayapti!",
+   "Tayyor: navbat ro'yxati, oldindan buyurtma va chegirma kodi.",
+   "Voy... yana ikki ming buyurtma keldi!",
+   "Unda buvingizni chaqiring. Qo'lqoplarni axir u to'qiydi-ku!",
+   "Video yoqqan bo'lsa, like bosing va obuna bo'ling! Slayd yoki video kerak bo'lsa, profildagi havola orqali Telegram kanalimizga yozing!"
+  ]
+ },
+ "v11": {
+  "type": "fun",
+  "music": "tense",
+  "lines": [
+   "Butun umr faqat bitta joyda yashaysiz. Qayerni tanlaysiz?",
+   "Chapda: katta shahar. Metro, kafe, ish, chiroqlar.",
+   "O'ngda: qishloq. Toza havo, bog', tandir non.",
+   "Shaharda pul ko'p, lekin vaqt yo'q.",
+   "Qishloqda tinchlik bor, lekin internet sekin.",
+   "Keyin hech qachon o'zgartira olmaysiz.",
+   "Uch, ikki, bir...",
+   "Qayerni tanlaysiz?",
+   "Izohda yozing: shahar yoki qishloq.",
+   "Qishloqdan bo'lgan do'stingizga yuboring, obuna bo'ling!"
+  ]
+ },
+ "v12": {
+  "type": "fun",
+  "music": "tense",
+  "lines": [
+   "Sizga bitta superkuch beriladi. Faqat bittasi!",
+   "Birinchisi: qushdek uchish. Bulutlar ustida, istalgan vaqtda.",
+   "Ikkinchisi: teleport. Bir soniyada dunyoning istalgan joyiga.",
+   "Uchsangiz, hamma sizni ko'radi va suratga oladi.",
+   "Teleport qilsangiz, tirbandlik yo'q, lekin manzara ham yo'q.",
+   "Ertalab maktabga yoki ishga qaysi biri bilan borasiz?",
+   "Uch, ikki, bir...",
+   "Qaysi birini tanlaysiz?",
+   "Izohda yozing: uchish yoki teleport.",
+   "Natija Telegram kanalimizda! Havola profilda.",
+   "Obuna bo'ling, do'stingizga yuboring!"
+  ]
+ },
+ "t01": {
+  "type": "fun",
+  "music": "fun",
+  "lines": [
+   "AQSh AI chiplariga masofadan kirishni ham chekladi!",
+   "Yangi qoida o'n to'qqizinchi noyabrdan kuchga kirdi.",
+   "Endi chet eldagi data-markazlarga kuchli chip sotish uchun litsenziya kerak.",
+   "Agar ular cheklangan davlat kompaniyalariga quvvat bersa.",
+   "Eski AI Diffusion qoidasi esa bekor qilindi.",
+   "Bu bulut xizmatlari narxiga ta'sir qilishi mumkin.",
+   "Sizningcha, bu to'g'ri qarormi? Izohda yozing!",
+   "Har kuni AI yangiliklari shu kanalda, do'stlaringizga ulashing!"
+  ],
+  "tts_lines": [
+   "Amerika sun'iy intellekt chiplariga masofadan kirishni ham chekladi!",
+   "Yangi qoida o'n to'qqizinchi noyabrdan kuchga kirdi.",
+   "Endi chet eldagi data-markazlarga kuchli chip sotish uchun litsenziya kerak.",
+   "Agar ular cheklangan davlat kompaniyalariga quvvat bersa.",
+   "Eski Diffuziya qoidasi esa bekor qilindi.",
+   "Bu bulut xizmatlari narxiga ta'sir qilishi mumkin.",
+   "Sizningcha, bu to'g'ri qarormi? Izohda yozing!",
+   "Har kuni sun'iy intellekt yangiliklari shu kanalda, do'stlaringizga ulashing!"
+  ]
+ },
+ "t02": {
+  "type": "fun",
+  "music": "fun",
+  "lines": [
+   "To'liq AI yaratgan qo'shiqlarga endi pul to'lanmaydi!",
+   "Tidal servisi yangi qoidani joriy qildi.",
+   "Bunday treklar yonida AI belgisi chiqadi va ular daromad olmaydi.",
+   "Lekin AI yordamida yozilgan musiqa ruxsat etiladi.",
+   "Boshqa san'atkorga taqlid qilgan AI qo'shiqlar esa o'chiriladi.",
+   "Siz AI qo'shiqni tinglaysizmi? Izohda yozing!",
+   "Har kuni AI yangiliklari shu kanalda!"
+  ],
+  "tts_lines": [
+   "To'liq sun'iy intellekt yaratgan qo'shiqlarga endi pul to'lanmaydi!",
+   "Taydal servisi yangi qoidani joriy qildi.",
+   "Bunday treklar yonida Ey-Ay belgisi chiqadi va ular daromad olmaydi.",
+   "Lekin sun'iy intellekt yordamida yozilgan musiqa ruxsat etiladi.",
+   "Boshqa san'atkorga taqlid qilgan sun'iy intellekt qo'shiqlari esa o'chiriladi.",
+   "Siz sun'iy intellekt qo'shiqlarini tinglaysizmi? Izohda yozing!",
+   "Har kuni sun'iy intellekt yangiliklari shu kanalda!"
+  ]
+ }
+}

@@ -130,3 +130,55 @@ Faraz: tartib = 11-24 ro'yxati (horror 5 -> Claude 3 -> reklama 3 -> A/B 5 -> AI
 16. Horror TANDIR va METRO juda qorong'i, sahna bo'sh: QOIDA: asosiy ob'ekt kontrasti yuqori (rim-light/glow), kadr markazida aniq narsa bo'lsin.
 17. Ronaldo-Messi va 1 MLN: subtitr futbolchi/ism yozuvlari ustiga tushadi, "$1 000 000" chapda kesilgan; boshlovchi subtitr bilan ustma-ust. QOIDA: subtitr zonasi (y 1000-1100) bo'sh qoldirilsin, matn kadr chegarasidan 40 px ichkarida.
 18. Natija (bir necha soatlik, dastlabki): eng zo'r ENG ZO'R MULTFILM QAHRAMONI 12.8k ko'rish, 757 izoh, skip 29%. Eng past: Claude videolari (90, 150 ko'rish, skip 49-70%), 1 MLN (253), METRO (90). Horror o'rtacha 1.6-3.2k, skip 32-38%. Xulosa: bolalik/nostalgiya + izoh=ovoz eng kuchli; Claude formati hozircha zaif (hook va birinchi kadrni kuchaytirish kerak).
+
+## Instagram (2026-11-26) — 12/12 yuklandi (08:35-08:53 UTC), story 2 ta
+| # | nom | tur | uslub | uzunlik |
+|---|---|---|---|---|
+| v06 | 90-YILLAR HOVLI O'YINI (Berkinmachoq...Futbol) | jang izoh=ovoz | tmpl2d_battle | 33.4 s |
+| v01 | MAKTAB 23:00 (doskada ism, navbatdagi) 1-qism — DAVOMI TELEGRAMDA | horror | Roblox 3D (classroom+corridor) | 36.4 s |
+| v02 | TO'YDAN KEYIN (to'yxona, bir xil kulgan mehmonlar, tamada) 1-qism | horror | Roblox 3D (hall) | 39.0 s |
+| v03 | TUNGI BOZOR (narx = 1 yil, soch oqaradi) 1-qism | horror | Roblox 3D (bazaar, soatlar) | 35.4 s |
+| v04 | MAHALLADA 03:00 (derazalardagi qo'shnilar, yo'q yerto'la) 1-qism + Telegram | horror | Roblox 3D (yangi mahalla seti) | 38.5 s |
+| v05 | SHKAF (har kecha 1 sm, ichida egizak bola) 1-qism | horror | Roblox 3D (bedroom+shkaf) | 36.9 s |
+| v09 | KELIN MASHINADA (taksichi + Claude, tirbandlik) | Claude suhbat | tmpl2d_claude scene=car (yangi) | 38.4 s |
+| v07 | BIRINCHI TELEFONINGIZ (Nokia 3310...iPhone 4) | jang izoh=ovoz | tmpl2d_battle | 37.0 s |
+| v11 | SHAHAR YOKI QISHLOQ | kimni tanlaysiz | tmpl2d_choice2 scene=cityvil (yangi) | 36.3 s |
+| v08 | KOMPYUTER KLUB O'YINI (GTA...Minecraft) | jang izoh=ovoz | tmpl2d_battle | 30.5 s |
+| v10 | 1000 BUYURTMA (do'kon egasi + Claude, buvi qo'lqoplari) | Claude suhbat | tmpl2d_claude scene=shop (yangi) | 38.6 s |
+| v12 | UCHISH YOKI TELEPORT (natija Telegram so'rovnomada) | kimni tanlaysiz | tmpl2d_choice2 scene=sky (yangi) | 35.3 s |
+- Horror musiqasi: hammasida egasining treki `file:depreshot` (faqat shu kun). Horrorlar serial "1-QISM" belgisi, 8-12 s da "OXIRIGACHA KO'R" eslatma, A/B kartasi, oxirida OBUNA BO'LINDI + LIKE.
+## Telegram kanal (2026-11-26)
+- t01: AQSh AI chiplariga masofaviy kirishni chekladi (BIS, 19-noyabrdan; AI Diffusion bekor). t02: Tidal — to'liq AI qo'shiqlarga daromad yo'q, AI belgisi.
+- Horror davomi: MAKTAB 23:00 2-qism (1987-yil jurnali, ismni o'chirish, bo'r tutgan bola). So'rovnoma: Uchish / Teleport. Promo: v06 hovli o'yini.
+- Izohlarga javob: 150 ta (eng yangilaridan; asosan ENG ZO'R MULTFILM reeli, 1794 izoh). Yashirilgan: 0.
+
+## Kunlik tahlil (2026-11-26 da o'lchangan: 2026-11-25 reellari ~24 soatdan keyin)
+| video | tur | ko'rish | o'rt. tomosha | skip | saqlash | ulashish | izoh |
+|---|---|---|---|---|---|---|---|
+| ENG ZO'R MULTFILM QAHRAMONI | jang | 29730 | 14.1 s | 34% | 12 | 98 | 1794 |
+| ESHIKNI OCHMA (Roblox horror namuna, 15:43) | horror 3D | 7051 | 15.7 s | 34% | 8 | 8 | 123 |
+| TANDIR | horror 2D | 4324 | 17.4 s | 35% | 9 | 23 | 5 |
+| NAVIGATOR | horror 2D | 2349 | 14.8 s | 39% | 1 | 0 | 2 |
+| QOR ODAM | horror 2D | 2060 | 15.3 s | 34% | 1 | 2 | 0 |
+| ENG ZO'R MASHINA | jang | 2043 | 7.7 s | 54% | 0 | 2 | 56 |
+| VIDEOQO'NG'IROQ | horror 2D | 2008 | 14.4 s | 39% | 4 | 2 | 3 |
+| RONALDO YOKI MESSI | tanlov | 1622 | 6.8 s | 62% | 0 | 0 | 14 |
+| CHOYGA SHIRINLIK | jang | 1539 | 6.3 s | 60% | 0 | 0 | 16 |
+| 1 MLN YOKI DO'ST | tanlov | 427 | 3.8 s | 71% | 0 | 0 | 3 |
+| MAJLIS (Claude) | claude | 323 | 5.7 s | 58% | 0 | 0 | 0 |
+| 300 KISHILIK OSH (Claude) | claude | 211 | 5.4 s | 63% | 0 | 0 | 1 |
+| METRO 00:47 | horror 2D | 196 | 9.8 s | 61% | 0 | 0 | 0 |
+- Jami 13 reel ~53.9k ko'rish (o'rtacha ~4.1k; 11-25 da ~1.6k). Obunachi 4542 -> 4720 (+178), konversiya ~0.33%.
+- Tur o'rtachasi: jang ~11.1k (multfilm tufayli), horror ~3.0k, tanlov ~1.0k, Claude ~270.
+- Diagnoz (raqamlar): eng yaxshi 3 = MULTFILM (nostalgiya + 1 izoh=1 ovoz, skip 34%), ROBLOX HORROR (3D, A/B, 123 izoh), TANDIR (o'zbek qishlog'i, 23 ulashish). Eng yomon 3 = METRO (skip 61%, faraz: qorong'i 1-kadr), OSH (Claude, skip 63%), MAJLIS (Claude, skip 58%). Claude 2 kun ketma-ket o'rtachaning 40% idan past -> 0.2 qoidasi: Claude 2 ta qoldi (min), lekin hook kuchaytirildi (katta raqam + yangi sahna), ertaga ham past bo'lsa 1 taga tushiriladi va jang +1.
+## Bugun nima o'zgardi (2026-11-26)
+- Horror: 5 tasi ham Roblox-3D (lib.js) + yangi umumiy fayl `hcommon.js` (1-QISM belgisi, @jasur.ai_, A/B kartasi, OBUNA BO'LINDI+LIKE, Telegram yakuni, "OXIRIGACHA KO'R" pill). Yangi setlar: mahalla (derazalarda siluetlar), shkaf, bozor soatlari.
+- Jang: 3 tasi ham nostalgiya (90-yillar hovli o'yini, eski telefonlar, kompyuter klub) — multfilm natijasi asosida.
+- mix.py: np.convolve(ones) o'rniga cumsum (mix 3+ daqiqa -> 6 s); lofi musiqa uzunlik xatosi tuzatildi; LUFS -16 bo'lsa avtomatik dinamik loudnorm.
+- Ovoz yaxshilanishi: `dyn.py` — gap bo'yicha +-dB (hook/kulminatsiya +4..+6, sirli gaplar -5..-9): LRA 2.1-2.9 -> qc PASS (>=3). 
+- Media: har kuni yangi nom (`media/n26_*.mp4`) + commit SHA URL (raw CDN branch URL 404/eski kesh bergan).
+## Qoidalar (o'rganilgan) — qo'shimcha
+19. (2026-11-26) qc LRA<3 (7 video) va LUFS -16 (3 video) takrorlandi: har video uchun `prep.py` dan keyin `dyn.py vNN "<gap dB ro'yxati>"` MAJBURIY (hook +4, sirli -5..-7, kulminatsiya +4..+6). Linear loudnorm -16 bersa mix.py o'zi dinamikka o'tadi.
+20. (2026-11-26) Roblox 3D sahnada qahramon kameradan >=9 birlik uzoqda (to'liq tana), yaqin kadr 4.5-5.5; `projTxt` faqat `ov` ichida (draw ichida GL kadr ustidan bosiladi); o'z funksiyangizni `room` deb atamang (lib.js room() ni yopadi -> cheksiz rekursiya).
+21. (2026-11-26) langcheck brend nomlarida (GTA, Counter-Strike) "english" deb belgilaydi: transkript o'zbekcha bo'lsa yolg'on signal; iloji bo'lsa nomlarni kamaytiring.
+22. (2026-11-26) Windsor create_video_post 60 s timeout (3 ta) — hammasi chiqqan, get_data bilan tekshirildi; qayta yuborilmadi.

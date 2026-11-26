@@ -1,0 +1,16 @@
+- 2026-11-26 v01: balandlik -16.1 LUFS (-14 atrofida bo'lsin)
+- 2026-11-26 v03: balandlik -16.1 LUFS (-14 atrofida bo'lsin)
+- 2026-11-26 v03: ovoz bir tekis (LRA 1.7): matnda pauza '...', undov/so'roq, kulminatsiya oldidan jimlik qo'shing
+- 2026-11-26 v04: balandlik -16.1 LUFS (-14 atrofida bo'lsin)
+- 2026-11-26 v04: ovoz bir tekis (LRA 2.4): matnda pauza '...', undov/so'roq, kulminatsiya oldidan jimlik qo'shing
+- 2026-11-26 v03: ovoz bir tekis (LRA 2.7): matnda pauza '...', undov/so'roq, kulminatsiya oldidan jimlik qo'shing
+- 2026-11-26 v04: ovoz bir tekis (LRA 2.4): matnda pauza '...', undov/so'roq, kulminatsiya oldidan jimlik qo'shing
+- 2026-11-26 v04: ovoz bir tekis (LRA 2.9): matnda pauza '...', undov/so'roq, kulminatsiya oldidan jimlik qo'shing
+- 2026-11-26 v05: ovoz bir tekis (LRA 2.8): matnda pauza '...', undov/so'roq, kulminatsiya oldidan jimlik qo'shing
+- 2026-11-26 v07: ovoz bir tekis (LRA 2.3): matnda pauza '...', undov/so'roq, kulminatsiya oldidan jimlik qo'shing
+- 2026-11-26 v08: ovoz bir tekis (LRA 2.5): matnda pauza '...', undov/so'roq, kulminatsiya oldidan jimlik qo'shing
+- 2026-11-26 v08: til/matn: v08 XATO | languages: uzbek, english | boshi mos: 0.89 |  kompyuter klubdagi eng zor oyin qaysi edi jangda  ta afsonaviy oyin qatnashadi gta counte
+- 2026-11-26 v09: ovoz bir tekis (LRA 2.1): matnda pauza '...', undov/so'roq, kulminatsiya oldidan jimlik qo'shing
+- 2026-11-26 v10: ovoz bir tekis (LRA 2.4): matnda pauza '...', undov/so'roq, kulminatsiya oldidan jimlik qo'shing
+- 2026-11-26 v11: ovoz bir tekis (LRA 2.1): matnda pauza '...', undov/so'roq, kulminatsiya oldidan jimlik qo'shing
+- 2026-11-26 v11: hook: HOOK MUAMMO: 0.4-0.8 s oralig'ida kadr deyarli o'zgarmaydi (1.0) | o'zgarish: [2.7, 1.0, 1.9, 5.1, 3.4, 5.2, 6.8]

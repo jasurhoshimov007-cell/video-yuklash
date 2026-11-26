@@ -154,7 +154,7 @@ def lofi_music(D):  # Claude suhbat: yumshoq lo-fi
         s=s[:n-i];x[i:i+len(s)]+=s
         if b%4==0:
             ch=[f*KEY for f in prog[(b//4)%4]];m=t(beat*4);s=sum(np.sin(2*np.pi*f*m)+.15*np.sin(2*np.pi*2*f*m) for f in ch)*np.exp(-m*.6)*.03;s=s[:n-i];x[i:i+len(s)]+=s
-    x+=bp(noise(len(x)/SR),2000,7000)[:len(x)]*.006;return x
+    x+=bp(rng.standard_normal(len(x)),2000,7000)*.006;return x
 MUSIC={'horror':horror_music,'musicbox':mbox_music,'strings':strings_music,'fun':fun_music,'epic':epic_music,'tense':tense_music,'lofi':lofi_music}
 
 # ---- 2026-11-25: egasining Roblox horror namunalaridagi musiqa uslublari (original sintez, nusxa emas)
@@ -233,8 +233,10 @@ from scipy.signal import butter,sosfilt
 # 2026-11-25 audit: musiqa ovozdan ~10 dB past edi -> ovoz paytida ~16 dB pasaytirish (silliq attack/release), musiqadan <110 Hz kesiladi (gurillash ovozni loyqalatmasin), ovozdan <80 Hz kesiladi.
 mus=sosfilt(butter(4,110,'highpass',fs=SR,output='sos'),mus)
 voice=sosfilt(butter(2,80,'highpass',fs=SR,output='sos'),voice)
-venv=np.convolve(np.abs(voice),np.ones(4410)/4410,'same');act=np.clip(venv/0.02,0,1)
-k=int(.25*SR);act=np.convolve(act,np.ones(k)/k,'same');act=np.clip(act*1.6,0,1)
+def _mavg(x,k):  # 2026-11-26: np.convolve(ones) juda sekin edi (har mix 3+ daqiqa) -> cumsum bilan bir xil natija
+    c=np.cumsum(np.concatenate([[0.],x]));h=k//2;i=np.arange(len(x));lo=np.clip(i-h,0,len(x));hi=np.clip(i-h+k,0,len(x));return (c[hi]-c[lo])/k
+venv=_mavg(np.abs(voice),4410);act=np.clip(venv/0.02,0,1)
+k=int(.25*SR);act=_mavg(act,k);act=np.clip(act*1.6,0,1)
 vd=1-.84*act
 mvol=.5 if typ=='horror' else .4
 out=voice*1.0+mus*mvol*vd*duck+fx*.5
@@ -248,3 +250,8 @@ m=json.loads(r[r.rindex('{'):r.rindex('}')+1])
 af=f"loudnorm=I=-14:TP=-1.5:LRA=11:measured_I={m['input_i']}:measured_TP={m['input_tp']}:measured_LRA={m['input_lra']}:measured_thresh={m['input_thresh']}:offset={m['target_offset']}:linear=true,aresample=44100"
 subprocess.run(['ffmpeg','-y','-loglevel','error','-i',f'{vid}/mix.wav','-af',af,'-ac','2','-c:a','aac','-b:a','160k',f'{vid}/mix.m4a'])
 print(vid,'mix ok',D)
+# 2026-11-26: linear loudnorm ba'zan -16 LUFS beradi (qc FAIL 3 marta) -> tekshirib, kerak bo'lsa dinamik loudnorm (LRA=14, dinamika saqlanadi)
+r=subprocess.run(['ffmpeg','-hide_banner','-i',f'{vid}/mix.m4a','-af','ebur128','-f','null','-'],capture_output=True,text=True).stderr.split('Summary:')[-1]
+_I=float(r.split('I:')[1].split('LUFS')[0])
+if not -15<=_I<=-13:
+    subprocess.run(['ffmpeg','-y','-loglevel','error','-i',f'{vid}/mix.wav','-af','loudnorm=I=-14:TP=-1.2:LRA=14,aresample=44100','-ac','2','-c:a','aac','-b:a','160k',f'{vid}/mix.m4a']);print(vid,'loudnorm dinamik',_I)
