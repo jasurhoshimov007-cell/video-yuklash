@@ -182,3 +182,56 @@ Faraz: tartib = 11-24 ro'yxati (horror 5 -> Claude 3 -> reklama 3 -> A/B 5 -> AI
 20. (2026-11-26) Roblox 3D sahnada qahramon kameradan >=9 birlik uzoqda (to'liq tana), yaqin kadr 4.5-5.5; `projTxt` faqat `ov` ichida (draw ichida GL kadr ustidan bosiladi); o'z funksiyangizni `room` deb atamang (lib.js room() ni yopadi -> cheksiz rekursiya).
 21. (2026-11-26) langcheck brend nomlarida (GTA, Counter-Strike) "english" deb belgilaydi: transkript o'zbekcha bo'lsa yolg'on signal; iloji bo'lsa nomlarni kamaytiring.
 22. (2026-11-26) Windsor create_video_post 60 s timeout (3 ta) — hammasi chiqqan, get_data bilan tekshirildi; qayta yuborilmadi.
+
+## Instagram (2026-11-27) — 12/12 yuklandi (08:31-08:44 UTC), story 2 ta
+| # | nom | tur | uslub | uzunlik |
+|---|---|---|---|---|
+| v01 | TUNGI BOZOR 2-qism YAKUN (izohlarda B tanlandi -> savdo, soatlarda ismlar, sotuvchi = sen) | horror | Roblox 3D bazaar, music strings | 38.1 s |
+| v02 | MAHALLADA 03:00 2-qism (yerto'la, buvining ovozi, qo'shnilar uyga yuradi) + Telegram yakuni | horror | Roblox 3D mahalla, music horror | 36.6 s |
+| v03 | SHKAF 2-qism YAKUN (eski albom, egizak aka, "endi navbat senda, uka") | horror | Roblox 3D bedroom, music musicbox | 34.9 s |
+| v04 | TO'YDAN KEYIN 2-qism YAKUN (1996-yil to'y rasmi, sen ham stolda) | horror | Roblox 3D hall, music strings | 39.2 s |
+| v05 | IJARA KVARTIRA 1-qism (3-shkaf, "rahmat, ertaga men chiqaman", bugungi sanali surat) — DAVOMI TELEGRAMDA | horror | Roblox 3D yangi oshxona seti, music horror | 37.3 s |
+| v06 | MULTFILM JANGI NATIJALAR (haqiqiy 1269 izoh: Panda 428, Elza 337, Simba 143) | jang | tmpl2d_battle + tally/p3/p2/p1 (yangi) | 31.0 s |
+| v07 | FAQAT BITTA O'ZBEK TAOMI (Osh...Dimlama) | jang | tmpl2d_battle, music fun | 33.4 s |
+| v08 | MAKTABDAGI ENG SEVIMLI FAN | jang | tmpl2d_battle | 35.2 s |
+| v09 | FINAL 0:2 (murabbiy + Claude, darvozabon hujumchi) | Claude suhbat | tmpl2d_claude scene=stadium (yangi) | 38.4 s |
+| v10 | BUVIM SMARTFONI (nevara + Claude, 20 ta selfi) | Claude suhbat | tmpl2d_claude scene=home (yangi) | 38.3 s |
+| v11 | OKEAN TUBI YOKI KOSMOS | kimni tanlaysiz | tmpl2d_choice2 scene=oceanspace (yangi) | 34.4 s |
+| v12 | 1 MLRD: TO'Y YOKI UY (natija Telegram so'rovnomada) | kimni tanlaysiz | tmpl2d_choice2 scene=toyuy (yangi) | 30.9 s |
+## Telegram kanal (2026-11-27, juma)
+- t01: Anthropic Claude agentlari bilan Messages API'ni Rust'da qayta yozdi (CPU ~-70%). t02: SpaceX 1 mln AI hisoblash yo'ldoshiga shartli ruxsat.
+- Horror davomi: IJARA KVARTIRA 2-qism (matn + kadr). So'rovnoma: To'y / Uy. Promo: v06 multfilm natijalari.
+- Juma dayjesti (manba The Neuron 26-noyabr): SpaceX 1 mln yo'ldosh; Claude API Rust; Nyu-York AI chatbot o'yinchoqlar taqiqi; Amodei: AI jamiyatni boshqarmasin; OpenAI GPT-6.2 limit xatosi tuzatildi.
+- Izohlarga javob: 150 ta (eng yangilaridan). Yashirilgan: 0.
+
+## Kunlik tahlil (2026-11-27 da o'lchangan: 2026-11-26 reellari ~24 soatdan keyin)
+| video | tur | ko'rish | o'rt. tomosha | skip | saqlash | ulashish | izoh |
+|---|---|---|---|---|---|---|---|
+| MAKTAB 23:00 | horror | 4061 | 15.5 s | 34% | 1 | 2 | 16 |
+| TUNGI BOZOR | horror | 3941 | 15.9 s | 35% | 2 | 5 | 31 |
+| MAHALLADA 03:00 | horror | 3046 | 13.5 s | 36% | 4 | 2 | 9 |
+| UCHISH YOKI TELEPORT | tanlov | 2606 | 13.4 s | 38% | 1 | 1 | 15 |
+| SHKAF | horror | 2437 | 11.7 s | 38% | 3 | 2 | 8 |
+| KOMPYUTER KLUB | jang | 2180 | 9.7 s | 45% | 2 | 2 | 44 |
+| TO'YDAN KEYIN | horror | 2137 | 11.5 s | 39% | 1 | 0 | 3 |
+| 90-YILLAR HOVLI O'YINI | jang | 2111 | 10.8 s | 40% | 0 | 8 | 49 |
+| KELIN MASHINADA | claude | 2090 | 12.2 s | 33% | 1 | 1 | 1 |
+| SHAHAR YOKI QISHLOQ | tanlov | 968 | 12.7 s | 44% | 0 | 13 | 10 |
+| BIRINCHI TELEFONINGIZ | jang | 401 | 7.5 s | 57% | 0 | 0 | 6 |
+| 1000 BUYURTMA | claude | 217 | 5.8 s | 70% | 0 | 0 | 0 |
+- Jami 12 reel 26.2k (o'rtacha 2183). Tur: horror 3124, tanlov 1787, jang 1564, Claude 1153 (40% chegarasi 873 -> hech bir tur pasaytirilmadi). Obunachi 4720 -> 4838 (+118), konversiya ~0.45% (11-26: 0.33%).
+- ESHIKNI OCHMA (11-25 Roblox namuna) 13.5k / 305 izoh; ENG ZO'R MULTFILM 30.4k / 1958 izoh — hali o'syapti.
+- Diagnoz: eng yaxshi 3 = MAKTAB/BOZOR/MAHALLA (Roblox horror serial + qoida/vaqt hook, skip 34-36%). Eng yomon 3 = 1000 BUYURTMA (skip 70%: faraz — biznes mavzusi va raqam hook'i yolg'on tuyuldi), TELEFON (skip 57%: brend nomlari ro'yxati, faraz), SHAHAR/QISHLOQ (968, lekin 13 ulashish). Claude KELIN MASHINADA skip 33% — o'zbek hayotiga yaqin shoshilinch vaziyat ishlaydi.
+## Bugun nima o'zgardi (2026-11-27)
+- Horror: 4 ta kechagi serialning 2-qismi (A/B izohlardagi HAQIQIY tanlovga asoslangan: bozor B 16:6, shkaf A, mahalla B) + 1 yangi 1-qism. Yangi hcommon yordamchilari: cmtBubbles (ismsiz haqiqiy izoh pufaklari), photoCard, askCmt, PART belgisi.
+- Jang: MULTFILM natijalari haqiqiy izoh hisobidan (yangi rollar tally/p3/p2/p1, SPEC.votes, friendIdx, ctaTitle); hook'da kartalar emojisi 1-kadrdan aylanadi.
+- Subtitr sinxroni: `align.py` (nutq bo'laklarini gaplarga DP bilan taqsimlash). O'lchov: v12 "Uch, ikki, bir..." 0.28 s -> 1.2 s, v01 3-gap boshi 2 s ga to'g'rilandi. Dialoglarda (multi-speaker) ISHLATILMAYDI (v09 da buzdi).
+- lib2d `headline`: birinchi 2 qator 1-kadrdan >=85% ko'rinadi (qoida 10).
+- fin3.sh: mux'dan keyin LUFS < -15.3 bo'lsa avtomatik loud.sh.
+- Ovoz yaxshilanishi: dialoglarda TTS 400 (3.8-flash multi-speaker) -> 2.5-flash; v10 ovozi 44 s chiqdi -> matn qisqartirildi va atempo 1.07.
+## Qoidalar (o'rganilgan) — qo'shimcha
+23. (2026-11-27) Horror 2-qismda izohlardagi haqiqiy A/B tanlovni ko'rsating (cmtBubbles, ismsiz) — tomoshabin o'z ovozini ko'radi. Soxta foiz yo'q.
+24. (2026-11-27) LUFS -16..-17 3 kun ketma-ket (7 video bugun ham): fin3.sh avtomatik loudnorm qiladi; qc baribir ishga tushiriladi.
+25. (2026-11-27) align.py faqat bitta ovozli videolarga; dialoglarda prep.py vaqti qoladi.
+26. (2026-11-27) Claude dialog matni <=80 so'z (91 so'z = 44 s). 
+27. (2026-11-27) Roblox 3D kamerasi qahramon/mehmon/eshik orqali o'tmasin: kontakt-varaqda bo'sh rangli blok ko'rinsa kamerani uzoqlashtiring (bugun 9 shot tuzatildi).

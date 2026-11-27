@@ -36,10 +36,27 @@ function carFront(t,o={}){rrect(-20,860,760,420,30,'#1a1c24');rrect(-20,850,760,
 function shopBack(t){ctx.fillStyle=lgrad(0,-100,0,900,[[0,'#f4dcc0'],[1,'#e0b890']]);ctx.fillRect(-300,-300,1320,1900);ctx.fillStyle='#5a3a22';ctx.fillRect(-300,1150,1320,800);
  for(let r=0;r<4;r++){rrect(20,120+r*150,680,18,4,'#8a5a32');for(let i=0;i<8;i++){const c=['#e8434f','#3a8ad6','#ffc21a','#2a9d5a','#a24aff'][(i+r)%5];const x=50+i*82,y=60+r*150;rrect(x,y,52,60,14,c);rrect(x-4,y+50,60,14,6,'#fff')}}
  for(let i=0;i<5;i++){const ph=(t*.6+i/5)%1;ctx.globalAlpha=1-ph;rrect(420+(i%2)*90,520-ph*380,170,46,23,'#2ecc71');txt('+1 buyurtma',505+(i%2)*90,543-ph*380,22,'#fff',0);ctx.globalAlpha=1}}
-function deskScene(t,sp,mood,m,o={}){({space:spaceBack,kitchen:kitchenBack,class:classBack,car:carBack,shop:shopBack}[SPEC.scene]||deskBack)(t);
+
+// 2026-11-27: yangi sahnalar: stadium (final, murabbiy) va home (buvi, smartfon, uy mehmonxonasi)
+function stadiumBack(t){ctx.fillStyle=lgrad(0,-100,0,700,[[0,'#060a24'],[1,'#1a2a5a']]);ctx.fillRect(-300,-300,1320,1100);
+ for(let i=0;i<3;i++){glow(60+i*300,40,200,'#fffbe0',.35);ell(60+i*300,40,26,26,'#fffbe0')}
+ for(let r=0;r<6;r++)for(let i=0;i<34;i++){const x=-20+i*23+(r%2)*11,y=180+r*34;ell(x,y+Math.sin(t*7+i+r)*3,8,8,['#d6202e','#f4f4f4','#2a6ad6','#ffd23a'][(i*5+r*3)%4])}
+ ctx.fillStyle='#1d7a3a';ctx.fillRect(-300,400,1320,900);for(let i=0;i<8;i++){ctx.fillStyle=i%2?'#1f8540':'#1a7035';ctx.fillRect(-300,400+i*70,1320,70)}
+ ctx.strokeStyle='#fff';ctx.lineWidth=8;ctx.strokeRect(250,410,220,70);ctx.lineWidth=4;ctx.strokeStyle='rgba(255,255,255,.6)';ctx.beginPath();ctx.ellipse(360,620,150,40,0,0,7);ctx.stroke();
+ rrect(200,60,320,90,16,'#0a0f2a');{const L8=TIMINGDATA.lines[8]||{t0:99};txt(t>=L8.t0+1.3?'3 : 2':t>=L8.t0?'2 : 2':'0 : 2',300,106,54,'#fff',0);}txt("80'",450,90,28,'#ffd23a',0);ell(390,106,6,6,'#ff3b3b');
+ const bx=360+Math.sin(t*1.7)*200,by=560+Math.abs(Math.sin(t*3))*-30;ell(bx,by,12,12,'#fff')}
+function stadiumFront(t,o={}){rrect(-20,860,760,420,0,'#26303a');rrect(-20,850,760,24,8,'#3a4a5a');
+ rrect(380,640,140,190,14,'#f4f4f4');for(let i=0;i<5;i++)ell(400+i*25,680+(i%2)*40,9,9,'#d6202e');ell(450,740,9,9,'#2a6ad6');ctx.strokeStyle='#2a6ad6';ctx.lineWidth=4;ctx.beginPath();ctx.moveTo(450,740);ctx.quadraticCurveTo(480,700,500,690);ctx.stroke();txt('TAKTIKA',450,810,18,'#333',0);
+ txt('⏱',80,960,40);txt('🥤',640,960,40)}
+function homeBack(t){ctx.fillStyle=lgrad(0,-100,0,1100,[[0,'#f2d8b0'],[1,'#d8b088']]);ctx.fillRect(-300,-300,1320,1500);
+ rrect(20,100,680,520,10,'#a8262e');for(let i=0;i<6;i++)for(let j=0;j<4;j++){ctx.save();ctx.translate(80+i*112,160+j*124);ctx.rotate(PI/4);rrect(-26,-26,52,52,6,['#e8b04a','#1a3a6a'][(i+j)%2]);ctx.restore()}ctx.strokeStyle='#e8b04a';ctx.lineWidth=10;ctx.strokeRect(30,110,660,500);
+ rrect(500,640,140,120,10,'#7a4a2a');txt('🫖',570,690,60);txt('🍞',620,740,40);
+ ell(120,660,40,40,'#fff');ctx.strokeStyle='#222';ctx.lineWidth=4;ctx.beginPath();ctx.moveTo(120,660);ctx.lineTo(120,636);ctx.moveTo(120,660);ctx.lineTo(138,668);ctx.stroke();
+ ctx.save();ctx.translate(560,380);ctx.rotate(Math.sin(t*2)*.15);rrect(-70,-120,140,240,22,'#111');rrect(-60,-108,120,200,14,'#e8f4ff');ell(0,-20,40,48,'#e9c7a4');ell(0,-70,46,24,'#f2f2f2');ell(-14,-26,5,5,'#111');ell(14,-26,5,5,'#111');rrect(-12,0,24,6,3,'#a0503a');txt('🎥 REC',0,70,18,'#d6202e',0);ctx.restore()}
+function deskScene(t,sp,mood,m,o={}){({space:spaceBack,kitchen:kitchenBack,class:classBack,car:carBack,shop:shopBack,stadium:stadiumBack,home:homeBack}[SPEC.scene]||deskBack)(t);
  const hm=sp==='H'?mood:'calm',scared=(hm==='scared'||hm==='shock'||hm==='sad');
  drawHost({x:215,y:930,s:1.3,upper:1,t,pal:LOOK,mouth:MOUTH(sp,'H',m),eye:scared?'wide':(hm==='happy'?'open':'open'),brow:scared?1:(hm==='angry'?-1:0),mshape:hm==='happy'?'smile':(scared?'frown':'neutral'),sweat:hm==='scared',aL:[.2,.1],aR:hm==='shock'?[2.3,2.6]:[.35,-.2]});
- (SPEC.scene==='kitchen'?kitchenFront:SPEC.scene==='car'?carFront:deskFront)(t,o);
+ (SPEC.scene==='kitchen'?kitchenFront:SPEC.scene==='car'?carFront:SPEC.scene==='stadium'?stadiumFront:deskFront)(t,o);
  drawClaude2d(520,880,1,sp==='C'?mood:'calm',sp==='C'&&m>.05,t)}
 const S=SPEC.speakers.map((sp,i)=>{const mood=SPEC.moods[i]||'calm',wide=(SPEC.wide||[]).includes(i)||i===0;
  const cam=wide?camsW:(sp==='H'?camsH:camsC);

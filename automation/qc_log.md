@@ -14,3 +14,10 @@
 - 2026-11-26 v10: ovoz bir tekis (LRA 2.4): matnda pauza '...', undov/so'roq, kulminatsiya oldidan jimlik qo'shing
 - 2026-11-26 v11: ovoz bir tekis (LRA 2.1): matnda pauza '...', undov/so'roq, kulminatsiya oldidan jimlik qo'shing
 - 2026-11-26 v11: hook: HOOK MUAMMO: 0.4-0.8 s oralig'ida kadr deyarli o'zgarmaydi (1.0) | o'zgarish: [2.7, 1.0, 1.9, 5.1, 3.4, 5.2, 6.8]
+- 2026-11-27 v01: balandlik -16.3 LUFS (-14 atrofida bo'lsin)
+- 2026-11-27 v03: balandlik -16.4 LUFS (-14 atrofida bo'lsin)
+- 2026-11-27 v04: balandlik -16.9 LUFS (-14 atrofida bo'lsin)
+- 2026-11-27 v05: balandlik -16.8 LUFS (-14 atrofida bo'lsin)
+- 2026-11-27 v06: balandlik -16.2 LUFS (-14 atrofida bo'lsin)
+- 2026-11-27 v11: balandlik -16.9 LUFS (-14 atrofida bo'lsin)
+- 2026-11-27 v12: balandlik -17.0 LUFS (-14 atrofida bo'lsin)

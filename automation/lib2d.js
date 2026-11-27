@@ -242,7 +242,7 @@ function tgChannelCard(t,u,o={}){const a=ease(ramp(u,0,.18));ctx.save();ctx.glob
  const pk=ramp(u,.8,1);if(o.cta!==false&&pk>0){ctx.globalAlpha=pk;const pu=1+.04*Math.sin(t*8);ctx.save();ctx.translate(0,225);ctx.scale(pu,pu);rrect(-210,-34,420,68,34,'#2aa3ef');txt('KANALGA O‘TISH',0,2,30,'#fff',0);ctx.restore()}
  ctx.restore()}
 function chipPop(txtS,x,y,u,col='#ffd23a',tc='#1b1d2e',size=34){const a=ease(ramp(u,0,1));ctx.save();ctx.translate(x,y);ctx.scale(.6+.4*a,.6+.4*a);ctx.globalAlpha=a;ctx.font=`900 ${size}px Inter`;const w=ctx.measureText(txtS).width+54;rrect(-w/2,-size,w,size*2,size,col);txt(txtS,0,2,size,tc,0);ctx.restore()}
-function headline(lines,u,y0=170,size=74,cols=['#fff','#ffd23a']){lines.forEach((l,i)=>{const a=ease(ramp(u,i*.12,.25+i*.12));if(a<=0)return;ctx.save();ctx.translate(360,y0+i*(size+10)+(1-a)*30);ctx.globalAlpha=a;ctx.scale(.8+.2*a,.8+.2*a);ctx.font=`900 ${size}px Inter`;let sz=size;const w=ctx.measureText(l).width;if(w>650)sz=size*650/w;txt(l,0,0,sz,cols[i%cols.length],sz*.2);ctx.restore()})}
+function headline(lines,u,y0=170,size=74,cols=['#fff','#ffd23a']){lines.forEach((l,i)=>{const a=Math.max(i<2?.85:0,ease(ramp(u,i*.12,.25+i*.12)));/* 2026-11-27: hook 1-kadrdan ko‘rinadi */if(a<=0)return;ctx.save();ctx.translate(360,y0+i*(size+10)+(1-a)*30);ctx.globalAlpha=a;ctx.scale(.8+.2*a,.8+.2*a);ctx.font=`900 ${size}px Inter`;let sz=size;const w=ctx.measureText(l).width;if(w>650)sz=size*650/w;txt(l,0,0,sz,cols[i%cols.length],sz*.2);ctx.restore()})}
 
 // ---------- Claude personaji (2D, o'zimizning dizayn) va ish stoli sahnasi ----------
 function drawClaude2d(x,y,s,mood,speaking,t){const h=22,bob=Math.sin(t*2.2)*2,sq=speaking?1+.04*Math.sin(t*15):1;ctx.save();ctx.translate(x,y);ctx.scale(s,s*sq);

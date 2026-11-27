@@ -1,0 +1,278 @@
+{
+ "v01": {
+  "type": "horror",
+  "music": "strings",
+  "lines": [
+   "Tungi bozorda vaqt bilan savdolashib bo'lmaydi.",
+   "Izohlarda ko'pchiligingiz B dedingiz. Mayli, savdolashamiz.",
+   "Sen cholga aytding: bir yil qimmat, bir kun beraman.",
+   "Oxirigacha ko'r, bu hikoyaning yakuni.",
+   "Chol kuldi. Hamma soatlar birdan to'xtadi.",
+   "Soatlarda... odamlarning ismlari yozilgan edi.",
+   "Bittasida esa sening isming bor edi.",
+   "Chol pichirladi: sen bilan savdo allaqachon tugagan.",
+   "Ertalab bozorda yangi rasta paydo bo'ldi.",
+   "Sotuvchisi... xuddi senga o'xshardi.",
+   "Sen bo'lganingda nima qilarding? Izohda yoz!",
+   "Yangi hikoya ertaga. Hozir obuna bo'l!"
+  ]
+ },
+ "v02": {
+  "type": "horror",
+  "music": "horror",
+  "lines": [
+   "Bizning uyda yerto'la yo'q edi. Lekin u yerda chiroq yonardi.",
+   "Izohlarda ko'pchilik qochaman dedi. Sen qochding.",
+   "Ko'cha bo'm-bo'sh. Derazalar qop-qorong'i.",
+   "Obuna bo'l, yakuni hozir.",
+   "Orqangda yerto'la eshigi g'ijirladi.",
+   "Ichidan buvingning ovozi keldi: bolam, pastga tush.",
+   "Buving esa o'n yil oldin olamdan o'tgan.",
+   "Shu payt mahalladagi hamma eshik birdan ochildi.",
+   "Qo'shnilar chiqib, bir tomonga yurishdi...",
+   "To'g'ri sizning uyingizga.",
+   "Sen nima qilarding? Izohda yoz!",
+   "Shunday hikoyalar uchun profildagi havola orqali Telegram kanalimizga o'ting!"
+  ]
+ },
+ "v03": {
+  "type": "horror",
+  "music": "musicbox",
+  "lines": [
+   "Ko'zgudagi bola mening ismimni bilardi.",
+   "Izohlarda aytdingiz: onangga ayt. Men aytdim.",
+   "Onam jim qoldi. Keyin eski albomni olib chiqdi.",
+   "Oxirigacha ko'r, eng qo'rqinchlisi oxirida.",
+   "Albomda ikkita bir xil chaqaloq rasmi bor edi.",
+   "Onam pichirladi: sening egizak akang bor edi.",
+   "U bir yoshida shkafga kirib ketgan... va hech qachon topilmagan.",
+   "O'sha kecha shkaf eshigi to'liq ochildi.",
+   "Ichidan kichkina qo'l chiqib, menga xat uzatdi.",
+   "Xatda yozilgan: endi navbat senda, uka.",
+   "Sen shkafni yopardingmi? Izohda yoz!",
+   "Yangi hikoya ertaga. Obuna bo'l!"
+  ]
+ },
+ "v04": {
+  "type": "horror",
+  "music": "strings",
+  "lines": [
+   "To'yxonada hamma mehmon senga qarab turardi.",
+   "Sen eshikka yugurding. Eshik qulf edi.",
+   "Tamada dedi: hech kim ketmaydi, to'y endi boshlanadi!",
+   "Obuna bo'l, bu hikoyaning yakuni.",
+   "Sen stollardagi rasmlarga qarading.",
+   "Har bir mehmon... o'ttiz yil oldingi to'y rasmida edi.",
+   "O'sha to'yda chiroq o'chib, hamma g'oyib bo'lgan.",
+   "Shu payt chiroq yana o'chdi.",
+   "Yonganida sen ham stolda o'tirarding. Jilmayib.",
+   "Eshikdan esa yangi mehmonlar kirib kelayotgan edi.",
+   "Sen ularni qanday ogohlantirarding? Izohda yoz!",
+   "Yangi hikoya ertaga. Hozir obuna bo'l!"
+  ]
+ },
+ "v05": {
+  "type": "horror",
+  "music": "horror",
+  "lines": [
+   "Uy egasi aytdi: oshxonadagi uchinchi shkafni hech qachon ochma.",
+   "Ijara juda arzon edi. Sen rozi bo'lding.",
+   "Har kecha soat ikkida shkaf ichidan taqillardi.",
+   "Oxirigacha ko'r va obuna bo'l!",
+   "O'n to'rtinchi kecha taqillash to'xtadi.",
+   "Uning o'rniga telefoningga xabar keldi.",
+   "Noma'lum raqam: rahmat. Ertaga men chiqaman.",
+   "Sen oshxonaga kirding. Uchinchi shkaf ochiq edi.",
+   "Ichida faqat bitta surat bor edi.",
+   "Sening surating. Bugungi sana bilan.",
+   "Davomi Telegram kanalimizda! Havola profilda, hozir obuna bo'l!"
+  ]
+ },
+ "v06": {
+  "type": "fun",
+  "music": "epic",
+  "lines": [
+   "Siz tanladingiz! Bir ming ikki yuzdan ortiq izoh sanaldi!",
+   "Eng zo'r multfilm qahramoni jangi. Natijalar!",
+   "Panda, Elza, Simba, Masha, Jerri, Shrek, Minion, Mikki.",
+   "Finalga faqat uchtasi chiqdi.",
+   "Uchinchi o'rin: Simba!",
+   "Ikkinchi o'rin: Elza! Juda yaqin keldi!",
+   "Birinchi o'rin hozircha: Kung-fu Panda!",
+   "Lekin final hali tugamadi. Bitta izoh, bitta ovoz!",
+   "Elza muxlisi bo'lgan do'stingizni belgilang!",
+   "Panda, Elza yoki Simba? Izohda yozing, obuna bo'ling!"
+  ]
+ },
+ "v07": {
+  "type": "fun",
+  "music": "fun",
+  "lines": [
+   "To'xtang! Dunyoda faqat bitta o'zbek taomi qoladi!",
+   "Qaysi biri bo'lsin?",
+   "Osh, Manti, Lag'mon, Somsa, Shashlik, Norin, Chuchvara, Dimlama.",
+   "Faqat bittasi chempion bo'ladi.",
+   "Qoida oddiy: izohga taom nomini yozing.",
+   "Bitta izoh, bitta ovoz.",
+   "Och qolgan do'stingizni belgilang, u ham ovoz bersin!",
+   "Eng ko'p ovoz olgan uchtasi finalga chiqadi.",
+   "Siz qaysi birini tanlaysiz? Men mantini!",
+   "Izohda yozing, obuna bo'ling, finalni o'tkazib yubormang!"
+  ]
+ },
+ "v08": {
+  "type": "fun",
+  "music": "epic",
+  "lines": [
+   "Maktabdagi eng sevimli faningiz qaysi edi?",
+   "Sakkizta fan jangga chiqadi!",
+   "Matematika, Jismoniy tarbiya, Ona tili, Tarix, Ingliz tili, Kimyo, Mehnat, Musiqa.",
+   "Faqat bittasi g'olib bo'ladi.",
+   "Qoida oddiy: izohga fan nomini yozing.",
+   "Bitta izoh, bitta ovoz.",
+   "Sinfdoshingizni belgilang, u ham ovoz bersin!",
+   "Eng ko'p ovoz olgan uchtasi finalga chiqadi.",
+   "Men esa jismoniy tarbiyani tanlayman!",
+   "Izohda yozing, obuna bo'ling, finalni o'tkazib yubormang!"
+  ]
+ },
+ "v09": {
+  "type": "fun",
+  "music": "lofi",
+  "dialog": true,
+  "speakers": [
+   "Q",
+   "C",
+   "Q",
+   "C",
+   "Q",
+   "C",
+   "Q",
+   "C",
+   "Q",
+   "C",
+   "C"
+  ],
+  "lines": [
+   "Final! O'n daqiqa qoldi, biz nol-ikki yutqazyapmiz!",
+   "Xotirjam. Ularning chap qanoti juda sekin.",
+   "Sekin? Ular chempionlar-ku!",
+   "Ha, lekin hammasi charchagan. Tez hujumga o'ting.",
+   "Kimni chiqaray? Zaxirada faqat darvozabon qoldi!",
+   "To'xtang! Davom etishdan oldin Telegram kanalimizga o'tib oling, u yerda AI darslari bor!",
+   "Hozirmi?! Hakam hushtak chalyapti!",
+   "Ikkinchi darvozabonni hujumga chiqaring. Bo'yi eng baland!",
+   "Gol! Ikki-ikki! Yana gol! Yutdik!",
+   "Tabriklayman! Faqat darvozabon endi hujumchi bo'lmoqchi.",
+   "Video yoqqan bo'lsa, like bosing, obuna bo'ling! Slayd yoki video kerak bo'lsa, profildagi havola orqali Telegram kanalimizga yozing!"
+  ]
+ },
+ "v10": {
+  "type": "fun",
+  "music": "lofi",
+  "dialog": true,
+  "speakers": [
+   "Q",
+   "C",
+   "Q",
+   "C",
+   "Q",
+   "C",
+   "Q",
+   "C",
+   "Q",
+   "C",
+   "C"
+  ],
+  "lines": [
+   "Buvim smartfon oldi! Koreyadagi amakimga video yubormoqchi!",
+   "Zo'r! Muammo nimada?",
+   "Buvim telefonni teskari ushlayapti, videoda faqat shift!",
+   "Aylana strelkani bosing, kamera o'giriladi.",
+   "Bosdi! Endi faqat eshityapsanmi deyapti!",
+   "To'xtang! Avval Telegram kanalimizga o'tib oling, u yerda AI darslari bor!",
+   "Hozirmi?! Buvim kamerani barmog'i bilan yopdi!",
+   "Matnni birga yozamiz: salom, duo, tabrik.",
+   "Yubordik! Amakim xursand bo'lib yig'lab yubordi!",
+   "Ajoyib! Faqat buvingiz endi kuniga yigirmata selfi yuboryapti.",
+   "Yoqqan bo'lsa, like bosing, obuna bo'ling! Video yoki slayd kerak bo'lsa, profildagi havola orqali Telegramga yozing!"
+  ]
+ },
+ "v11": {
+  "type": "fun",
+  "music": "tense",
+  "lines": [
+   "Bir yil yashaysiz: okean tubida yoki kosmosda!",
+   "Chapda: okean tubi. Kitlar, marjonlar, shisha uy.",
+   "O'ngda: kosmik stansiya. Yer pastda, yulduzlar yoningizda.",
+   "Okeanda baliq ko'p, lekin quyosh yo'q.",
+   "Kosmosda manzara zo'r, lekin hamma narsa suzib yuradi.",
+   "Bir yil davomida qaytib bo'lmaydi.",
+   "Uch, ikki, bir...",
+   "Qaysi birini tanlaysiz?",
+   "Izohda yozing: okean yoki kosmos.",
+   "Sarguzashtni yaxshi ko'radigan do'stingizga yuboring, obuna bo'ling!"
+  ]
+ },
+ "v12": {
+  "type": "fun",
+  "music": "tense",
+  "lines": [
+   "Sizga bir milliard so'm berishdi. Faqat bitta shart bor!",
+   "Chapda: ming kishilik dabdabali to'y. Bir kecha.",
+   "O'ngda: o'sha pulga o'z uyingiz. Butun umrga.",
+   "To'yni butun mahalla bir yil gapiradi.",
+   "Uyni hech kim ko'rmaydi... lekin u sizniki.",
+   "Ota-onangiz esa to'y deyapti.",
+   "Uch, ikki, bir...",
+   "Qaysi birini tanlaysiz?",
+   "Izohda yozing: to'y yoki uy.",
+   "Natija Telegram kanalimizda!",
+   "Turmush qurmoqchi bo'lgan do'stingizga yuboring, obuna bo'ling!"
+  ]
+ },
+ "t01": {
+  "type": "fun",
+  "music": "fun",
+  "lines": [
+   "Claude o'zini o'zi tezlashtirdi!",
+   "Anthropic Claude agentlari yordamida o'z API tizimini qayta yozdi.",
+   "Yangi kod Rust tilida.",
+   "Natija: har bir so'rovga protsessor sarfi taxminan yetmish foizga kamaydi.",
+   "Ya'ni AI endi o'z uyini o'zi ta'mirlayapti.",
+   "Siz ham kodni AI'ga yozdirasizmi? Izohda yozing!",
+   "Har kuni AI yangiliklari shu kanalda, do'stlaringizga ulashing!"
+  ],
+  "tts_lines": [
+   "Klod o'zini o'zi tezlashtirdi!",
+   "Antropik Klod agentlari yordamida o'z API tizimini qayta yozdi.",
+   "Yangi kod Rast tilida.",
+   "Natija: har bir so'rovga protsessor sarfi taxminan yetmish foizga kamaydi.",
+   "Ya'ni sun'iy intellekt endi o'z uyini o'zi ta'mirlayapti.",
+   "Siz ham kodni sun'iy intellektga yozdirasizmi? Izohda yozing!",
+   "Har kuni sun'iy intellekt yangiliklari shu kanalda, do'stlaringizga ulashing!"
+  ]
+ },
+ "t02": {
+  "type": "fun",
+  "music": "fun",
+  "lines": [
+   "Bir million sun'iy yo'ldosh... va hammasi AI uchun!",
+   "SpaceX koinotga AI hisoblash yo'ldoshlarini chiqarishga shartli ruxsat oldi.",
+   "Rejada bir milliongacha yo'ldosh bor.",
+   "G'oya oddiy: data-markazni Yerdan koinotga ko'chirish.",
+   "Quyosh energiyasi tekin, sovutish esa koinotning o'zida.",
+   "Sizningcha, bu kelajakmi yoki xayolmi? Izohda yozing!",
+   "Har kuni AI yangiliklari shu kanalda, do'stlaringizga ulashing!"
+  ],
+  "tts_lines": [
+   "Bir million sun'iy yo'ldosh... va hammasi sun'iy intellekt uchun!",
+   "Speys-Iks koinotga sun'iy intellekt hisoblash yo'ldoshlarini chiqarishga shartli ruxsat oldi.",
+   "Rejada bir milliongacha yo'ldosh bor.",
+   "G'oya oddiy: data-markazni Yerdan koinotga ko'chirish.",
+   "Quyosh energiyasi tekin, sovutish esa koinotning o'zida.",
+   "Sizningcha, bu kelajakmi yoki xayolmi? Izohda yozing!",
+   "Har kuni sun'iy intellekt yangiliklari shu kanalda, do'stlaringizga ulashing!"
+  ]
+ }
+}

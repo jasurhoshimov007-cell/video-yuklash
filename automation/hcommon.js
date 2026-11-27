@@ -21,6 +21,18 @@ function endSub(T,u,line){ctx.fillStyle=`rgba(0,0,0,${.45*clamp(u*4,0,1)})`;ctx.
  const lp=clamp((u-.35)*3,0,1);if(lp>0){ctx.save();ctx.globalAlpha=lp;ctx.translate(W2/2,580);ctx.scale(.7+.3*ease(lp),.7+.3*ease(lp));pill(0,0,380,100,'#fff');heart(-110,8,40,'#ff2a55');txt('LIKE',40,3,50,'#111',0);ctx.restore()}}
 function subPill(T,u){const a=ease(clamp(u*4,0,1))*(u>.9?1-(u-.9)*10:1);if(a<=0)return;ctx.save();ctx.globalAlpha=a;ctx.translate(W2/2,220);const k=1+.05*sin(T*10);ctx.scale(k,k);pill(0,0,520,96,'#ff0033');txt('OXIRIGACHA KO‘R 🔔',0,3,40,'#fff',0);ctx.restore()}
 function bigTxt(s,y,col,u,size=96){const a=ease(clamp(u*5,0,1));ctx.save();ctx.translate(W2/2,y);ctx.scale(.6+.4*a,.6+.4*a);ctx.globalAlpha=a;fitTxt(s,0,0,size,660,col||'#ff2a2a',16);ctx.restore()}
-function partBadge(t){ctx.save();pill(112,62,170,54,'rgba(220,20,40,.92)');txt('1-QISM',112,64,30,'#fff',0);ctx.globalAlpha=.75;txt('@jasur.ai_',W2/2,H2-60,28,'#fff',6,'center','Inter',800);ctx.restore()}
+function partBadge(t){ctx.save();pill(112,62,170,54,'rgba(220,20,40,.92)');txt((typeof PART!=='undefined'?PART:'1-QISM'),112,64,30,'#fff',0);ctx.globalAlpha=.75;txt('@jasur.ai_',W2/2,H2-60,28,'#fff',6,'center','Inter',800);ctx.restore()}
 // tuman/zarra (qor, chang)
 function motes(T,col='#ffffff',n=40,a=.35){ctx.save();for(let i=0;i<n;i++){const x=(hash(i)*W2+sin(T*.5+i)*30+T*12*(hash(i+3)-.5))%W2,y=(hash(i+9)*H2+T*(20+hash(i+5)*40))%H2;ctx.globalAlpha=a*(.4+.6*hash(i+2));ctx.fillStyle=col;ctx.beginPath();ctx.arc((x+W2)%W2,y,1.5+hash(i+7)*3,0,7);ctx.fill()}ctx.restore()}
+
+// ===== 2026-11-27: izoh pufaklari (haqiqiy izohlardan, ismsiz), foto-karta, savol-karta
+function cmtBubbles(T,u,arr,title){const a=ease(clamp(u*4,0,1));if(a<=0)return;ctx.save();ctx.globalAlpha=a;if(title){pill(W2/2,250,560,74,'rgba(0,0,0,.72)');txt(title,W2/2,252,34,'#ffe14d',0)}
+ arr.forEach((c,i)=>{const k=ease(clamp(u*4-.4-i*.35,0,1));if(k<=0)return;ctx.save();ctx.globalAlpha=a*k;const y=340+i*112;ctx.translate((1-k)*-200,0);
+  ctx.beginPath();ctx.roundRect(70,y-44,580,88,30);ctx.fillStyle='rgba(255,255,255,.95)';ctx.fill();ctx.beginPath();ctx.arc(120,y,28,0,7);ctx.fillStyle=['#ff7a59','#3db4ff','#9a6aff','#2ecc71'][i%4];ctx.fill();txt('👤',120,y+2,28,'#fff',0);
+  txt(c,165,y+2,36,'#111',0,'left','Inter',800);heart(610,y+4,26,'#ff2a55');ctx.restore()});ctx.restore()}
+function photoCard(T,u,o={}){const s=ease(clamp(u*3,0,1));if(s<=0)return;ctx.save();ctx.translate(W2/2,o.y||470);ctx.rotate(o.rot||-.05);ctx.scale(.6+.4*s,.6+.4*s);ctx.globalAlpha=s;
+ ctx.shadowColor='rgba(0,0,0,.7)';ctx.shadowBlur=40;ctx.fillStyle='#efe6d2';ctx.fillRect(-250,-300,500,560);ctx.shadowBlur=0;ctx.fillStyle=o.bg||'#7a6448';ctx.fillRect(-220,-270,440,420);
+ const em=o.emoji||['👶','👶'];ctx.font=`${o.es||150}px "Noto Color Emoji"`;ctx.textAlign='center';ctx.textBaseline='middle';em.forEach((e,i)=>ctx.fillText(e,(i-(em.length-1)/2)*(o.sp||190),-60));
+ if(o.sepia){ctx.fillStyle='rgba(120,80,30,.35)';ctx.fillRect(-220,-270,440,420)}txt(o.label||'',0,205,44,o.lc||'#3a2a1a',0);ctx.restore()}
+function askCmt(T,u,l1,l2){const a=ease(clamp(u*3,0,1));if(a<=0)return;ctx.fillStyle=`rgba(0,0,0,${.45*a})`;ctx.fillRect(0,0,W2,H2);ctx.save();ctx.globalAlpha=a;
+ fitTxt(l1,W2/2,300,70,660,'#ffffff',12);ctx.translate(W2/2,430);const k=1+.05*sin(T*8);ctx.scale(k,k);pill(0,0,520,96,'#3db4ff');txt(l2||'💬 IZOHDA YOZ 👇',0,3,40,'#fff',0);ctx.restore()}
